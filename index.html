@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 110'><text y='95' font-size='90'>🎯</text></svg>">
+<title>Estrategia Maestra — @larry.prod</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── Sistema visual del Arsenal Creativo ─── */
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --mid: #1a1a1a;
+    --card: #1e1e1e;
+    --white: #ffffff;
+    --off: #c8c8c8;
+    --dim: #8f8f8f;
+    --green: #7fff5f;
+    --orange: #ffaa33;
+    --red: #ff4d6d;
+    --accent: #e8e8e8;
+    --line: rgba(255,255,255,0.06);
+    --line2: rgba(255,255,255,0.12);
+    --navh: 58px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--black); color: var(--white);
+    font-family: 'DM Sans', system-ui, sans-serif; font-size: 15px; line-height: 1.65;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  b, strong { color: var(--white); font-weight: 600; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  .u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,0.35); }
+  .q { font-style: italic; color: var(--accent); }
+  .bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; font-weight: 400; }
+
+  /* NAV */
+  #nav {
+    position: sticky; top: 0; z-index: 100; height: var(--navh);
+    display: flex; align-items: center; gap: 28px; padding: 0 40px;
+    background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex: none; }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .nav-logo span { font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 2px; color: var(--dim); padding-left: 12px; border-left: 1px solid var(--line2); line-height: 1; padding-top: 3px; }
+  .nav-links { display: flex; gap: 2px; margin-left: auto; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    flex: none; color: var(--dim); text-decoration: none; font-size: 12px; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 500; padding: 19px 12px 17px; border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s; white-space: nowrap;
+  }
+  .nav-links a i { font-style: normal; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 1px; opacity: .55; margin-right: 6px; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.on { color: var(--white); border-bottom-color: var(--white); }
+  .progress { position: absolute; left: 0; bottom: -1px; height: 1px; background: var(--white); width: 0; transition: width .4s ease; }
+
+  /* HERO */
+  .hero {
+    min-height: min(88vh, 780px); display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 90px 60px 64px; position: relative; overflow: hidden; border-top: 0;
+  }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(255,255,255,0.035) 0%, transparent 70%); pointer-events: none; }
+  .hero > * { position: relative; }
+  .hero-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; font-weight: 500; }
+  .hero-title { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(70px, 14vw, 190px); line-height: 0.88; letter-spacing: -1px; margin-bottom: 18px; }
+  .hero-title span { display: block; }
+  .hero-title span + span { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.85); }
+  .hero-kicker { font-family: 'Bebas Neue', sans-serif; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 3px; color: var(--off); margin-bottom: 26px; }
+  .hero-lead { color: var(--off); font-size: 16px; max-width: 640px; line-height: 1.7; margin-bottom: 40px; }
+  .hero-sub { display: flex; align-items: center; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 26px; }
+  .hero-sub p { color: var(--dim); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+  .hero-sub a { color: var(--white); text-decoration: none; font-weight: 600; }
+  .scroll-hint { margin-left: auto; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--dim); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--white), transparent); animation: scrollDown 1.8s ease-in-out infinite; }
+  @keyframes scrollDown { 0%,100%{transform:scaleY(1);opacity:.5} 50%{transform:scaleY(1.4);opacity:1} }
+
+  /* SECCIONES */
+  section { padding: 96px 60px; border-top: 1px solid var(--line); }
+  .in { max-width: 1180px; margin: 0 auto; }
+  .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 16px; font-weight: 500; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(42px, 6vw, 80px); letter-spacing: 1px; margin-bottom: 22px; line-height: 1; }
+  .section-lead { color: var(--off); font-size: 15px; line-height: 1.8; max-width: 740px; margin-bottom: 50px; }
+  .sub-title { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(28px, 4vw, 44px); letter-spacing: 1px; line-height: 1.05; margin: 70px 0 10px; }
+  .sub-lead { color: var(--off); font-size: 14px; line-height: 1.8; max-width: 720px; margin-bottom: 30px; }
+  .mini-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; font-weight: 500; }
+
+  /* PORTADA DE PARTE */
+  .part-head { padding: 80px 60px 70px; position: relative; overflow: hidden; border-top: 0; }
+  .part-head .num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(120px, 20vw, 240px); line-height: .8; color: rgba(255,255,255,0.05); position: absolute; right: 50px; top: 40px; pointer-events: none; }
+  .part-head .section-title { margin-bottom: 14px; }
+  .part-head p.lead { color: var(--off); max-width: 640px; font-size: 16px; }
+  .chips-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+  .chips-nav a { text-decoration: none; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; color: var(--off); border: 1px solid var(--line2); padding: 9px 14px; transition: background .2s, color .2s; }
+  .chips-nav a:hover { background: var(--white); color: #000; }
+  .chips-nav a .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
+
+  /* TARJETAS (intro/dato) */
+  .grid { display: grid; gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .card { background: var(--card); padding: 36px; position: relative; overflow: hidden; transition: background .2s; }
+  .card:hover { background: #232323; }
+  .card.dk { background: var(--dark); }
+  .card h3, .card h4 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 21px; letter-spacing: 1.5px; margin-bottom: 12px; color: var(--white); line-height: 1.1; }
+  .card p { color: var(--off); font-size: 13.5px; line-height: 1.75; }
+  .card p + p { margin-top: 10px; }
+  .dato-num { font-family: 'Bebas Neue', sans-serif; font-size: 60px; color: rgba(255,255,255,0.06); position: absolute; top: 14px; right: 20px; line-height: 1; }
+  a.card { text-decoration: none; display: block; }
+  a.card .go { display: inline-block; margin-top: 14px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); transition: color .2s; }
+  a.card:hover .go { color: var(--white); }
+  .stat { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 7vw, 84px); line-height: .9; margin-bottom: 8px; }
+
+  /* CALLOUTS */
+  .netflix-box { background: var(--mid); padding: 46px 40px; border-left: 3px solid var(--white); margin-top: 2px; }
+  .netflix-box h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(28px, 4vw, 50px); margin-bottom: 14px; line-height: 1.08; }
+  .netflix-box h3 em { color: #e50914; font-style: normal; }
+  .netflix-box p { color: var(--off); max-width: 760px; font-size: 14px; line-height: 1.8; }
+  .netflix-box p + p { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .rule { margin-top: 2px; background: var(--mid); border: 1px solid var(--line); border-left: 3px solid var(--white); padding: 26px 32px; display: grid; gap: 10px; }
+  .rule p { color: var(--off); font-size: 14px; line-height: 1.75; }
+  .rule.or { border-left-color: var(--orange); }
+  .viral-rule { margin-top: 18px; padding: 14px 16px; background: rgba(255,255,255,0.04); border-left: 2px solid var(--white); font-size: 13px; color: var(--accent); line-height: 1.6; }
+  .viral-rule.c-green { border-left-color: var(--green); } .viral-rule.c-orange { border-left-color: var(--orange); } .viral-rule.c-red { border-left-color: var(--red); }
+  .quote { margin-top: 2px; background: var(--mid); border: 1px solid var(--line); border-left: 3px solid var(--white); padding: 34px 40px; }
+  .quote p:first-child { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px, 3vw, 28px); letter-spacing: 1px; line-height: 1.35; margin-bottom: 8px; }
+  .quote p:last-child { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); }
+
+  /* SEMANA TIPO */
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .day { background: var(--card); padding: 18px 14px 20px; min-height: 172px; display: flex; flex-direction: column; gap: 9px; }
+  .day .dn { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1.5px; color: var(--dim); line-height: 1; }
+  .day small { color: var(--dim); font-size: 12px; line-height: 1.4; }
+  .chip { display: inline-block; align-self: flex-start; font-size: 10.5px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; padding: 5px 9px; line-height: 1.25; border-radius: 2px; }
+  .chip.green { background: var(--green); color: #000; }
+  .chip.orange { background: var(--orange); color: #000; }
+  .chip.red { background: var(--red); color: #fff; }
+  .chip.h { border: 1px solid rgba(255,255,255,0.55); color: var(--white); }
+  .chip.g { border: 1px dashed rgba(255,255,255,0.3); color: var(--off); }
+  .chip.w { background: var(--white); color: #000; }
+
+  /* PRE / EJEMPLO */
+  .ex { display: flex; flex-direction: column; gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .ex > div { background: var(--card); padding: 20px 26px; display: grid; grid-template-columns: 170px 1fr; gap: 20px; align-items: baseline; }
+  .ex > div > b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 19px; letter-spacing: 1px; }
+  .ex p { color: var(--off); font-size: 13.5px; line-height: 1.7; }
+
+  /* EMBUDO */
+  .embudo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .embudo-levels { display: flex; flex-direction: column; gap: 2px; }
+  .embudo-level { display: grid; grid-template-columns: 12px 1fr auto; align-items: center; gap: 16px; padding: 16px 18px; }
+  .level-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .level-name { font-weight: 600; font-size: 14px; display: block; line-height: 1.3; }
+  .level-desc { color: var(--dim); font-size: 12.5px; display: block; }
+  .level-tag { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; padding: 5px 9px; border-radius: 2px; white-space: nowrap; }
+  .funnel-wrap { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .funnel-bar { height: 58px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 1.5px; color: rgba(0,0,0,0.85); text-align: center; line-height: 1; padding: 0 8px; }
+  .funnel-cap { margin-top: 18px; text-align: center; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); }
+
+  /* PLATAFORMAS */
+  .plat-icon { font-size: 30px; margin-bottom: 16px; }
+
+  /* PASOS DEL REEL (estilo storytelling del Arsenal) */
+  .steps { display: flex; flex-direction: column; gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .step { background: var(--card); padding: 32px 36px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start; }
+  .step .n { font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: .9; color: rgba(255,255,255,0.13); }
+  .step h4 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 23px; letter-spacing: 1px; margin-bottom: 8px; }
+  .step p { color: var(--off); font-size: 14px; line-height: 1.75; }
+  .step .time { font-size: 12px; color: var(--dim); font-style: italic; margin: -4px 0 10px; }
+  .mb { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+  .mb > div { padding: 12px 14px; border-radius: 2px; }
+  .mb .bad { background: rgba(255,77,109,0.08); border: 1px solid rgba(255,77,109,0.22); }
+  .mb .good { background: rgba(127,255,95,0.06); border: 1px solid rgba(127,255,95,0.22); }
+  .mb p.t { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; font-weight: 600; }
+  .mb .bad p.t { color: var(--red); } .mb .good p.t { color: var(--green); }
+  .mb p { color: var(--off); font-size: 12.5px; line-height: 1.65; }
+
+  /* DESPLEGABLES */
+  details.more { margin-top: 16px; border: 1px solid var(--line2); background: rgba(255,255,255,0.025); }
+  details.more summary { list-style: none; cursor: pointer; padding: 13px 16px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: var(--white); display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+  details.more summary::-webkit-details-marker { display: none; }
+  details.more summary::after { content: '+'; font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--dim); line-height: 1; }
+  details.more[open] summary::after { content: '–'; }
+  details.more .din { padding: 2px 16px 18px; display: grid; gap: 12px; }
+  details.more .din p { color: var(--off); font-size: 13.5px; line-height: 1.75; }
+
+  /* PICO DE INTERÉS */
+  .pico { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 14px; }
+  .pico > div { background: var(--dark); padding: 24px; }
+  .pico h5 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 17px; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .pico p { color: var(--off); font-size: 13px; line-height: 1.7; }
+  .pico .eg { margin-top: 10px; padding: 9px 12px; font-size: 12.5px; color: var(--off); background: rgba(255,255,255,0.04); border-left: 2px solid rgba(255,255,255,0.15); }
+  .pico .or .eg { background: rgba(255,170,51,0.06); border-left-color: rgba(255,170,51,0.35); }
+  .formula { margin-top: 2px; background: var(--mid); border: 1px solid rgba(255,170,51,0.35); padding: 20px 24px; font-family: 'Bebas Neue', sans-serif; font-size: clamp(18px, 2.6vw, 28px); letter-spacing: 1.5px; line-height: 1.25; }
+  .formula span { color: var(--orange); }
+  .formula small { display: block; font-family: 'DM Sans', sans-serif; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin-top: 6px; }
+
+  /* TRÍO ESTÉTICA */
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); margin-top: 14px; }
+  .trio > div { padding: 22px 24px; }
+  .trio p.t { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+  .trio p { color: var(--off); font-size: 13px; line-height: 1.7; }
+
+  /* SECCIÓN POR TIPO DE REEL (grado-section del Arsenal) */
+  .grado-section { position: relative; overflow: hidden; }
+  .grado-section.c-green { border-top: 3px solid var(--green); }
+  .grado-section.c-orange { border-top: 3px solid var(--orange); }
+  .grado-section.c-red { border-top: 3px solid var(--red); }
+  .grado-section.c-white { border-top: 3px solid var(--white); }
+  .grado-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(110px, 14vw, 190px); line-height: .85; opacity: .07; position: absolute; right: 60px; top: 70px; pointer-events: none; }
+  .grado-header { margin-bottom: 36px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+  .grado-badge { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 3px; padding: 6px 14px 5px; margin-bottom: 14px; display: inline-block; }
+  .grado-title { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(40px, 5.4vw, 66px); line-height: 1; margin-bottom: 8px; }
+  .grado-for { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 18px; }
+  .grado-desc { color: var(--off); font-size: 14.5px; max-width: 700px; line-height: 1.8; }
+  .c-green .tc { color: var(--green); } .c-orange .tc { color: var(--orange); } .c-red .tc { color: var(--red); } .c-white .tc { color: var(--white); }
+  .c-green .grado-badge { background: rgba(127,255,95,0.12); color: var(--green); }
+  .c-orange .grado-badge { background: rgba(255,170,51,0.12); color: var(--orange); }
+  .c-red .grado-badge { background: rgba(255,77,109,0.13); color: var(--red); }
+  .c-white .grado-badge { background: rgba(255,255,255,0.08); color: var(--white); }
+  .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); margin-bottom: 26px; }
+  .meta > div { background: var(--dark); padding: 20px 22px; }
+  .meta dt { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; font-weight: 600; }
+  .meta dd { color: var(--off); font-size: 13.5px; line-height: 1.65; }
+  .struct { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 34px; }
+  .struct .lbl { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-right: 6px; font-weight: 600; }
+  .struct span.p { font-size: 12px; letter-spacing: .5px; font-weight: 600; padding: 7px 12px; border: 1px solid var(--line2); background: rgba(255,255,255,0.03); }
+  .struct i { color: var(--dim); font-style: normal; }
+  .block-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin: 0 0 14px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+  .block-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .ideas-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-bottom: 44px; }
+  .idea-item { background: var(--card); padding: 22px 26px; display: flex; align-items: flex-start; gap: 14px; transition: background .2s, padding-left .2s; }
+  .idea-item:hover { background: #252525; padding-left: 32px; }
+  .idea-arrow { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .idea-item p { color: var(--off); font-size: 13.5px; line-height: 1.65; }
+
+  /* VIDEOS (yt-slot del Arsenal) */
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .video-grid.n4 { grid-template-columns: repeat(4, 1fr); }
+  .yt-slot-wrap { display: flex; flex-direction: column; background: var(--mid); }
+  .yt-slot {
+    position: relative; aspect-ratio: 4/5; overflow: hidden;
+    background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52'%3E%3Ccircle cx='26' cy='26' r='25' fill='%23ffffff' fill-opacity='.08' stroke='%23ffffff' stroke-opacity='.18'/%3E%3Cpath d='M21 17l14 9-14 9z' fill='%23ffffff' fill-opacity='.7'/%3E%3C/svg%3E") center/52px no-repeat;
+  }
+  .yt-slot iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 2; }
+  .yt-label { position: absolute; top: 0; left: 0; z-index: 3; padding: 6px 10px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #000; font-weight: 700; pointer-events: none; }
+  .c-green .yt-label { background: var(--green); } .c-orange .yt-label { background: var(--orange); } .c-red .yt-label { background: var(--red); color: #fff; } .c-white .yt-label { background: var(--white); }
+  .yt-caption { padding: 14px 16px 16px; background: var(--mid); font-size: 12.5px; color: #aaa; line-height: 1.55; border-top: 1px solid var(--line); flex: 1; }
+  .yt-caption strong { display: block; color: var(--white); font-size: 13px; letter-spacing: .2px; margin-bottom: 4px; line-height: 1.35; }
+
+  /* ERRORES */
+  .err { display: flex; flex-direction: column; gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .err > div { background: var(--card); padding: 24px 30px; display: flex; gap: 22px; align-items: flex-start; border-left: 3px solid var(--red); }
+  .err .n { font-family: 'Bebas Neue', sans-serif; font-size: 38px; line-height: 1; color: var(--red); flex-shrink: 0; min-width: 42px; }
+  .err h4 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 19px; letter-spacing: 1px; margin-bottom: 6px; }
+  .err p { color: var(--off); font-size: 13.5px; line-height: 1.7; }
+
+  /* CHECKLIST */
+  .checklist-box { background: var(--card); padding: 40px 50px; max-width: 900px; }
+  .check-head { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line2); margin-bottom: 4px; }
+  .check-head span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 600; }
+  .check-head button { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); border: 1px solid var(--line2); padding: 6px 10px; }
+  .check-head button:hover { color: var(--white); border-color: var(--white); }
+  .check-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); cursor: pointer; transition: padding-left .2s; width: 100%; text-align: left; }
+  .check-item:hover { padding-left: 6px; }
+  .check-item:last-child { border-bottom: none; }
+  .check-box { width: 20px; height: 20px; border: 1.5px solid rgba(255,255,255,0.3); flex-shrink: 0; margin-top: 2px; transition: all .2s; display: flex; align-items: center; justify-content: center; }
+  .check-item.done .check-box { background: var(--white); border-color: var(--white); }
+  .check-item.done .check-box::after { content: '✓'; font-size: 12px; color: #000; font-weight: 700; }
+  .check-item.done .check-text, .check-item.done .check-text b { color: var(--dim); text-decoration: line-through; }
+  .check-text { font-size: 14px; color: var(--off); letter-spacing: .2px; line-height: 1.55; }
+
+  /* HISTORIAS (story-phone del Arsenal) */
+  .stories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .story-phone { background: var(--mid); border-radius: 28px; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.1); aspect-ratio: 9/16; display: flex; flex-direction: column; padding: 20px 18px; transition: transform .3s, border-color .3s; }
+  .story-phone:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.3); }
+  .story-bar { width: 100%; height: 2px; background: rgba(255,255,255,0.2); border-radius: 2px; margin-bottom: 16px; }
+  .story-bar-fill { height: 100%; border-radius: 2px; background: var(--white); }
+  .story-label { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; color: var(--dim); }
+  .story-title { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; margin-bottom: 4px; color: var(--white); line-height: 1.05; }
+  .story-kind { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 14px; }
+  .story-body { color: var(--off); font-size: 12.5px; line-height: 1.6; flex: 1; }
+  .story-example { margin-top: 12px; padding: 10px 12px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 11.5px; color: var(--dim); font-style: italic; }
+  .story-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 14px; opacity: .4; font-size: 14px; }
+
+  /* TABLAS */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line2); background: var(--card); }
+  table { width: 100%; border-collapse: collapse; min-width: 540px; }
+  th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 13.5px; }
+  th { font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); background: var(--dark); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  td { color: var(--off); }
+  td:first-child { color: var(--white); font-weight: 600; white-space: nowrap; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
+
+  /* 21 DÍAS */
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .cal .h { background: var(--dark); padding: 10px 8px; font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 600; text-align: center; }
+  .cal .c { background: var(--card); padding: 12px 10px 14px; min-height: 92px; display: flex; flex-direction: column; gap: 7px; }
+  .cal .c b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; line-height: 1; color: rgba(255,255,255,0.35); }
+  .cal .c.k b { color: var(--white); }
+  .cal .c.launch { background: #2a2a2a; box-shadow: inset 0 0 0 1px var(--white); }
+  .cal .c .chip { font-size: 9.5px; padding: 4px 6px; letter-spacing: 1px; }
+  .cal .wk { grid-column: 1 / -1; background: var(--mid); padding: 9px 14px; font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--off); font-weight: 600; }
+  .plan-cta { margin-top: 2px; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; background: var(--white); color: #0a0a0a; padding: 40px 44px; }
+  .plan-cta h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(30px, 4vw, 46px); line-height: 1; letter-spacing: 1px; margin-bottom: 10px; }
+  .plan-cta p { color: #333; font-size: 14px; line-height: 1.7; max-width: 600px; }
+  .plan-cta p b { color: #000; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 17px 26px; background: #0a0a0a; color: #fff; white-space: nowrap; transition: transform .15s, background .15s; }
+  .btn:hover { transform: translateY(-1px); background: #222; }
+  .btn.w { background: var(--white); color: #0a0a0a; }
+  .btn.w:hover { background: #d0d0d0; }
+
+  /* FAQ */
+  details.faq { border-bottom: 1px solid var(--line2); }
+  details.faq summary { list-style: none; cursor: pointer; padding: 20px 0; font-weight: 600; font-size: 16px; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after { content: '+'; font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--dim); line-height: 1; }
+  details.faq[open] summary::after { content: '–'; }
+  details.faq .din { color: var(--off); padding: 0 0 22px; max-width: 780px; display: grid; gap: 10px; font-size: 14.5px; line-height: 1.75; }
+  .faq-list { max-width: 900px; border-top: 1px solid var(--line2); }
+
+  /* GLOSARIO */
+  .glos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .glos > div { background: var(--card); padding: 20px 22px; }
+  .glos b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 18px; letter-spacing: 1px; display: block; margin-bottom: 4px; }
+  .glos p { color: var(--off); font-size: 13px; line-height: 1.6; }
+  dfn { font-style: normal; border-bottom: 1px dashed rgba(255,255,255,0.5); cursor: help; }
+  #pop { position: fixed; z-index: 200; max-width: 300px; background: var(--white); color: #111; padding: 12px 14px; font-size: 13.5px; line-height: 1.5; box-shadow: 0 16px 40px rgba(0,0,0,.6); display: none; }
+  #pop b { color: #000; display: block; margin-bottom: 2px; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 17px; letter-spacing: 1px; }
+
+  /* CONCLUSIÓN */
+  .conclusion { background: var(--dark); padding: 110px 60px; }
+  .conclusion h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(38px, 5.4vw, 68px); line-height: 1; margin-bottom: 36px; }
+  .conclusion h2 span { opacity: .3; }
+  .conclusion-line { font-size: 15px; color: var(--off); margin-bottom: 14px; line-height: 1.6; }
+  .conclusion-line strong { display: block; font-size: 18px; }
+  .conclusion-sig { margin-top: 44px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .sig-line { width: 40px; height: 1px; background: var(--dim); }
+  .conclusion-sig img { height: 28px; width: auto; opacity: .9; }
+  .conclusion-sig a.h { color: var(--dim); font-size: 13px; text-decoration: none; }
+
+  /* PÁGINAS Y PAGINADOR */
+  .page { display: none; }
+  .page.on { display: block; animation: fadeUp .45s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); border-top: 1px solid var(--line); }
+  .pg { display: flex; flex-direction: column; gap: 4px; text-decoration: none; padding: 34px 60px; background: var(--dark); transition: background .2s; }
+  .pg:hover { background: var(--mid); }
+  .pg small { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); }
+  .pg b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 1px; line-height: 1; }
+  .pg.next { text-align: right; background: var(--white); }
+  .pg.next small { color: #555; } .pg.next b { color: #0a0a0a; }
+  .pg.next:hover { background: #e2e2e2; }
+  .pg.empty { pointer-events: none; }
+  footer { padding: 34px 60px 44px; display: flex; gap: 24px; flex-wrap: wrap; align-items: center; color: var(--dim); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border-top: 1px solid var(--line); }
+  footer a { color: var(--dim); text-decoration: none; }
+
+  /* aparición suave */
+  .rv { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+  .rv.vis { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .g4, .video-grid.n4 { grid-template-columns: repeat(2, 1fr); }
+    .week { grid-template-columns: repeat(4, 1fr); }
+    .stories-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-logo span { display: none; }
+  }
+  @media (max-width: 900px) {
+    :root { --navh: 52px; }
+    section, .part-head, .conclusion { padding: 64px 24px; }
+    .hero { padding: 70px 24px 44px; min-height: 0; }
+    #nav { padding: 0 0 0 20px; gap: 14px; }
+    .nav-logo img { height: 24px; }
+    .nav-links { -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 26px), transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 26px), transparent 100%); padding: 0 18px 0 8px; }
+    .nav-links a { padding: 17px 10px 15px; font-size: 11px; }
+    .g2, .g3, .embudo-grid, .ideas-list, .meta, .pico, .trio, .glos { grid-template-columns: 1fr; }
+    .embudo-grid { gap: 36px; }
+    .video-grid, .video-grid.n4 { grid-template-columns: repeat(2, 1fr); }
+    .grado-num { right: 20px; top: 50px; }
+    .part-head .num { right: 16px; top: 30px; }
+    .ex > div { grid-template-columns: 1fr; gap: 4px; }
+    .plan-cta { grid-template-columns: 1fr; padding: 30px 26px; }
+    .checklist-box { padding: 26px 22px; }
+    .pg { padding: 26px 24px; }
+    footer { padding: 28px 24px 36px; }
+    .step { grid-template-columns: 1fr; gap: 6px; padding: 26px 22px; }
+    .step .n { font-size: 40px; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 15px; }
+    section, .part-head, .conclusion { padding: 54px 16px; }
+    .hero { padding: 56px 16px 36px; }
+    .hero-sub { gap: 16px; }
+    .scroll-hint { display: none; }
+    .card { padding: 26px 22px; }
+    .g4 { grid-template-columns: 1fr; }
+    .week { grid-template-columns: repeat(2, 1fr); }
+    .day { min-height: 0; padding: 14px 12px 16px; }
+    .day.wide { grid-column: 1 / -1; }
+    .stories-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .story-phone { aspect-ratio: auto; min-height: 300px; border-radius: 20px; padding: 16px 13px; }
+    .story-title { font-size: 25px; }
+    .story-body { font-size: 12px; }
+    .mb { grid-template-columns: 1fr; }
+    .netflix-box, .rule, .quote { padding: 26px 22px; }
+    .err > div { padding: 20px 18px; gap: 14px; }
+    .err .n { font-size: 30px; min-width: 30px; }
+    .idea-item { padding: 18px 18px; }
+    .embudo-level { grid-template-columns: 10px 1fr; gap: 12px; }
+    .embudo-level .level-tag { grid-column: 2; justify-self: start; }
+    .funnel-bar { height: 50px; font-size: 15px; }
+    .cal .h { padding: 8px 2px; font-size: 9px; letter-spacing: 1px; }
+    .cal .c { padding: 8px 5px 10px; min-height: 70px; gap: 5px; }
+    .cal .c b { font-size: 20px; }
+    .cal .c .chip { font-size: 8px; padding: 3px 4px; letter-spacing: .5px; }
+    .yt-caption { padding: 11px 12px 13px; font-size: 12px; }
+    .yt-caption strong { font-size: 12.5px; }
+    table { min-width: 0; }
+    th, td { padding: 11px 10px; font-size: 12.5px; }
+    td:first-child { white-space: normal; }
+    .btn { width: 100%; white-space: normal; text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } .page.on { animation: none; } .scroll-line { animation: none; } }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="#p1" aria-label="Inicio"><img src="data:image/png;base64,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" alt="Larry"><span>Estrategia Maestra</span></a>
+  <div class="nav-links" id="tabs">
+    <a href="#p1"><i>01</i>Inicio</a>
+    <a href="#p2"><i>02</i>Entender</a>
+    <a href="#p3"><i>03</i>Reels</a>
+    <a href="#p4"><i>04</i>Historias</a>
+    <a href="#p5"><i>05</i>21 días</a>
+    <a href="#p6"><i>06</i>Medir y seguir</a>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<!-- ═══════════════ 01 · INICIO ═══════════════ -->
+<main class="page" id="p1" data-p="1" data-t="Inicio">
+
+<section class="hero" id="top">
+  <p class="hero-tag">Lanzamientos · Contenido · 2026</p>
+  <h1 class="hero-title"><span>ESTRATEGIA</span><span>MAESTRA</span></h1>
+  <p class="hero-kicker">Teoría &amp; Ejemplos</p>
+  <p class="hero-lead">Todo lo que necesitás para que tu canción llegue a la gente: <b>qué subir cada semana</b>, <b>por qué funciona</b> y <b>videos reales de ejemplo</b> para cada tipo de reel. Con el celular alcanza.</p>
+  <div class="hero-sub">
+    <p>by <a href="https://www.instagram.com/larry.prod" target="_blank" rel="noopener">@larry.prod</a></p>
+    <div class="scroll-hint"><div class="scroll-line"></div><span>scroll</span></div>
+  </div>
+</section>
+
+<section id="indice">
+  <div class="in">
+    <p class="section-label">Cómo usar esta guía</p>
+    <h2 class="section-title">Seis partes, en orden</h2>
+    <p class="section-lead">Leela de arriba hacia abajo la primera vez. Después volvé a la parte que necesites con las pestañas de arriba. <b>Primero la semana, después el porqué, después el cómo.</b></p>
+    <div class="grid g3">
+      <a class="card rv" href="#semana"><span class="dato-num">01</span><h3>Tu semana</h3><p>Lo que hacés cada semana, en una sola pantalla. Sacale captura.</p><span class="go">Ver →</span></a>
+      <a class="card rv" href="#p2"><span class="dato-num">02</span><h3>Entender</h3><p>Tres ideas que explican por qué todo funciona así. 10 minutos.</p><span class="go">Ir →</span></a>
+      <a class="card rv" href="#p3"><span class="dato-num">03</span><h3>Reels</h3><p>Cómo se arma un reel y los 3 tipos, <b>con videos de ejemplo</b> de cada uno.</p><span class="go">Ir →</span></a>
+      <a class="card rv" href="#p4"><span class="dato-num">04</span><h3>Historias</h3><p>Donde se hacen los fans: 4 ingredientes, sin guion.</p><span class="go">Ir →</span></a>
+      <a class="card rv" href="#p5"><span class="dato-num">05</span><h3>21 días</h3><p>Cómo se ordena un lanzamiento y el acceso a <b>tu plan personalizado</b>.</p><span class="go">Ir →</span></a>
+      <a class="card rv" href="#p6"><span class="dato-num">06</span><h3>Medir y seguir</h3><p>Qué números mirar, tu checklist semanal, dudas y glosario.</p><span class="go">Ir →</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="semana">
+  <div class="in">
+    <p class="section-label">Todo en una pantalla</p>
+    <h2 class="section-title">Esto es lo que hacés cada semana</h2>
+    <p class="section-lead"><b>3 <dfn data-g="reel">reels</dfn></b>, siempre los mismos días, subidos a las <b>4 redes</b>. Y <b><dfn data-g="historia">historias</dfn> 4 días</b>, con 3 o más cada día. Nada más.</p>
+    <div class="week">
+      <div class="day"><span class="dn">Lunes</span><span class="chip green">Reel 1 · Viral</span><small>Trae gente nueva</small><span class="chip h">Historias</span></div>
+      <div class="day"><span class="dn">Martes</span><span class="chip h">Historias</span><small>Preguntá algo</small></div>
+      <div class="day"><span class="dn">Miércoles</span><span class="chip orange">Reel 2 · Conexión</span><small>Que te elijan</small><span class="chip h">Historias</span></div>
+      <div class="day"><span class="dn">Jueves</span><small>Libre</small></div>
+      <div class="day"><span class="dn">Viernes</span><span class="chip red">Reel 3 · Conversión</span><small>Que te escuchen</small><span class="chip h">Historias</span></div>
+      <div class="day"><span class="dn">Sábado</span><span class="chip h">Historias</span><small>Regalá algo</small></div>
+      <div class="day wide"><span class="dn">Domingo</span><span class="chip g">Grabar</span><small>Los 3 reels de la semana que viene y mirar números</small></div>
+    </div>
+    <div class="rule">
+      <p><b>Las 4 redes:</b> Instagram, TikTok, YouTube Shorts y Facebook. <span class="u">Es el mismo video subido 4 veces</span>: no hacés nada nuevo.</p>
+      <p><b>Los 3 reels usan el mismo pedazo de tu canción</b> (15–20 segundos), así los grabás todos juntos en una tarde.</p>
+      <p><b>Tu tarea de hoy:</b> elegí ese pedazo de 15–20 segundos de tu tema. Es lo que más se va a escuchar.</p>
+    </div>
+
+    <h3 class="sub-title">Antes de empezar, fijate que tengas esto</h3>
+    <p class="sub-lead">¿Te falta algo? No pasa nada: <b>con el celular y sin fecha podés arrancar igual</b> con la semana tipo. Los 21 días empiezan cuando tengas la fecha.</p>
+    <div class="grid g4">
+      <div class="card dk"><p class="mini-label">01</p><h4>El tema terminado</h4><p>Mezclado y masterizado. Si todavía no está, podés arrancar con la maqueta.</p></div>
+      <div class="card dk"><p class="mini-label">02</p><h4>Una <dfn data-g="distribuidora">distribuidora</dfn></h4><p>La página que sube tu tema a Spotify y al resto.</p></div>
+      <div class="card dk"><p class="mini-label">03</p><h4>Una fecha</h4><p>Mejor un <b>viernes</b>, al menos 3 semanas desde hoy.</p></div>
+      <div class="card dk"><p class="mini-label">04</p><h4>Las 4 cuentas</h4><p>Instagram, TikTok, YouTube y Facebook. Son gratis.</p></div>
+    </div>
+
+    <h3 class="sub-title">Así se ve una semana de verdad</h3>
+    <p class="sub-lead">Santi hace trap/pop de desamor y solo tiene el celular. Su tema: <b>«No me escribas»</b>. Eligió el estribillo, 18 segundos.</p>
+    <div class="ex">
+      <div><b>Domingo</b><p>Graba de tarde los 3 reels con el mismo estribillo y unos clips sueltos para historias.</p></div>
+      <div><b style="color:var(--green)">Lunes · Viral</b><p>Playback de noche en el auto, mirando un chat abierto en el celu. Texto: <span class="q">«cuando te escribe a las 3am después de 4 meses»</span>. Lo sube a las 4 redes. Historias: va camino al ensayo y comparte el reel.</p></div>
+      <div><b>Martes</b><p>Historias con encuesta: <span class="q">«¿le contestás o lo dejás en visto?»</span>.</p></div>
+      <div><b style="color:var(--orange)">Miércoles · Conexión</b><p>A cámara, 10 segundos: <span class="q">«esta canción la escribí la noche que borré su número»</span>, y entra el estribillo. Historias: cajita de preguntas <span class="q">«¿te pasó algo así?»</span>.</p></div>
+      <div><b style="color:var(--red)">Viernes · Conversión</b><p>Escuchando el tema en Spotify en el celu, con la pantalla a la vista: <span class="q">«hacé el pre-save, link en la bio»</span>. Historias: el link con una frase suya, <span class="q">«la escribí para no escribirte»</span>.</p></div>
+      <div><b>Sábado</b><p>Historia: <span class="q">«respondé VISTO y te mando la versión acústica»</span>.</p></div>
+      <div><b>Domingo</b><p>Mira los números de los 3 reels, anota cuál anduvo mejor y graba la semana siguiente.</p></div>
+    </div>
+    <div class="rule"><p><b>Resultado:</b> 3 reels × 4 redes = <b>12 publicaciones</b>, historias varios días y los 4 ingredientes. Con una tarde de grabación.</p></div>
+  </div>
+</section>
+
+<div class="pager" aria-label="Paginación"><span class="pg empty"></span><a class="pg next" href="#p2"><small>Siguiente →</small><b>Entender</b></a></div>
+</main>
+
+<!-- ═══════════════ 02 · ENTENDER ═══════════════ -->
+<main class="page" id="p2" data-p="2" data-t="Entender">
+<header class="part-head">
+  <span class="num">02</span>
+  <div class="in">
+    <p class="section-label">Parte 2 · Teoría</p>
+    <h2 class="section-title">Entender</h2>
+    <p class="lead">Tres ideas. <b>Si entendés esto, todo lo demás tiene sentido.</b></p>
+    <div class="chips-nav"><a href="#idea1">Idea 1 · Sos una serie</a><a href="#idea2">Idea 2 · Los 4 momentos</a><a href="#idea3">Idea 3 · 4 redes</a></div>
+  </div>
+</header>
+
+<section id="idea1">
+  <div class="in">
+    <p class="section-label">Idea 1</p>
+    <h2 class="section-title">Sos una serie, no una película</h2>
+    <div class="netflix-box">
+      <h3>Tu audiencia es como el público de una serie de <em>Netflix</em>.</h3>
+      <p>Mientras haya episodios nuevos cada semana, la gente está enganchada. Cuando la serie corta, se van. <b>Vos sos la serie, los videos son los episodios</b>, y el <dfn data-g="algoritmo">algoritmo</dfn> es la plataforma que decide si te sigue mostrando.</p>
+      <p>Por eso importa <b>subir seguido</b>, no una vez y perfecto.</p>
+    </div>
+    <div class="grid g2" style="margin-top:2px">
+      <div class="card rv"><span class="dato-num">01</span><h3>Tu música necesita un puente</h3><p>Podés tener el mejor tema de tu vida, pero si nadie lo ve, no existe. <b>El contenido es el puente</b> entre tu canción y la persona que todavía no la escuchó.</p></div>
+      <div class="card rv"><span class="dato-num">02</span><h3>Una lotería con muchos boletos</h3><p>No sabés qué video va a explotar, ni cuándo, ni en qué red. Cada video es un boleto. <b>Subir seguido no garantiza un viral, pero no subir garantiza que nunca llegue.</b></p></div>
+      <div class="card rv"><span class="dato-num">03</span><h3>Fans, no vistas</h3><p>El objetivo no es hacerse viral porque sí: es que la gente te elija y vaya a escucharte. Por eso <b>cada video tiene una función</b>, y no se sube por subir.</p></div>
+      <div class="card rv"><span class="dato-num">04</span><h3>Principios, no copias</h3><p>Mirá a los que les funciona y preguntate <span class="u">por qué</span>. Tomá la idea, no la forma. <b>Copiar te hace reemplazable; construir te hace reconocible.</b></p></div>
+    </div>
+    <div class="rule">
+      <p><b>Lo que pide el algoritmo:</b> no empuja el video más lindo. Empuja el que genera acción: que lo miren entero, lo compartan, lo comenten o lo guarden.</p>
+      <p><b>Lo que pide la canción:</b> que esté terminada y suene profesional, y que el contenido hable de lo mismo que el tema. <span class="u">No sirve atraer gente que ama los autos si tu canción es de desamor.</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="idea2">
+  <div class="in">
+    <p class="section-label">Idea 2 · El embudo</p>
+    <h2 class="section-title">La gente llega en 4 momentos</h2>
+    <p class="section-lead">Nadie se vuelve fan de golpe. Primero te descubre, después te elige, después te escucha y recién ahí es fan. A esto se le dice <dfn data-g="embudo">embudo</dfn>: cada vez es menos gente, pero más interesada. <b>Cada uno de tus videos le habla a uno de esos momentos.</b></p>
+    <div class="embudo-grid">
+      <div class="embudo-levels">
+        <div class="embudo-level" style="background:rgba(127,255,95,0.08)"><div class="level-dot" style="background:var(--green)"></div><div><span class="level-name" style="color:var(--green)">1 · Descubrimiento</span><span class="level-desc">No te conoce</span></div><span class="level-tag" style="background:var(--green);color:#000">Reel 1 · Viral</span></div>
+        <div class="embudo-level" style="background:rgba(255,170,51,0.08)"><div class="level-dot" style="background:var(--orange)"></div><div><span class="level-name" style="color:var(--orange)">2 · Conexión</span><span class="level-desc">Te vio una vez y te vuelve a encontrar</span></div><span class="level-tag" style="background:var(--orange);color:#000">Reel 2 · Conexión</span></div>
+        <div class="embudo-level" style="background:rgba(255,77,109,0.08)"><div class="level-dot" style="background:var(--red)"></div><div><span class="level-name" style="color:var(--red)">3 · Conversión</span><span class="level-desc">Te sigue, pero todavía no fue a escucharte</span></div><span class="level-tag" style="background:var(--red);color:#fff">Reel 3 · Conversión</span></div>
+        <div class="embudo-level" style="background:rgba(255,255,255,0.05)"><div class="level-dot" style="background:var(--white)"></div><div><span class="level-name">4 · Fans</span><span class="level-desc">Ya te escucha</span></div><span class="level-tag" style="border:1px solid var(--white)">Historias</span></div>
+      </div>
+      <div>
+        <div class="funnel-wrap">
+          <div class="funnel-bar" style="width:100%;background:var(--green)">Descubrimiento</div>
+          <div class="funnel-bar" style="width:76%;background:var(--orange)">Conexión</div>
+          <div class="funnel-bar" style="width:54%;background:var(--red);color:#fff">Conversión</div>
+          <div class="funnel-bar" style="width:34%;background:var(--white)">Fans</div>
+        </div>
+        <p class="funnel-cap">Cada escalón: menos gente, más interés</p>
+      </div>
+    </div>
+    <div class="rule" style="margin-top:40px">
+      <p><b>Por eso son 3 reels distintos y no uno.</b> Si subís solo virales, juntás gente que nunca te escucha. Si subís solo «ya salió mi tema», no lo ve nadie.</p>
+      <p><b>Y los fans no se hacen con reels:</b> se hacen con historias, que las ven sobre todo los que ya te siguen.</p>
+    </div>
+  </div>
+</section>
+
+<section id="idea3">
+  <div class="in">
+    <p class="section-label">Idea 3 · Plataformas</p>
+    <h2 class="section-title">El mismo video, 4 veces</h2>
+    <p class="section-lead">Cada red le muestra tu video a gente distinta. <b>Un mismo video, subido el mismo día</b>, dio esto:</p>
+    <div class="grid g3">
+      <div class="card rv"><div class="stat">6.700</div><p>vistas en <b>Instagram</b></p></div>
+      <div class="card rv"><div class="stat">1.400</div><p>vistas en <b>TikTok</b></p></div>
+      <div class="card rv"><div class="stat">1.100</div><p>vistas en <b>YouTube Shorts</b></p></div>
+    </div>
+    <div class="grid g4" style="margin-top:2px">
+      <div class="card dk"><div class="plat-icon">📸</div><h4>Instagram</h4><p>Reels para gente nueva, historias para tus seguidores. Es donde más se hacen los fans.</p></div>
+      <div class="card dk"><div class="plat-icon">🎵</div><h4>TikTok</h4><p>Le muestra tu video a gente que no te sigue <b>desde el primer día</b>. Tenés 3 segundos para engancharlos.</p></div>
+      <div class="card dk"><div class="plat-icon">▶️</div><h4>YouTube Shorts</h4><p>Tus videos <b>no vencen</b>: pueden aparecer en búsquedas dentro de un año.</p></div>
+      <div class="card dk"><div class="plat-icon">👥</div><h4>Facebook</h4><p>Otro público, mismo video. <span class="u">Lo que no anduvo en Instagram a veces se pega acá.</span></p></div>
+    </div>
+    <div class="rule">
+      <p><b>Subí cada reel a Instagram, TikTok, YouTube Shorts y Facebook.</b> Aunque te vaya «mal», 300 vistas en cada red son 1.200 personas.</p>
+      <p><b>YouTube y TikTok no vencen:</b> un video puede aparecer en búsquedas dentro de un año. En Instagram dura más o menos dos días.</p>
+      <p><b>Extra opcional:</b> un video largo en YouTube (la versión acústica o el video con la letra) suma, pero no es obligatorio.</p>
+    </div>
+    <div class="quote"><p>"Lo que hacés y que nadie ve es lo que determina tus resultados."</p><p>Principio de constancia invisible</p></div>
+  </div>
+</section>
+
+<div class="pager" aria-label="Paginación"><a class="pg prev" href="#p1"><small>← Anterior</small><b>Inicio</b></a><a class="pg next" href="#p3"><small>Siguiente →</small><b>Reels</b></a></div>
+</main>
+
+<!-- ═══════════════ 03 · REELS ═══════════════ -->
+<main class="page" id="p3" data-p="3" data-t="Reels">
+<header class="part-head">
+  <span class="num">03</span>
+  <div class="in">
+    <p class="section-label">Parte 3 · Teoría &amp; ejemplos</p>
+    <h2 class="section-title">Los reels</h2>
+    <p class="lead">Primero cómo se arma <b>cualquier</b> reel. Después los 3 tipos de la semana, cada uno con <b>su explicación y sus videos de ejemplo</b>.</p>
+    <div class="chips-nav">
+      <a href="#arma">Cómo se arma</a>
+      <a href="#reel1"><span class="dot" style="background:var(--green)"></span>Viral</a>
+      <a href="#reel2"><span class="dot" style="background:var(--orange)"></span>Conexión</a>
+      <a href="#reel3"><span class="dot" style="background:var(--red)"></span>Conversión</a>
+      <a href="#extra"><span class="dot" style="background:var(--white)"></span>Extra</a>
+      <a href="#antes">Antes de subir</a>
+    </div>
+  </div>
+</header>
+
+<section id="arma">
+  <div class="in">
+    <p class="section-label">Sirve para los 3</p>
+    <h2 class="section-title">Cómo se arma un reel</h2>
+    <p class="section-lead">Los 3 reels se arman igual. <b>Lo que cambia es la idea y lo que le pedís a la gente al final.</b> Un video que funciona no es casualidad: son decisiones tomadas <span class="u">antes</span> de grabar.</p>
+    <div class="steps">
+      <div class="step rv"><div class="n">01</div><div><h4>Elegí el fragmento</h4><p>Los <b>15–20 segundos</b> de tu canción que mejor muestran de qué va. Es el mismo en los 3 reels. El video completo puede durar un poco más (hasta 60 s) si hay una intro o una historia.</p></div></div>
+      <div class="step rv"><div class="n">02</div><div><h4>Poné un <dfn data-g="gancho">gancho</dfn> en el primer segundo</h4><p class="time">Los primeros 3 segundos</p><p>Un texto o una frase que haga pensar <span class="q">«esto habla de mí»</span> o que dé intriga. <b>Si en 3 segundos no paran de pasar, el video muere ahí.</b></p>
+        <div class="viral-rule">Regla de oro: el gancho abre una pregunta, no la cierra. Si ya cuenta todo, nadie se queda.</div>
+        <details class="more"><summary>El pico de interés: por qué quedarse</summary><div class="din">
+          <p>Es lo que viene <b>justo después del gancho</b>. Le da a la persona una razón concreta para quedarse mirando.</p>
+          <div class="pico">
+            <div><h5>🎬 Si ya se ve, no lo expliques</h5><p>Si lo que mostrás convence solo, mostralo y listo.</p><div class="eg">El público cantando tu tema en un show.</div><div class="eg">Comentarios reales de gente que se identificó con la letra.</div></div>
+            <div class="or"><h5>🎧 Si todavía no se ve, prometelo</h5><p>Decí qué gana quedándose.</p><div class="eg">«Quedate que al final te cuento la historia real detrás de esta letra.»</div><div class="eg">«Quedate que te muestro cómo quedó: todavía no la subí a ningún lado.»</div></div>
+          </div>
+          <div class="formula"><span>[</span>Quedate<span>]</span> + <span>[</span>lo que vas a ver<span>]</span><small>Fórmula del pico de interés dicho</small></div>
+          <p><b>Buscá referencias en artistas emergentes de tu estilo</b> a los que les esté funcionando, no en artistas grandes: lo de ellos viene de su público o de su sello.</p>
+        </div></details>
+      </div></div>
+      <div class="step rv"><div class="n">03</div><div><h4>Mostrá la canción con algo pasando</h4><p>Es el <dfn data-g="hook">hook visual</dfn>: playback haciendo algo, en la calle con la gente reaccionando, en un lugar que tenga que ver con el tema. <b>Cuanto más se relacione la imagen con la letra, más se siente.</b> Lo que viene después del gancho tiene que cumplir lo que prometió.</p>
+        <details class="more"><summary>La estética, en 3 reglas</summary><div class="din">
+          <p><b>No es la cámara, es la intención.</b> Un celular bien usado le gana a una cámara cara mal aprovechada.</p>
+          <p><b>Simple:</b> antes de grabar preguntate qué es lo primero que se ve. Sacá todo lo que distrae.</p>
+          <p><b>Del mismo mundo:</b> mismos colores, misma letra en los textos, misma energía en todos tus videos. Que se reconozca que sos vos.</p>
+          <div class="trio">
+            <div style="background:rgba(255,77,109,0.07);border-top:2px solid var(--red)"><p class="t" style="color:var(--red)">No necesitás</p><p>Cámara cara. Setup perfecto desde el día 1. Efectos de moda.</p></div>
+            <div style="background:rgba(127,255,95,0.05);border-top:2px solid var(--green)"><p class="t" style="color:var(--green)">Sí o sí</p><p>Las mismas tipografías, colores fijos, el mismo tipo de planos y tu energía al hablar.</p></div>
+            <div style="background:rgba(255,255,255,0.03);border-top:2px solid rgba(255,255,255,0.25)"><p class="t" style="color:var(--off)">Antes de subir</p><p>¿Es simple y claro? ¿Parece del mismo mundo que el resto de tus videos?</p></div>
+          </div>
+        </div></details>
+      </div></div>
+      <div class="step rv"><div class="n">04</div><div><h4>Subtítulos, siempre</h4><p>Mucha gente mira sin sonido. <b>Si entienden de qué va, suben el volumen.</b> CapCut los hace solos.</p></div></div>
+      <div class="step rv"><div class="n">05</div><div><h4>Pedí una sola cosa al final</h4><p class="time">Los últimos segundos</p><p>Es el <dfn data-g="cta">llamado a la acción</dfn>. <b>Una sola:</b> si pedís tres, no hacen ninguna. Cambia según el reel: el viral pide comentar o compartir, el de conexión pide seguirte, el de conversión pide escucharte.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="grado-section c-green" id="reel1">
+  <span class="grado-num tc">1</span>
+  <div class="in">
+    <div class="grado-header">
+      <span class="grado-badge">Reel 1 · Lunes</span>
+      <h2 class="grado-title tc">Viral: el que trae gente</h2>
+      <p class="grado-for">Descubrimiento · para los que no te conocen</p>
+      <p class="grado-desc">Le habla a alguien que nunca te vio. Su único trabajo es <b>frenar el scroll y generar curiosidad</b>. No tenés que explicar quién sos: tenés que mostrar algo. <span class="u">Acá todavía no buscás que te escuchen.</span></p>
+    </div>
+    <dl class="meta">
+      <div><dt>Objetivo</dt><dd>Que se queden mirando, comenten y compartan.</dd></div>
+      <div><dt>Al final pedís</dt><dd><b>Que comenten o lo compartan.</b> No que vayan a Spotify.</dd></div>
+      <div><dt>Vas bien si</dt><dd>Lo ve gente que no te sigue y lo comparten.</dd></div>
+    </dl>
+    <div class="struct"><span class="lbl">Estructura</span><span class="p">Gancho</span><i>→</i><span class="p">La canción + algo pasando</span><i>→</i><span class="p">Subtítulos</span></div>
+    <p class="block-label">Ideas</p>
+    <div class="ideas-list">
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Cantar en la calle</b> o en un lugar público, con la gente pasando y reaccionando. La reacción de los otros es el gancho.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Alguien escuchando tu tema por primera vez</b> (un amigo, tu vieja, un desconocido) con el texto <span class="q">«le mostré mi canción a…»</span>.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Playback en un lugar que tenga que ver con el tema:</b> si es de desamor, en la puerta de una casa o en un auto de noche.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Intriga en texto:</b> <span class="q">«esta canción casi no sale»</span>, <span class="q">«se la escribí a alguien que todavía me sigue»</span>.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Antes y después:</b> la nota de voz del celular contra el tema terminado.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Una afirmación fuerte</b> sobre el tema de la canción. No hace falta que sea graciosa: tiene que frenar.</p></div>
+    </div>
+    <p class="block-label">Ejemplos que ya funcionaron</p>
+    <div class="video-grid" data-tipo="viral"></div>
+    <div class="viral-rule c-green"><b>Es el reel para probar:</b> el mismo fragmento con 2 o 3 ganchos distintos. Le enseña al algoritmo a quién le gusta lo que hacés.</div>
+  </div>
+</section>
+
+<section class="grado-section c-orange" id="reel2">
+  <span class="grado-num tc">2</span>
+  <div class="in">
+    <div class="grado-header">
+      <span class="grado-badge">Reel 2 · Miércoles</span>
+      <h2 class="grado-title tc">Conexión: el que hace que te elijan</h2>
+      <p class="grado-for">Conexión · para los que ya te vieron</p>
+      <p class="grado-desc">Esta persona te vio, pero todavía no te sigue. Necesita <b>una segunda razón</b> para quedarse: sentir <span class="q">«esto habla de mí»</span>. Acá se nota tu mundo: misma estética, mismo mood, tu historia.</p>
+    </div>
+    <dl class="meta">
+      <div><dt>Objetivo</dt><dd>Que el que te vio se sienta identificado y te siga.</dd></div>
+      <div><dt>Al final pedís</dt><dd><b>Que te sigan</b> o que comenten si les pasó.</dd></div>
+      <div><dt>Vas bien si</dt><dd>Suman seguidores, lo guardan y comentan <span class="q">«me pasó lo mismo»</span>.</dd></div>
+    </dl>
+    <div class="struct"><span class="lbl">Estructura</span><span class="p">Una historia tuya</span><i>→</i><span class="p">Por qué existe la canción</span><i>→</i><span class="p">La canción</span></div>
+    <p class="block-label">Ideas</p>
+    <div class="ideas-list">
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b><span class="q">«Yo pasé por esto y escribí esta canción»</span>:</b> lo que te pasó de verdad detrás del tema.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Contada desde otro:</b> <span class="q">«mi hermana me pidió una canción porque le pasó tal cosa»</span>.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b><span class="q">«Esta canción es para vos si…»</span>:</b> hablándole directo a tu <dfn data-g="oyente">oyente ideal</dfn> y a lo que siente.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>No es solo tuyo:</b> mensajes o comentarios de gente que vive lo mismo (con permiso y sin datos), con la canción de fondo.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Detrás de escena con sentido:</b> cómo nació la letra, la primera nota en el celu. No <span class="q">«estoy en el estudio»</span> porque sí.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Playback que recrea el mood:</b> armás la escena que cuenta la letra, haciendo algo y disfrutando el tema.</p></div>
+    </div>
+    <p class="block-label">Ejemplos que ya funcionaron</p>
+    <div class="video-grid" data-tipo="conexion"></div>
+
+    <h3 class="sub-title">Contar una historia que enganche</h3>
+    <p class="sub-lead">Cinco reglas para que lo que contás en este reel sea imposible de abandonar.</p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><div><h4>Empezá por el final</h4><p>No arranques por el principio. Poné el desenlace primero: despierta curiosidad por saber cómo llegaste ahí.</p>
+        <div class="mb"><div class="bad"><p class="t">✗ Así no</p><p>«Era chico, practiqué mucho, grabé mis primeros temas y hoy saco mi canción.»</p></div><div class="good"><p class="t">✓ Así sí</p><p>«Hoy sale mi tema. Lo que nadie sabe es que casi lo borro.»</p></div></div></div></div>
+      <div class="step"><div class="n">02</div><div><h4>Mezclá frases cortas y largas</h4><p>Tu guion tiene que tener ritmo. Si todas duran lo mismo, la gente se desconecta sin saber por qué.</p></div></div>
+      <div class="step"><div class="n">03</div><div><h4>Que cada frase abra una pregunta</h4><p>Cada cosa que decís genera una duda nueva. Así sienten que tienen que saber cómo sigue.</p></div></div>
+      <div class="step"><div class="n">04</div><div><h4>Mostrá la emoción, no la nombres</h4><p>No digas cómo te sentiste: contá la situación y dejá que la sientan.</p>
+        <div class="mb"><div class="bad"><p class="t">✗ Así no</p><p>«Subí al escenario y me puse muy nervioso.»</p></div><div class="good"><p class="t">✓ Así sí</p><p>«Subí el primer escalón, después el segundo. Cientos de personas mirándome.»</p></div></div></div></div>
+      <div class="step"><div class="n">05</div><div><h4>Sin «y después»</h4><p>Enganchá una cosa con la otra en la misma frase. Que no parezca una lista, sino un solo bloque.</p></div></div>
+    </div>
+    <div class="viral-rule c-orange"><b>Este reel depende de tu manual de marca:</b> si no sabés quién es tu oyente, no le podés hablar.</div>
+  </div>
+</section>
+
+<section class="grado-section c-red" id="reel3">
+  <span class="grado-num tc">3</span>
+  <div class="in">
+    <div class="grado-header">
+      <span class="grado-badge">Reel 3 · Viernes</span>
+      <h2 class="grado-title tc">Conversión: el que lleva a escuchar</h2>
+      <p class="grado-for">Conversión · para los que ya te siguen</p>
+      <p class="grado-desc">Ya te eligieron, pero todavía no fueron a escucharte. Este reel les da <b>el empujón para dar el paso</b>. Parece spam, pero funciona <span class="u">si antes estuvieron el viral y el de conexión</span>.</p>
+    </div>
+    <dl class="meta">
+      <div><dt>Objetivo</dt><dd>Que den el paso y vayan a escucharte.</dd></div>
+      <div><dt>Al final pedís</dt><dd>Hasta el lanzamiento: <b>«hacé el <dfn data-g="presave">pre-save</dfn>»</b>. Desde ese día: <b>«ya está disponible, link en la bio»</b>.</dd></div>
+      <div><dt>Vas bien si</dt><dd>Tocan el link y suben tus <dfn data-g="oyentes">oyentes mensuales</dfn>.</dd></div>
+    </dl>
+    <div class="struct"><span class="lbl">Estructura</span><span class="p">Algo que llame la atención</span><i>→</i><span class="p">La canción</span><i>→</i><span class="p">«Escuchala»</span></div>
+    <p class="block-label">Ideas</p>
+    <div class="ideas-list">
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>«Ya salió» / «hacé el pre-save»</b> con la parte más fuerte del tema, el pedido escrito y dicho.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>«Miren lo que logré»:</b> algo real (las primeras 1.000 escuchas, una playlist, un show).</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Escuchándolo en Spotify</b> en el celu, con la pantalla a la vista.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Lo que dice la gente:</b> comentarios reales del tema con <span class="q">«andá a escucharla»</span>.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Pedí algo concreto:</b> <span class="q">«comentá qué parte te quedó»</span>, <span class="q">«¿a quién se la mandarías?»</span>.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Gente cantando tu tema</b> en un show, con la letra en subtítulos grandes.</p></div>
+    </div>
+    <p class="block-label">Ejemplos que ya funcionaron</p>
+    <div class="video-grid" data-tipo="conversion"></div>
+    <div class="viral-rule c-red"><b>Sin este reel, el perfil junta seguidores que nunca te escuchan.</b> Es el que convierte el trabajo de la semana en escuchas.</div>
+  </div>
+</section>
+
+<section class="grado-section c-white" id="extra">
+  <span class="grado-num tc">+</span>
+  <div class="in">
+    <div class="grado-header">
+      <span class="grado-badge">Extra · Opcional</span>
+      <h2 class="grado-title">Para historias y YouTube</h2>
+      <p class="grado-for">Fans · para los que ya te escuchan</p>
+      <p class="grado-desc">Versiones en vivo y acústicas. <b>No reemplazan a los 3 reels</b>: suman. Enteras van a YouTube (que no vence) y en pedacitos a historias, para los que ya son fans.</p>
+    </div>
+    <div class="video-grid" data-tipo="extra"></div>
+  </div>
+</section>
+
+<section id="antes">
+  <div class="in">
+    <p class="section-label">Doble filtro · Antes de subir</p>
+    <h2 class="section-title">Pasalo por esta lista</h2>
+    <p class="section-lead">Antes de subir cualquier reel, revisalo. <b>Si falla en más de dos, vale la pena rehacerlo.</b></p>
+    <div class="checklist-box" id="antesList" data-key="em:antes">
+      <div class="check-head"><span id="antesCount">0 de 8</span><button type="button" data-reset="antesList">Vaciar para el próximo</button></div>
+      <button type="button" class="check-item" data-k="a1"><span class="check-box"></span><span class="check-text"><b>¿Los primeros 3 segundos hacen que dejen de pasar?</b> Y el gancho abre una pregunta, no la cierra.</span></button>
+      <button type="button" class="check-item" data-k="a2"><span class="check-box"></span><span class="check-text"><b>¿Lo que viene después cumple lo que prometió el gancho?</b></span></button>
+      <button type="button" class="check-item" data-k="a3"><span class="check-box"></span><span class="check-text"><b>¿Se entiende sin sonido?</b> Subtítulos.</span></button>
+      <button type="button" class="check-item" data-k="a4"><span class="check-box"></span><span class="check-text"><b>¿Pedís una sola cosa al final?</b> La que corresponde a ese reel.</span></button>
+      <button type="button" class="check-item" data-k="a5"><span class="check-box"></span><span class="check-text"><b>¿Le habla a alguien en particular?</b> Si le habla a todo el mundo, no le habla a nadie.</span></button>
+      <button type="button" class="check-item" data-k="a6"><span class="check-box"></span><span class="check-text"><b>¿Se nota la emoción sin que la nombres?</b></span></button>
+      <button type="button" class="check-item" data-k="a7"><span class="check-box"></span><span class="check-text"><b>¿Parece tuyo?</b> Mismos colores y misma energía que el resto de tus videos.</span></button>
+      <button type="button" class="check-item" data-k="a8"><span class="check-box"></span><span class="check-text"><b>¿Lo hiciste tuyo o lo copiaste?</b> Tomá la idea de lo que funciona, no la forma.</span></button>
+    </div>
+
+    <h3 class="sub-title">Errores que matan el contenido</h3>
+    <p class="sub-lead">La lista revisa lo técnico. Estos son los errores de fondo.</p>
+    <div class="err">
+      <div><span class="n">01</span><div><h4>Gancho que lo cuenta todo</h4><p>Si el gancho ya resuelve la pregunta, nadie se queda a ver el resto. Tiene que abrirla.</p></div></div>
+      <div><span class="n">02</span><div><h4>Pedir Spotify en el viral</h4><p>El que te ve por primera vez no va a ir a escucharte. En el viral pedí que comenten o compartan; el «escuchala» va el viernes.</p></div></div>
+      <div><span class="n">03</span><div><h4>Pedir tres cosas</h4><p>Sin pedido, todo queda al azar. Con tres, no hacen ninguna. <b>Una sola, clara, al final.</b></p></div></div>
+      <div><span class="n">04</span><div><h4>Nombrar la emoción en vez de mostrarla</h4><p>«Estaba muy nervioso» no conecta. La situación sí.</p></div></div>
+      <div><span class="n">05</span><div><h4>Cada video parece de otro artista</h4><p>Sin los mismos colores y la misma energía, el algoritmo no sabe a quién mostrarte y la gente no te reconoce.</p></div></div>
+      <div><span class="n">06</span><div><h4>Subir solo a una red</h4><p>Es el mismo video. Subirlo a las 4 cuesta un minuto y multiplica a quién le llega.</p></div></div>
+      <div><span class="n">07</span><div><h4>Desaparecer entre lanzamientos</h4><p>El que deja de subir no descansa: le deja el lugar a otro. El algoritmo necesita constancia, no picos.</p></div></div>
+      <div><span class="n">08</span><div><h4>Copiar sin entender por qué funciona</h4><p>Copiar la forma de otro suena falso. Tomá el principio y hacelo tuyo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pager" aria-label="Paginación"><a class="pg prev" href="#p2"><small>← Anterior</small><b>Entender</b></a><a class="pg next" href="#p4"><small>Siguiente →</small><b>Historias</b></a></div>
+</main>
+
+<!-- ═══════════════ 04 · HISTORIAS ═══════════════ -->
+<main class="page" id="p4" data-p="4" data-t="Historias">
+<header class="part-head">
+  <span class="num">04</span>
+  <div class="in">
+    <p class="section-label">Parte 4 · Para los fans</p>
+    <h2 class="section-title">Las historias</h2>
+    <p class="lead">Los reels traen gente nueva. <b>Las historias las ven sobre todo los que ya te siguen, y ahí se hacen los fans.</b></p>
+  </div>
+</header>
+
+<section id="ingredientes">
+  <div class="in">
+    <p class="section-label">4 ingredientes, sin guion</p>
+    <h2 class="section-title">Las inventás vos</h2>
+    <p class="section-lead">No hay un guion fijo. Solo tienen que estar <b>estos 4 ingredientes en la semana</b>, en el orden y el formato que quieras.</p>
+    <div class="stories-grid">
+      <div class="story-phone rv"><div class="story-bar"><div class="story-bar-fill" style="width:25%"></div></div><p class="story-label">Ingrediente 01</p><h3 class="story-title">Mostrate</h3><p class="story-kind">Cercanía</p><div class="story-body"><p>Que se note que hay <b>una persona real</b>. Tu día con la música, algo que te pasó, lo que estás escuchando, algo que no salió.</p><div class="story-example">Si suena actuado, no funciona.</div></div><div class="story-actions">♡ ➤</div></div>
+      <div class="story-phone rv"><div class="story-bar"><div class="story-bar-fill" style="width:50%"></div></div><p class="story-label">Ingrediente 02</p><h3 class="story-title">Preguntá</h3><p class="story-kind">Conversación</p><div class="story-body"><p><b>Cada respuesta es un mensaje directo.</b> Cajita de preguntas o encuestas para decidir algo de verdad: la portada, entre dos estribillos.</p><div class="story-example">«¿Qué opinan de este tema?»</div></div><div class="story-actions">♡ ➤</div></div>
+      <div class="story-phone rv"><div class="story-bar"><div class="story-bar-fill" style="width:75%"></div></div><p class="story-label">Ingrediente 03</p><h3 class="story-title">Regalá algo</h3><p class="story-kind">Valor</p><div class="story-body"><p>Que seguirte tenga premio. <b>10 segundos de lo que viene</b>, una línea de la letra, la versión que solo ven los de historias.</p><div class="story-example">«Respondé VISTO y te mando el adelanto.»</div></div><div class="story-actions">♡ ➤</div></div>
+      <div class="story-phone rv" style="border-color:rgba(255,255,255,0.25)"><div class="story-bar"><div class="story-bar-fill" style="width:100%"></div></div><p class="story-label">Ingrediente 04</p><h3 class="story-title">Recordá</h3><p class="story-kind">Que te escuchen</p><div class="story-body"><p>Que el que dice «después lo escucho» lo escuche. <b>Compartí el reel de la semana</b> con un sticker, el link con una frase tuya, capturas de gente escuchándolo.</p><div class="story-example">«La escribí para no escribirte. Link acá.»</div></div><div class="story-actions">♡ ➤</div></div>
+    </div>
+    <div class="rule" style="margin-top:40px">
+      <p><b>El mínimo:</b> 4 días por semana, con 3 historias o más, y los 4 ingredientes en la semana.</p>
+      <p><b>Libre:</b> el orden, el tono, el formato (video, foto, texto, encuesta) y cuántas subís por encima del mínimo.</p>
+      <p><b>El filtro:</b> ¿va con cómo te mostrás como artista? Si va, subilo, aunque sea espontáneo.</p>
+    </div>
+  </div>
+</section>
+
+<section id="mezcla">
+  <div class="in">
+    <p class="section-label">Reels + historias</p>
+    <h2 class="section-title">Cómo se mezclan</h2>
+    <p class="section-lead">Una sugerencia para arrancar. <span class="u">Después acomodalo a tu semana.</span></p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Día</th><th>Reel</th><th>Historias sugeridas</th></tr></thead>
+        <tbody>
+          <tr><td>Lunes</td><td><span class="dot" style="background:var(--green)"></span>Viral</td><td><b>Mostrate</b> + compartir el reel</td></tr>
+          <tr><td>Miércoles</td><td><span class="dot" style="background:var(--orange)"></span>Conexión</td><td><b>Preguntá</b>: «¿te pasó algo así?»</td></tr>
+          <tr><td>Viernes</td><td><span class="dot" style="background:var(--red)"></span>Conversión</td><td><b>Recordá</b> + link al tema</td></tr>
+          <tr><td>Fin de semana</td><td>—</td><td><b>Regalá</b>: un adelanto con palabra clave</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">Receta opcional para días grandes</h3>
+    <p class="sub-lead">Para el día que anunciás la fecha o el día que sale el tema. Contás algo en <b>4 historias seguidas</b>, como episodios, sin resolverlo hasta el final.</p>
+    <div class="grid g4">
+      <div class="card dk"><p class="mini-label">Historia 01</p><h4>Gancho</h4><p>Algo que dé intriga y no se explique.</p></div>
+      <div class="card dk"><p class="mini-label">Historia 02</p><h4>La historia</h4><p>Empezás a contar, <b>sin terminar</b>.</p></div>
+      <div class="card dk"><p class="mini-label">Historia 03</p><h4>Más historia</h4><p>Contás un poco más y mostrás algo de la canción.</p></div>
+      <div class="card dk"><p class="mini-label">Historia 04</p><h4>El cierre</h4><p>Resolvés y pedís una cosa: <span class="q">«escuchala y decime si hice bien en subirla»</span>.</p></div>
+    </div>
+    <div class="rule or"><p><b>Tip:</b> antes de una secuencia así, <b>archivá las historias viejas</b> para que arranque limpia. Una historia sola pesa más que la número 8 de una fila de 10.</p></div>
+  </div>
+</section>
+
+<div class="pager" aria-label="Paginación"><a class="pg prev" href="#p3"><small>← Anterior</small><b>Reels</b></a><a class="pg next" href="#p5"><small>Siguiente →</small><b>21 días</b></a></div>
+</main>
+
+<!-- ═══════════════ 05 · 21 DÍAS ═══════════════ -->
+<main class="page" id="p5" data-p="5" data-t="21 días">
+<header class="part-head">
+  <span class="num">05</span>
+  <div class="in">
+    <p class="section-label">Parte 5 · El lanzamiento</p>
+    <h2 class="section-title">Los 21 días</h2>
+    <p class="lead">La teoría de cómo se ordena un lanzamiento. <b>El plan día por día con tus fechas lo armás en la app de Plan de Lanzamiento.</b></p>
+  </div>
+</header>
+
+<section id="fechas">
+  <div class="in">
+    <div class="plan-cta">
+      <div><h3>Armá tu plan personalizado</h3><p>Completás unas preguntas sobre tu canción y tu fecha, y te arma <b>tu plan de 21 días con tus fechas</b>. Si todavía no tenés fecha, seguí con la semana tipo y volvé cuando la tengas.</p></div>
+      <a class="btn" href="https://larryprog.github.io/Plan-de-Lanzamiento/" target="_blank" rel="noopener">Armar mi plan personalizado →</a>
+    </div>
+
+    <h3 class="sub-title">El Día 14 sale el tema</h3>
+    <p class="sub-lead">Conviene que sea <b>viernes</b>: es el día que salen los lanzamientos en Spotify y se actualizan las playlists. Así, <b>el Día 1 es un sábado, 3 semanas antes</b>, y los reels caen solos en la semana tipo.</p>
+    <div class="cal" role="table" aria-label="Calendario de 21 días">
+      <div class="h">Sáb</div><div class="h">Dom</div><div class="h">Lun</div><div class="h">Mar</div><div class="h">Mié</div><div class="h">Jue</div><div class="h">Vie</div>
+      <div class="wk">Semana 1 · Preparación — no se publica nada nuevo</div>
+      <div class="c"><b>1</b></div><div class="c"><b>2</b></div><div class="c"><b>3</b></div><div class="c"><b>4</b></div><div class="c"><b>5</b></div><div class="c"><b>6</b></div><div class="c k"><b>7</b><span class="chip g">Grabar</span></div>
+      <div class="wk">Semana 2 · La previa</div>
+      <div class="c"><b>8</b><span class="chip h">Hist.</span></div><div class="c k"><b>9</b><span class="chip w">Fecha</span></div><div class="c k"><b>10</b><span class="chip green">Viral</span></div><div class="c"><b>11</b><span class="chip h">Hist.</span></div><div class="c k"><b>12</b><span class="chip orange">Conex.</span></div><div class="c"><b>13</b><span class="chip h">Hist.</span></div><div class="c k launch"><b>14</b><span class="chip red">Conv.</span><span class="chip w">Sale</span></div>
+      <div class="wk">Semana 3 · Después</div>
+      <div class="c k"><b>15</b><span class="chip g">Grabar</span></div><div class="c"><b>16</b></div><div class="c k"><b>17</b><span class="chip green">Viral</span></div><div class="c"><b>18</b><span class="chip h">Hist.</span></div><div class="c k"><b>19</b><span class="chip orange">Conex.</span></div><div class="c"><b>20</b><span class="chip g">Números</span></div><div class="c k"><b>21</b><span class="chip red">Conv.</span></div>
+    </div>
+    <div class="rule"><p><b>Si tu fecha cae otro día:</b> el reel de conversión va el día que sale el tema, el de conexión 2 días antes y el viral 4 días antes. La app lo acomoda sola.</p></div>
+  </div>
+</section>
+
+<section id="tramos">
+  <div class="in">
+    <p class="section-label">Las 3 semanas</p>
+    <h2 class="section-title">Qué pasa en cada semana</h2>
+    <p class="section-lead">Cada día tiene <b>lo mínimo</b> (lo que no puede faltar) y, a veces, algo extra que suma. <span class="u">El detalle día por día está en tu plan personalizado.</span></p>
+    <div class="grid g3">
+      <div class="card rv"><span class="dato-num">01</span><p class="mini-label">Días 1–7</p><h3>Preparación</h3><p>No se publica nada nuevo. Dejás todo listo:</p><p>• <b>Tu lista de 20 personas</b> para avisarles.<br>• <b>Perfil listo</b>: bio, links y 3 publicaciones fijadas.<br>• Elegís el fragmento y escribís los ganchos.<br>• Mismo nombre, foto y link en las 4 redes.<br>• Textos del anuncio y del lanzamiento.<br>• <b>Día 7: grabás los 3 reels.</b></p></div>
+      <div class="card rv"><span class="dato-num">02</span><p class="mini-label">Días 8–14</p><h3>La previa</h3><p>Arranca el ruido, de a poco:</p><p>• Historias que insinúan sin contar todo.<br>• <b>Día 9: anunciás la fecha</b> con el pre-save.<br>• Días 10 y 12: viral y conexión.<br>• Mensaje personal a tus 20 personas.<br>• <b>Día 14: sale el tema</b> con el reel de conversión y el link fijado.</p></div>
+      <div class="card rv"><span class="dato-num">03</span><p class="mini-label">Días 15–21</p><h3>Después</h3><p>El lanzamiento no termina el viernes:</p><p>• Agradecés y compartís a quienes compartieron.<br>• La semana tipo queda fija.<br>• Un vivo cantando el tema.<br>• <b>Día 20: mirás tus números.</b><br>• Día 21: «miren lo que logré» con el link.</p></div>
+    </div>
+    <div class="rule"><p><b>Publicidad, todavía no:</b> si tenés menos de 5.000 oyentes mensuales, no pagues anuncios. Todavía no hay suficiente información de quién es tu público. Quedate en lo gratis.</p></div>
+
+    <h3 class="sub-title">El bloque de grabación</h3>
+    <p class="sub-lead">No se graba un video por día. Se graba <b>todo junto, una vez por semana</b>.</p>
+    <div class="grid g4">
+      <div class="card dk"><p class="mini-label">01</p><h4>Elegir</h4><p>El fragmento de 15–20 s y qué idea va en cada reel.</p></div>
+      <div class="card dk"><p class="mini-label">02</p><h4>Escribir</h4><p>2 o 3 ganchos para el viral, tu historia para el de conexión y el pedido del de conversión.</p></div>
+      <div class="card dk"><p class="mini-label">03</p><h4>Grabar los 3 reels</h4><p>En una sola tarde: usan el mismo fragmento.</p></div>
+      <div class="card dk"><p class="mini-label">04</p><h4>Grabar para historias</h4><p>Procesos, tomas, adelantos. Material para toda la semana.</p></div>
+    </div>
+    <div class="rule"><p>¿Poco tiempo? <b>Grabá dos semanas de una.</b> Mejor grabar bien y seguido que agotarte.</p></div>
+  </div>
+</section>
+
+<div class="pager" aria-label="Paginación"><a class="pg prev" href="#p4"><small>← Anterior</small><b>Historias</b></a><a class="pg next" href="#p6"><small>Siguiente →</small><b>Medir y seguir</b></a></div>
+</main>
+
+<!-- ═══════════════ 06 · MEDIR Y SEGUIR ═══════════════ -->
+<main class="page" id="p6" data-p="6" data-t="Medir y seguir">
+<header class="part-head">
+  <span class="num">06</span>
+  <div class="in">
+    <p class="section-label">Parte 6 · Seguir</p>
+    <h2 class="section-title">Medir y seguir</h2>
+    <p class="lead">Cómo saber si vas bien, qué hacer después del día 21, tu checklist de la semana y las dudas de siempre.</p>
+    <div class="chips-nav"><a href="#numeros">Números</a><a href="#despues">Después del 21</a><a href="#checklist">Checklist</a><a href="#dudas">Dudas</a><a href="#glosario">Glosario</a></div>
+  </div>
+</header>
+
+<section id="numeros">
+  <div class="in">
+    <p class="section-label">Qué mirar</p>
+    <h2 class="section-title">Cómo saber si vas bien</h2>
+    <p class="section-lead">No mires solo las vistas. Cada pieza tiene su número. <b>Compará contra vos mismo la semana anterior</b>, no contra otros.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Pieza</th><th>Qué mirar</th><th>Dónde</th></tr></thead>
+        <tbody>
+          <tr><td><span class="dot" style="background:var(--green)"></span>Reel 1 · Viral</td><td>Vistas de gente que no te sigue y cuántos lo compartieron</td><td>Estadísticas del reel</td></tr>
+          <tr><td><span class="dot" style="background:var(--orange)"></span>Reel 2 · Conexión</td><td>Seguidores nuevos, guardados y comentarios «me pasó lo mismo»</td><td>Estadísticas del reel</td></tr>
+          <tr><td><span class="dot" style="background:var(--red)"></span>Reel 3 · Conversión</td><td>Toques en el link y oyentes mensuales</td><td><dfn data-g="sfa">Spotify for Artists</dfn></td></tr>
+          <tr><td><span class="dot" style="background:var(--white)"></span>Historias</td><td>Respuestas, mensajes, toques en stickers y en el link</td><td>Estadísticas de cada historia</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="netflix-box" style="margin-top:2px">
+      <h3>Los primeros 1–2 meses son de entrenamiento.</h3>
+      <p>Al principio el algoritmo no sabe quién sos ni a quién mostrarte. Primero le muestra tus videos a tus seguidores, después a gente nueva, y con lo que hacen te va ubicando. <b>Le estás enseñando quién sos.</b> Es como el gimnasio: el cambio se ve después.</p>
+      <p>Cuando aprende, aparecen los videos de 10.000 o 30.000 vistas, muy parecidos a los que venías subiendo. <b>Cada video cuenta, aunque no explote.</b> Nos pasa a todos.</p>
+    </div>
+  </div>
+</section>
+
+<section id="despues">
+  <div class="in">
+    <p class="section-label">Después del día 21</p>
+    <h2 class="section-title">Esto recién empieza</h2>
+    <div class="grid g3">
+      <div class="card rv"><span class="dato-num">01</span><h3>Seguí 8 semanas</h3><p>La semana tipo sigue <b>por lo menos 8 semanas</b>. 21 días no alcanzan para que el algoritmo te conozca.</p></div>
+      <div class="card rv"><span class="dato-num">02</span><h3>Doblá la apuesta</h3><p>El formato que mejor anduvo, <b>hacelo más seguido</b>. Y con tus primeros oyentes, volvé al manual de marca y afiná a quién le hablás.</p></div>
+      <div class="card rv"><span class="dato-num">03</span><h3>Siguiente canción</h3><p>Si sacás un tema cada 4–6 semanas, el próximo entra directo a la semana tipo. <b>Así se construye una carrera: canción a canción.</b></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="in">
+    <p class="section-label">Tu semana</p>
+    <h2 class="section-title">Checklist para tildar</h2>
+    <p class="section-lead">Se guarda en tu celu. <b>Cada lunes arranca vacía.</b></p>
+    <div class="checklist-box" id="weekly" data-week="1">
+      <div class="check-head"><span id="wk">Semana</span><span id="wkc">0 de 8</span></div>
+      <button type="button" class="check-item" data-k="bloque"><span class="check-box"></span><span class="check-text"><b>Grabé el bloque</b> (los 3 reels + material para historias)</span></button>
+      <button type="button" class="check-item" data-k="r1"><span class="check-box"></span><span class="check-text"><b>Lunes:</b> reel viral en las 4 redes</span></button>
+      <button type="button" class="check-item" data-k="r2"><span class="check-box"></span><span class="check-text"><b>Miércoles:</b> reel de conexión en las 4 redes</span></button>
+      <button type="button" class="check-item" data-k="r3"><span class="check-box"></span><span class="check-text"><b>Viernes:</b> reel de conversión en las 4 redes</span></button>
+      <button type="button" class="check-item" data-k="h4"><span class="check-box"></span><span class="check-text"><b>Historias 4 días</b>, con 3 o más cada día</span></button>
+      <button type="button" class="check-item" data-k="ing"><span class="check-box"></span><span class="check-text"><b>Estuvieron los 4 ingredientes:</b> Mostrate, Preguntá, Regalá, Recordá</span></button>
+      <button type="button" class="check-item" data-k="msg"><span class="check-box"></span><span class="check-text"><b>Respondí comentarios y mensajes</b></span></button>
+      <button type="button" class="check-item" data-k="num"><span class="check-box"></span><span class="check-text"><b>Domingo:</b> miré los números y anoté qué anduvo mejor</span></button>
+    </div>
+  </div>
+</section>
+
+<section id="dudas">
+  <div class="in">
+    <p class="section-label">Dudas</p>
+    <h2 class="section-title">Preguntas frecuentes</h2>
+    <div class="faq-list">
+      <details class="faq"><summary>¿Y si todavía no tengo fecha ni el tema terminado?</summary><div class="din"><p>Arrancá igual con los reels. No hace falta que el tema esté afuera para mostrarlo: subí la maqueta, una parte de la letra o cómo lo estás haciendo. Así, cuando salga, ya hay gente esperándolo.</p><p>Los 21 días se cuentan recién cuando tenés el tema terminado y la fecha puesta.</p></div></details>
+      <details class="faq"><summary>¿Cuándo arranco el Día 1?</summary><div class="din"><p>3 semanas antes de que salga el tema: <b>el Día 14 es el lanzamiento</b>. Si sale un viernes, el Día 1 es el sábado de 3 semanas antes. Para ese momento el tema ya tiene que estar cargado en la distribuidora.</p></div></details>
+      <details class="faq"><summary>¿Cuántos videos son? Decime un número.</summary><div class="din"><p><b>3 por semana:</b> lunes, miércoles y viernes. Si una semana se te complica, que no falten el del lunes ni el del viernes.</p></div></details>
+      <details class="faq"><summary>¿Tengo que subir a 4 redes si no tengo TikTok ni Facebook?</summary><div class="din"><p>Sí, abrite las cuentas: son gratis y es el mismo video, no tenés que hacer nada nuevo. Si te pesa, arrancá con Instagram y TikTok, y sumá YouTube Shorts y Facebook en la segunda semana.</p></div></details>
+      <details class="faq"><summary>¿Qué es una distribuidora y cuál uso?</summary><div class="din"><p>Es la página que sube tu tema a Spotify, Apple Music, YouTube Music y el resto. Algunas conocidas son DistroKid, ONErpm y Ditto. Cada una cobra distinto (algunas por año, otras se quedan un porcentaje): fijate en su página antes de elegir, o preguntame. Va antes que todo: sin el tema cargado, no hay fecha.</p></div></details>
+      <details class="faq"><summary>¿Las historias las invento yo o sigo un guion?</summary><div class="din"><p>Las inventás vos. Solo cumplí dos cosas: historias 4 días por semana, con 3 o más cada día, y que en la semana estén los 4 ingredientes. La historia en 4 partes es una receta opcional para días grandes.</p></div></details>
+      <details class="faq"><summary>¿Puedo copiar los videos de ejemplo?</summary><div class="din"><p>Tomá <b>la idea</b>, no la forma. Fijate por qué funciona cada uno (está escrito debajo del video) y llevalo a tu canción, tu lugar y tu estética.</p></div></details>
+      <details class="faq"><summary>¿Alcanza con el celular y sin saber editar?</summary><div class="din"><p>Sí. Grabás con el celu y editás con CapCut o con el editor de Instagram o TikTok: cortar, poner texto y subtítulos. Calculá una tarde por semana para grabar los 3 reels y unos minutos por día para las historias.</p></div></details>
+      <details class="faq"><summary>¿Cómo sé si voy bien los primeros meses?</summary><div class="din"><p>Mirá la tabla de <a href="#numeros">cómo saber si vas bien</a>: cada reel tiene su número. Si alguno sube respecto de la semana anterior, vas bien, aunque las vistas sigan bajas.</p></div></details>
+    </div>
+    <div style="margin-top:34px"><a class="btn w" href="https://wa.me/34628034355?text=Hola%20Larry!%20Tengo%20una%20duda%20sobre%20la%20Estrategia%20Maestra" target="_blank" rel="noopener">Escribime por WhatsApp</a></div>
+  </div>
+</section>
+
+<section id="glosario">
+  <div class="in">
+    <p class="section-label">Palabras raras</p>
+    <h2 class="section-title">Glosario</h2>
+    <p class="section-lead">Las palabras <dfn data-g="glosario">subrayadas con puntitos</dfn> en toda la guía se explican si las tocás. Acá están todas juntas.</p>
+    <div class="glos" id="glos"></div>
+  </div>
+</section>
+
+<section class="conclusion">
+  <div class="in">
+    <h2>Esta estrategia no es para inspirarte.<br><span>Es para accionar.</span></h2>
+    <div class="conclusion-line"><strong>No busques perfección.</strong>Buscá claridad, constancia y coherencia.</div>
+    <div class="conclusion-line"><strong>Tu música merece ser escuchada.</strong>Tu contenido es el camino.</div>
+    <div class="conclusion-line" style="margin-top:8px">Vamos a construirlo juntos.</div>
+    <div class="conclusion-sig"><div class="sig-line"></div><img id="sigLogo" alt="Larry"><a class="h" href="https://www.instagram.com/larry.prod" target="_blank" rel="noopener">@larry.prod</a></div>
+  </div>
+</section>
+
+<div class="pager" aria-label="Paginación"><a class="pg prev" href="#p5"><small>← Anterior</small><b>21 días</b></a><a class="pg next" href="#p1"><small>Volver al inicio</small><b>Inicio</b></a></div>
+</main>
+
+<footer><span>Estrategia Maestra · Teoría &amp; Ejemplos</span><span>·</span><a href="https://www.instagram.com/larry.prod" target="_blank" rel="noopener">@larry.prod</a><span>·</span><span>Prod · Mix · Master</span></footer>
+<div id="pop" role="tooltip"></div>
+
+<script>
+/* ─── videos de ejemplo (Vimeo): id, título, por qué funciona, tipo de reel ─── */
+const V = [
+  ['1185454233', 'Gancho random + estética cuidada', 'Una imagen que no esperás y un video que se ve bien: frena el dedo antes de que entiendas por qué.', 'viral'],
+  ['1185454263', 'Gancho tipo chat de Snapchat', 'Un texto de chat arriba del video. Funciona si está muy pegado a lo que dice la letra.', 'viral'],
+  ['1185454275', 'Una afirmación que frena el scroll', 'Una frase fuerte sobre el tema de la canción. No hace falta que sea graciosa.', 'viral'],
+  ['1185454306', '«¿Cómo sonaría…?» con artistas conocidos', 'Entra por nombres que la gente ya conoce. Anda muy bien, pero tiene que estar bien editado.', 'viral'],
+  ['1185454334', 'Gancho random + diálogo', 'Una escena con diálogo que lleva a la canción. Clave: que tenga que ver con la letra.', 'viral'],
+  ['1185454358', 'Afirmación poética en la calle', 'Una frase con onda y la calle de escenario: ese lugar funciona muy bien.', 'viral'],
+  ['1185454446', 'Playback en la calle o el metro', 'Lo que engancha es la reacción de la gente que pasa. Sin reacciones, pierde fuerza.', 'viral'],
+  ['1185454475', 'Gancho random + se nota la calidad', 'Muestra que el tema suena profesional y que estás activo haciendo videos.', 'viral'],
+  ['1185454391', 'Playback que recrea el mood de la letra', 'No solo cantás: armás la escena que cuenta la canción.', 'conexion'],
+  ['1185454428', 'Versión en vivo con amigos', 'Gente disfrutando tu tema: el que mira quiere ser parte.', 'conexion'],
+  ['1185454490', 'Playback con cosas pasando', 'El audio en un cartel y cosas pasando mientras suena. Con subtítulos, siempre.', 'conexion'],
+  ['1185454508', 'Playback en un auto en movimiento', 'Movimiento + letra en pantalla: el video nunca se queda quieto.', 'conexion'],
+  ['1185454541', 'Playback haciendo cosas', 'No solo canta: hace algo y disfruta el tema. Eso es lo que se contagia.', 'conexion'],
+  ['1185454554', 'Playback que te mete en el mood', 'Ayuda a que el que mira entre en el clima de la canción.', 'conexion'],
+  ['1185454594', 'Mood total', 'Una situación que da ganas de vivir: el que mira quiere estar ahí.', 'conexion'],
+  ['1185454609', 'Playback en acción, sin parar', 'Sirviendo algo, moviéndose: la acción sostiene la atención.', 'conexion'],
+  ['1185454668', 'Playback + mood + estética', 'Todo del mismo mundo: colores, lugar y energía.', 'conexion'],
+  ['1185454456', 'Concierto con la letra subtitulada', 'Gente cantando tu tema: el que mira quiere ir a escucharlo.', 'conversion'],
+  ['1185454526', 'La maqueta en vivo + «¿la subo o no?»', 'Un pedido concreto al final: comentan y se quedan esperando el tema.', 'conversion'],
+  ['1185454689', 'Fragmento del videoclip con subtítulos grandes', 'La parte más fuerte del tema, lista para mandar a escucharlo.', 'conversion'],
+  ['1185454567', 'Versión en vivo sin autotune', 'Para raperos funciona mucho. Ideal para historias o YouTube.', 'extra'],
+  ['1185454629', 'Versión acústica', 'Siempre suma: entera en YouTube y en pedacitos en reels o historias.', 'extra'],
+  ['1185454654', 'Versión en vivo con mucho mood', 'Cuanto más clima, mejor: que den ganas de estar ahí.', 'extra'],
+];
+const esc = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+document.querySelectorAll('.video-grid[data-tipo]').forEach(grid => {
+  const lista = V.filter(v => v[3] === grid.dataset.tipo);
+  if (lista.length === 8) grid.classList.add('n4');
+  grid.innerHTML = lista.map(([id, t, d], i) =>
+    `<div class="yt-slot-wrap"><div class="yt-slot"><span class="yt-label">Ejemplo ${i + 1}</span>` +
+    `<iframe loading="lazy" src="https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${esc(t)}"></iframe></div>` +
+    `<div class="yt-caption"><strong>${esc(t)}</strong>${esc(d)}</div></div>`).join('');
+});
+
+document.getElementById("sigLogo").src = document.querySelector(".nav-logo img").src;
+
+/* ─── almacenamiento seguro (prefijo em:) ─── */
+const store = {
+  get(k, def) { try { const v = localStorage.getItem(k); return v === null ? def : JSON.parse(v); } catch (e) { return def; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+};
+
+/* ─── glosario: tocás la palabra y aparece ─── */
+const G = {
+  reel: ['Reel', 'Video vertical corto. Lo ve sobre todo gente que no te sigue.'],
+  historia: ['Historia', 'La publicación que dura 24 horas. La ven sobre todo tus seguidores.'],
+  distribuidora: ['Distribuidora', 'La página que sube tu tema a Spotify, Apple Music y el resto (por ejemplo DistroKid, ONErpm o Ditto).'],
+  algoritmo: ['Algoritmo', 'El sistema de cada red que decide a quién mostrarle tu video.'],
+  embudo: ['Embudo', 'El camino de «no te conoce» a «es fan». En cada paso hay menos gente, pero más interesada.'],
+  gancho: ['Gancho (hook)', 'Lo que pasa en el primer segundo para que no sigan de largo: un texto, una frase o una imagen.'],
+  hook: ['Hook visual', 'Lo que se ve mientras suena tu tema: la calle, el auto, una reacción. Hace que el mood se sienta.'],
+  cta: ['Llamado a la acción (CTA)', 'Lo que le pedís a la gente al final: que comente, que te siga o que vaya a escucharte. Siempre una sola cosa.'],
+  oyente: ['Oyente ideal', 'La persona a la que le cantás: qué edad tiene, qué le pasa, qué escucha. Lo definís en tu manual de marca.'],
+  presave: ['Pre-save', 'Guardar tu tema antes de que salga. El día del lanzamiento le aparece solo en su Spotify. Te lo da tu distribuidora.'],
+  oyentes: ['Oyentes mensuales', 'Cuántas personas distintas te escucharon en Spotify en los últimos 30 días.'],
+  sfa: ['Spotify for Artists', 'La app gratis de Spotify para artistas: ves tus números y cargás tu tema para las playlists antes de que salga.'],
+  playback: ['Playback', 'Cantar (o hacer que cantás) arriba de la canción grabada, sin sonido en vivo.'],
+  mood: ['Mood', 'El clima o la sensación que transmite la canción: nostalgia, fiesta, bronca, calma.'],
+  glosario: ['Así', 'Tocá cualquier palabra con puntitos y aparece qué significa.'],
+};
+document.getElementById('glos').innerHTML = Object.keys(G).filter(k => k !== 'glosario')
+  .map(k => `<div><b>${G[k][0]}</b><p>${G[k][1]}</p></div>`).join('');
+const pop = document.getElementById('pop');
+let popFor = null;
+const hidePop = () => { pop.style.display = 'none'; popFor = null; };
+document.querySelectorAll('dfn[data-g]').forEach(d => {
+  d.tabIndex = 0;
+  const show = e => {
+    e.stopPropagation();
+    if (popFor === d) { hidePop(); return; }
+    const g = G[d.dataset.g]; if (!g) return;
+    pop.innerHTML = `<b>${g[0]}</b>${g[1]}`; pop.style.display = 'block'; popFor = d;
+    const r = d.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight;
+    pop.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+    pop.style.top = (r.bottom + h + 10 < innerHeight ? r.bottom + 8 : Math.max(8, r.top - h - 8)) + 'px';
+  };
+  d.addEventListener('click', show);
+  d.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(e); } });
+});
+document.addEventListener('click', hidePop);
+addEventListener('scroll', hidePop, { passive: true });
+
+/* ─── checklists ─── */
+function checklist(box, key, onChange) {
+  const items = [...box.querySelectorAll('.check-item')];
+  // memoria por si el navegador no deja guardar (modo privado, iframe sin almacenamiento)
+  let mem = store.get(key, {});
+  const paint = () => {
+    items.forEach(it => { const on = !!mem[it.dataset.k]; it.classList.toggle('done', on); it.setAttribute('aria-checked', on); });
+    onChange(items.filter(i => i.classList.contains('done')).length, items.length);
+  };
+  items.forEach(it => {
+    it.setAttribute('role', 'checkbox');
+    it.addEventListener('click', () => { mem[it.dataset.k] = !mem[it.dataset.k]; store.set(key, mem); paint(); });
+  });
+  paint.reset = () => { mem = {}; store.set(key, mem); paint(); };
+  return paint;
+}
+// antes de subir
+const pintarAntes = checklist(document.getElementById('antesList'), 'em:antes', (n, t) => { document.getElementById('antesCount').textContent = n + ' de ' + t + (n === t ? ' · listo para subir' : ''); });
+document.querySelector('[data-reset="antesList"]').addEventListener('click', () => pintarAntes.reset());
+pintarAntes();
+// semanal: se reinicia cada lunes
+const lunes = (() => { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return d; })();
+const pad = n => String(n).padStart(2, '0');
+const WK = 'em:semana:' + lunes.getFullYear() + '-' + pad(lunes.getMonth() + 1) + '-' + pad(lunes.getDate());
+document.getElementById('wk').textContent = 'Semana del ' + lunes.getDate() + '/' + (lunes.getMonth() + 1);
+checklist(document.getElementById('weekly'), WK, (n, t) => { document.getElementById('wkc').textContent = n + ' de ' + t + (n === t ? ' · ¡semana completa!' : ''); })();
+
+/* ─── aparición suave ─── */
+const rvs = document.querySelectorAll('.rv');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } }), { threshold: 0.08 });
+  rvs.forEach(el => io.observe(el));
+} else rvs.forEach(el => el.classList.add('vis'));
+
+/* ─── páginas: una a la vez (#p1…#p6 o cualquier #id de adentro) ─── */
+const pages = [...document.querySelectorAll('.page')];
+const tabs = document.getElementById('tabs');
+const links = [...tabs.querySelectorAll('a')];
+const prog = document.getElementById('progress');
+const nav = document.getElementById('nav');
+function ir(hash, suave) {
+  const id = (hash || '').replace('#', '') || 'p1';
+  let el = null; try { el = document.getElementById(decodeURIComponent(id)); } catch (e) {}
+  const page = (el && el.closest('.page')) || pages[0];
+  const n = +page.dataset.p;
+  const cambio = !page.classList.contains('on');
+  pages.forEach(p => p.classList.toggle('on', p === page));
+  links.forEach((a, k) => a.classList.toggle('on', k === n - 1));
+  const a = links[n - 1];
+  tabs.scrollTo({ left: a.offsetLeft - (tabs.clientWidth - a.offsetWidth) / 2, behavior: suave ? 'smooth' : 'auto' });
+  prog.style.width = (n / pages.length * 100) + '%';
+  document.title = page.dataset.t + ' · Estrategia Maestra';
+  store.set('em:tab', 'p' + n);
+  if (el && el !== page) {
+    setTimeout(() => {
+      const y = el.getBoundingClientRect().top + window.pageYOffset - nav.offsetHeight + 1;
+      window.scrollTo({ top: Math.max(0, y), behavior: suave && !cambio ? 'smooth' : 'auto' });
+    }, cambio ? 30 : 0);
+  } else window.scrollTo({ top: 0, behavior: 'auto' });
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  e.preventDefault();
+  const h = a.getAttribute('href');
+  try { history.pushState(null, '', h); } catch (err) {}
+  ir(h, true);
+});
+addEventListener('popstate', () => ir(location.hash));
+ir(location.hash || ('#' + store.get('em:tab', 'p1')));
+</script>
+</body>
+</html>
