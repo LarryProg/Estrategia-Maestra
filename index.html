@@ -572,7 +572,9 @@
 .a-eq > div b { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 400; font-size: 64px; line-height: .9; }
 .a-eq > div span { font-size: 12.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--off); font-weight: 600; }
 .a-eq > i { font-style: normal; font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 40px; color: var(--dim); }
-.a-eq .a-eq-r b { background: linear-gradient(120deg, var(--acc), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 80px; }
+.a-eq .a-eq-c b, .a-eq .a-eq-c span { color: #38d9f5 !important; -webkit-text-fill-color: #38d9f5; }
+.a-eq .a-eq-r b, .a-eq .a-eq-r span { color: #7fff5f !important; -webkit-text-fill-color: #7fff5f; }
+.a-eq .a-eq-r b { font-size: 80px; }
 .a-eq p { flex: 1 1 260px; color: var(--off); font-size: 17px; line-height: 1.6; margin-left: 10px; }
 
 /* ── Parte 2 ── */
@@ -734,7 +736,7 @@
 .b-arma{background: transparent; }
 .b-reel{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center;margin-bottom:56px}
 .b-phone-col{display:flex;flex-direction:column;align-items:center;gap:14px}
-.b-phone{position:relative;width:270px;aspect-ratio:9/17.5;border-radius:38px;border:7px solid #2a2a2e;box-shadow:0 0 0 1px #3a3a40,0 30px 80px -20px rgba(255,255,255,.35),0 0 60px -10px rgba(255,255,255,.25);overflow:hidden;
+.b-phone{position:relative;width:270px;aspect-ratio:9/17.5;border-radius:38px;border:7px solid #2a2a2e;box-shadow:0 0 0 1px #3a3a40;overflow:hidden;
   background:linear-gradient(170deg,#1c1c20 0%,#26262b 55%,#3a3a40 100%)}
 .b-phone::before{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:18px;border-radius:12px;background:#000;z-index:5}
 .b-scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
@@ -747,7 +749,7 @@
 .b-l-hook i{background:var(--pink)}
 .b-l-hv{top:30%;left:12px;font-size:12.5px;color:#fff;background:rgba(0,0,0,.45);padding:5px 9px 5px 5px;border-radius:999px;border:1.5px solid var(--green)}
 .b-l-hv i{background:var(--green)}
-.b-l-sub{bottom:96px;left:12px;right:12px;justify-content:center;font-size:15px;color:var(--yellow);text-shadow:0 2px 6px #000,0 0 2px #000}
+.b-l-sub{bottom:108px;left:12px;right:12px;justify-content:center;font-size:15px;color:var(--yellow);text-shadow:0 2px 6px #000,0 0 2px #000}
 .b-l-sub i{background:var(--yellow)}
 .b-l-cta{bottom:52px;left:12px;right:12px;justify-content:center;background:var(--violet);color:#120a2a;padding:8px 10px;border-radius:999px;font-size:13px}
 .b-l-cta i{background:#fff}
@@ -862,7 +864,7 @@
 .b-story-lead{font-size:clamp(17px,1.6vw,19px);color:var(--off);max-width:760px;line-height:1.65;margin-bottom:26px}
 .b-arc{position:relative;height:240px;margin:0 6px 4px}
 .b-arc-svg{width:100%;height:210px;display:block}
-.b-arc-line{filter:drop-shadow(0 0 8px rgba(255,255,255,.6))}
+.b-arc-line{filter:none}
 .b-dot{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:var(--c);color:#000;font-weight:800;font-size:18px;display:grid;place-items:center;box-shadow:0 0 0 5px rgba(0,0,0,.6),0 0 24px var(--c)}
 .b-arc-axis{position:relative;height:24px;border-top:1px solid var(--line2);font-size:12.5px;color:var(--dim);font-weight:600}
 .b-arc-axis span{position:absolute;top:6px;transform:translateX(-50%);white-space:nowrap}
@@ -885,7 +887,7 @@
 #p3 .b-rules .mb p{font-size:15px}
 #p3 .b-rules .mb p.t{font-size:12px}
 #p3 .b-rules .mb > div{border-radius:10px}
-.b-bonus{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:30px;padding:24px 26px;border-radius:20px;background:linear-gradient(90deg,rgba(255,210,63,.12),rgba(255,255,255,.12));border:1px solid rgba(255,210,63,.4)}
+.b-bonus{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:30px;padding:24px 26px;border-radius:20px;background:#161616;border:1px solid rgba(255,210,63,.55)}
 .b-bonus-tx{flex:1 1 300px}
 .b-bonus-tag{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:6px}
 .b-bonus-tx p{font-size:17px;color:var(--off);line-height:1.5}
@@ -1006,19 +1008,50 @@
 .c-vs-i.hist { background: linear-gradient(135deg, #161616, #161616); border: 1px solid color-mix(in srgb, var(--pink) 50%, transparent); }
 .c-vs-i.hist b { color: #ffd6ea; }
 
-.c-stories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.c-story { --sc: var(--pink); position: relative; border-radius: 26px; padding: 22px 20px 22px; min-height: 440px; display: flex; flex-direction: column; overflow: hidden;
-  background: linear-gradient(180deg, #1a1a1a, #121212);
-  border: 1.5px solid color-mix(in srgb, var(--sc) 40%, transparent); transition: transform .25s, border-color .25s; }
-.c-story:hover { transform: translateY(-5px); border-color: var(--sc); }
-.c-story.s1 { --sc: var(--pink); } .c-story.s2 { --sc: var(--violet); } .c-story.s3 { --sc: var(--yellow); } .c-story.s4 { --sc: var(--cyan); }
-.c-sbar { height: 3px; border-radius: 3px; background: rgba(255,255,255,.18); margin-bottom: 20px; }
-.c-sbar i { display: block; height: 100%; border-radius: 3px; background: var(--sc); }
-.c-sic { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; font-size: 28px; background: rgba(255,255,255,.025); margin-bottom: 16px; }
-.c-sk { font-size: 12.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--sc); margin-bottom: 6px; }
-.c-story h3 { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 400; font-size: 40px; letter-spacing: 1px; line-height: 1; margin-bottom: 12px; }
-.c-story > p:not(.c-sk) { color: var(--off); font-size: 16px; line-height: 1.6; flex: 1; }
-.c-bub { margin-top: 16px; padding: 12px 15px; border-radius: 16px 16px 16px 4px; background: #1d1d1d; color: #f1f1f1; font-size: 15px; font-style: italic; line-height: 1.45; }
+/* historias en formato celular (pedido de Larry): 9:16, esquinas de pantalla, barritas, avatar, sticker */
+.c-stories, .c-seq { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.c-story, .c-sq { position: relative; aspect-ratio: 9 / 16; display: flex; flex-direction: column; padding: 12px 14px 14px;
+  background: #151515; border: 1px solid rgba(192,192,192,.42); border-radius: 26px; overflow: hidden; }
+.c-sq.end { border-color: rgba(240,237,232,.75); }
+.c-sbars { display: flex; gap: 3px; }
+.c-sbars i { flex: 1; height: 3px; border-radius: 2px; background: rgba(240,237,232,.22); }
+.c-sbars i.on { background: #F0EDE8; }
+.c-shead { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.c-sav { width: 30px; height: 30px; border-radius: 999px; flex: none; display: grid; place-items: center; background: #262626; border: 1.5px solid #C0C0C0;
+  font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; font-size: 12px; letter-spacing: .5px; color: #F0EDE8; }
+.c-shead b { font-family: 'LM', 'Courier New', monospace; font-size: 13px; font-weight: 700; color: #F0EDE8; }
+.c-shead small { font-family: 'LM', 'Courier New', monospace; font-size: 12px; color: var(--dim); }
+.c-sx { margin-left: auto; color: var(--dim); font-size: 14px; }
+.c-sbody { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 14px 4px 6px; }
+.c-sic { font-size: 34px; line-height: 1; margin-bottom: 12px; }
+.c-sk { font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C0C0C0; margin-bottom: 6px; }
+.c-story h3, .c-sq h4 { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 600; font-size: 38px; letter-spacing: 1px; line-height: 1; margin-bottom: 10px; color: #F0EDE8; }
+.c-sq h4 { font-size: 36px; }
+.c-stx { color: var(--off); font-size: 15.5px; line-height: 1.55; }
+.c-bub { align-self: center; max-width: 94%; margin: 4px 0 12px; padding: 10px 14px; border-radius: 10px; background: #F0EDE8; color: #050505;
+  font-size: 15px; font-weight: 700; line-height: 1.4; text-align: center; transform: rotate(-2deg); }
+.c-sfoot { display: flex; align-items: center; gap: 12px; }
+.c-sfoot span { flex: 1; padding: 8px 14px; border: 1px solid rgba(240,237,232,.45); border-radius: 999px; font-size: 13px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.c-sfoot i { font-style: normal; font-size: 19px; color: #F0EDE8; line-height: 1; }
+.c-swhint { display: none; }
+
+/* semana tipo: 7 días */
+.c-7w { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.c-7d { --wc: rgba(192,192,192,.45); display: flex; flex-direction: column; gap: 12px; padding: 16px 12px 18px; min-height: 220px;
+  background: #141414; border: 1px solid rgba(192,192,192,.32); border-top: 3px solid var(--wc); }
+.c-7d.off { background: #0f0f10; border-style: dashed; border-top-style: dashed; }
+.c-7d:has(.c-7ch.v) { --wc: var(--green); } .c-7d:has(.c-7ch.c) { --wc: var(--orange); } .c-7d:has(.c-7ch.cv) { --wc: var(--red); }
+.c-7dn { display: flex; flex-direction: column; gap: 2px; }
+.c-7dn b { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 600; font-size: 34px; line-height: 1; letter-spacing: 1px; color: #F0EDE8; }
+.c-7dn span { font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); }
+.c-7ch { align-self: flex-start; font-family: 'LM', 'Courier New', monospace; font-size: 12px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; padding: 5px 8px; line-height: 1.25; }
+.c-7ch.v { background: var(--green); color: #061a00; }
+.c-7ch.c { background: var(--orange); color: #2a1600; }
+.c-7ch.cv { background: var(--red); color: #1a0006; }
+.c-7ch.h { background: transparent; color: #F0EDE8; border: 1px solid rgba(240,237,232,.55); }
+.c-7ch.t { background: transparent; color: var(--dim); border: 1px dashed rgba(192,192,192,.45); }
+.c-7dp { color: var(--off); font-size: 15px; line-height: 1.5; }
+.c-7d:not(.off) .c-7dp::before { content: '📱 '; }
 
 .c-rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px; }
 .c-r { padding: 24px 24px 26px; border-radius: 18px; background: #161616; border: 1px solid rgba(255,255,255,.08); border-top: 4px solid var(--rc); }
@@ -1027,22 +1060,6 @@
 .c-big { display: block; font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 400; font-size: 40px; line-height: 1; letter-spacing: 1px; margin-bottom: 10px; color: var(--white); }
 .c-r p:last-child { color: var(--off); font-size: 16px; line-height: 1.6; }
 
-.c-mix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.c-mx { --mc: var(--green); padding: 22px 20px; border-radius: 18px; background: linear-gradient(160deg, #171717, #141414 70%); border: 1px solid color-mix(in srgb, var(--mc) 32%, transparent); display: grid; gap: 12px; align-content: start; }
-.c-mx.c { --mc: var(--orange); } .c-mx.cv { --mc: var(--red); } .c-mx.f { --mc: var(--pink); }
-.c-mxd { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 30px; letter-spacing: 1px; line-height: 1; color: var(--white); }
-.c-mx .c-ch { justify-self: start; }
-.c-mxp { color: var(--off); font-size: 16px; line-height: 1.55; }
-
-.c-seq { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.c-sq { padding: 22px 20px; border-radius: 20px; background: #161616; border: 1px solid rgba(255,255,255,.08); }
-.c-sq.end { background: linear-gradient(150deg, #161616, #161616); border-color: color-mix(in srgb, var(--pink) 45%, transparent); }
-.c-sqbar { display: flex; gap: 4px; margin-bottom: 16px; }
-.c-sqbar i { flex: 1; height: 3px; border-radius: 3px; background: rgba(255,255,255,.15); }
-.c-sqbar i.on { background: linear-gradient(90deg, var(--pink), var(--violet)); }
-.c-sq .c-sk { color: var(--pink); }
-.c-sq h4 { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 400; font-size: 30px; letter-spacing: 1px; line-height: 1; margin-bottom: 8px; }
-.c-sq p:last-child { color: var(--off); font-size: 16px; line-height: 1.55; }
 
 /* ─────────── PARTE 5 ─────────── */
 .c-formula { display: flex; align-items: center; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
@@ -1177,7 +1194,18 @@
 
 /* ─── responsive ─── */
 @media (max-width: 1100px) {
-  .c-stories, .c-mix, .c-seq, .c-weeks, .c-steps { grid-template-columns: repeat(2, 1fr); }
+  .c-weeks, .c-steps { grid-template-columns: repeat(2, 1fr); }
+  /* historias: carrusel que se desliza, como en el celular */
+  .c-swipe { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 10px; scrollbar-width: thin; }
+  .c-swipe > * { flex: 0 0 min(280px, 76vw); scroll-snap-align: start; }
+  .c-swhint { display: block; margin-top: 8px; font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); }
+  /* semana: una fila por día */
+  .c-7w { grid-template-columns: 1fr; gap: 6px; }
+  .c-7d { display: grid; grid-template-columns: 74px 1fr; gap: 6px 12px; align-items: start; min-height: 0; padding: 14px 14px 14px 12px; border-top-width: 1px; border-top-color: rgba(192,192,192,.32); border-left: 3px solid var(--wc); }
+  .c-7ch { justify-self: start; }
+  .c-7d.off { border-left-style: dashed; }
+  .c-7dn { grid-row: span 2; }
+  .c-7dn b { font-size: 30px; }
   .c-tl-legend { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 900px) {
@@ -1199,8 +1227,7 @@
   .c-d.launch em { font-size: 32px; }
 }
 @media (max-width: 560px) {
-  .c-stories, .c-mix, .c-seq, .c-weeks, .c-steps, .c-tl-legend { grid-template-columns: 1fr; }
-  .c-story { min-height: 0; }
+  .c-weeks, .c-steps, .c-tl-legend { grid-template-columns: 1fr; }
   .c-story h3 { font-size: 36px; }
   .c-tl { padding: 22px 12px 20px; }
   .c-tl-brackets, .c-tl-bar { gap: 2px; }
@@ -1238,8 +1265,6 @@
 #p6 .pi.sp { background: #1DB954; border-radius: 50%; }
 
 #p6 .d-lnk { color: var(--acc2); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; font-weight: 600; }
-#p6 .d-ori { display: inline-block; font-style: normal; font-size: 12px; letter-spacing: .4px; padding: 1px 7px; border-radius: 99px; color: var(--sy); background: rgba(255,210,63,.12); border: 1px solid rgba(255,210,63,.3); font-weight: 600; vertical-align: 1px; }
-#p6 .d-mini { font-size: 12.5px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; color: var(--dim); margin-bottom: 10px; }
 #p6 .d-sec .section-lead { font-size: 18px; }
 
 /* cabecera */
@@ -1248,137 +1273,6 @@
 #p6 .d-heroflow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 22px 0 6px; }
 #p6 .d-heroflow span { font-size: 15px; font-weight: 600; padding: 8px 13px; border-radius: 99px; color: #fff; background: rgba(255,255,255,.025); border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); }
 #p6 .d-heroflow i { color: var(--dim); font-style: normal; }
-
-/* ─── calculadora ─── */
-#p6 .d-calc { margin-top: 26px; border: 1px solid color-mix(in srgb, var(--acc) 35%, transparent); background: linear-gradient(160deg, #121214, #0f0f11 60%, #0f0f11); border-radius: 18px; padding: 22px; box-shadow: 0 30px 80px -40px rgba(255,255,255,.45); }
-#p6 .d-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
-#p6 .d-tab { min-width: 0; min-height: 54px; border-radius: 12px; border: 1px solid var(--line2); background: rgba(255,255,255,.03); font-weight: 700; font-size: 16px; color: var(--off); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6px 8px; line-height: 1.2; transition: background .15s, border-color .15s; }
-#p6 .d-tab small { font-weight: 500; font-size: 12px; color: var(--dim); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-#p6 .d-tab:hover { border-color: color-mix(in srgb, var(--acc) 50%, transparent); }
-#p6 .d-tab.on { background: var(--acc); border-color: var(--acc); color: #06102a; }
-#p6 .d-tab.on small { color: rgba(14,14,16,.75); }
-#p6 .d-tabcmp.on { background: var(--acc2); border-color: var(--acc2); }
-
-#p6 .d-toprow { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: flex-end; margin-bottom: 16px; }
-#p6 .d-name { flex: 1 1 260px; display: grid; gap: 6px; }
-#p6 .d-name span, #p6 .d-typel { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; color: var(--dim); }
-#p6 .d-name input { height: 50px; }
-#p6 .d-type { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-#p6 .d-typel { width: 100%; }
-#p6 .d-type button { min-height: 46px; padding: 0 16px; border-radius: 99px; font-weight: 700; font-size: 15px; border: 1px solid var(--c); color: var(--c); background: transparent; }
-#p6 .d-type .t-viral { --c: var(--green); } #p6 .d-type .t-con { --c: var(--orange); } #p6 .d-type .t-conv { --c: var(--red); }
-#p6 .d-type button.on { background: var(--c); color: #0a0a0a; }
-
-#p6 .d-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-#p6 .d-g { border: 1px solid color-mix(in srgb, var(--gc) 30%, transparent); background: #141416; border-radius: 14px; padding: 14px 16px 16px; min-width: 0; }
-#p6 .d-g legend { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 24px; letter-spacing: 1px; color: var(--gc); padding: 0 6px; margin-left: -6px; }
-#p6 .d-gsub { font-size: 14px; color: var(--off); margin: -2px 0 10px; }
-#p6 .d-gf { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
-#p6 .d-f { display: grid; gap: 5px; align-content: end; }
-#p6 .d-f span { font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3; }
-#p6 .d-f small { font-weight: 400; font-size: 12.5px; color: var(--dim); }
-#p6 .d-calc input { width: 100%; height: 52px; border-radius: 10px; border: 1px solid var(--line2); background: #0a0a0c; color: #fff; font: 600 20px/1 'LM', 'Courier New', monospace; padding: 0 14px; outline: none; transition: border-color .15s, box-shadow .15s; }
-#p6 .d-calc input::placeholder { color: #555; }
-#p6 .d-calc input:focus { border-color: var(--acc); box-shadow: 0 0 0 3px color-mix(in srgb, var(--acc) 25%, transparent); }
-#p6 .d-g input:not(:placeholder-shown) { border-color: color-mix(in srgb, var(--gc) 55%, transparent); }
-#p6 .d-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-#p6 .d-btn { min-height: 48px; padding: 0 18px; border-radius: 12px; font-weight: 700; font-size: 15px; border: 1px solid var(--line2); background: rgba(255,255,255,.04); }
-#p6 .d-btn:hover { background: rgba(255,255,255,.09); }
-#p6 .d-demo { border-color: color-mix(in srgb, var(--acc2) 50%, transparent); color: var(--acc2); }
-#p6 .d-clear { color: var(--sr); border-color: rgba(255,77,109,.4); }
-#p6 .d-note { margin-top: 16px; font-size: 15px; color: var(--off); line-height: 1.7; }
-
-/* resultados */
-#p6 .d-out { margin-top: 22px; }
-#p6 .d-empty { display: flex; gap: 16px; align-items: center; padding: 22px; border-radius: 14px; border: 1px dashed var(--line2); color: var(--off); font-size: 16px; }
-#p6 .d-empty span { font-size: 34px; }
-#p6 .d-res { display: grid; grid-template-columns: 280px 1fr; gap: 14px; }
-#p6 .d-score { --col: var(--sr); border-radius: 14px; padding: 22px; background: #121214; border: 1px solid color-mix(in srgb, var(--col) 35%, transparent); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
-#p6 .d-score.y { --col: var(--sy); } #p6 .d-score.g { --col: var(--sg); } #p6 .d-score.gg { --col: var(--sgg); }
-#p6 .d-ring { width: 150px; height: 150px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--col) calc(var(--p) * 1%), rgba(255,255,255,.08) 0); }
-#p6 .d-ring > div { width: 118px; height: 118px; border-radius: 50%; background: #111113; display: grid; place-content: center; }
-#p6 .d-ring b { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 400; font-size: 58px; line-height: .9; color: var(--col); }
-#p6 .d-ring small { font-size: 13px; color: var(--dim); }
-#p6 .d-stl { font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; color: var(--dim); }
-#p6 .d-stv { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 34px; letter-spacing: 1px; color: var(--col); line-height: 1.1; }
-#p6 .d-sts { font-size: 15px; color: var(--off); }
-
-#p6 .d-funnel { border-radius: 14px; padding: 18px 20px; background: #121214; border: 1px solid var(--line2); display: flex; flex-direction: column; align-items: center; gap: 7px; }
-#p6 .d-funnel .d-mini { align-self: flex-start; }
-#p6 .d-fs { --col: var(--sr); width: var(--w); min-width: 250px; position: relative; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); overflow: hidden; }
-#p6 .d-fs.y { --col: var(--sy); } #p6 .d-fs.g { --col: var(--sg); } #p6 .d-fs.gg { --col: var(--sgg); } #p6 .d-fs.na { --col: #555; }
-#p6 .d-fill { position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(90deg, rgba(255,255,255,.025), rgba(255,255,255,.025)); border-right: 2px solid var(--col); z-index: 0; transition: width .5s; }
-#p6 .d-fsb { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 14px; }
-#p6 .d-fsn b { font-size: 16px; display: block; line-height: 1.2; }
-#p6 .d-fsn b::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--sc); margin-right: 8px; vertical-align: 1px; }
-#p6 .d-fsn small { font-size: 13px; color: var(--off); }
-#p6 .d-fsv { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 28px; line-height: 1; color: var(--col); text-align: right; }
-#p6 .d-fsv em { display: block; font: 600 12px/1.2 'LM', 'Courier New', monospace; font-style: normal; letter-spacing: .5px; }
-#p6 .d-fs.na .d-fsv { font: 600 13px 'LM', 'Courier New', monospace; color: var(--dim); }
-#p6 .d-fs.first { box-shadow: 0 0 0 2px var(--col), 0 0 24px -4px var(--col); }
-#p6 .d-fs.first .d-fsn b::after { content: '👉 empezá acá'; font-size: 12px; font-weight: 700; color: #0a0a0a; background: var(--col); padding: 2px 8px; border-radius: 99px; margin-left: 8px; vertical-align: 1px; }
-
-#p6 .d-small { margin-top: 12px; font-size: 15px; color: var(--off); padding: 10px 14px; border-radius: 10px; background: rgba(255,210,63,.07); border: 1px solid rgba(255,210,63,.2); }
-#p6 .d-diag { --col: var(--sr); margin-top: 14px; border-radius: 14px; padding: 22px 24px; background: linear-gradient(120deg, #121214, #121214 70%); border: 1px solid color-mix(in srgb, var(--col) 40%, transparent); border-left: 5px solid var(--col); }
-#p6 .d-diag.y { --col: var(--sy); } #p6 .d-diag.gg, #p6 .d-diag.g { --col: var(--sg); }
-#p6 .d-dk { font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--col); }
-#p6 .d-dk b { color: var(--col); }
-#p6 .d-diag h3 { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 400; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.05; margin: 6px 0 8px; }
-#p6 .d-dw { font-size: 17px; color: var(--off); max-width: 820px; }
-#p6 .d-diag ol { list-style: none; counter-reset: dx; display: grid; gap: 10px; margin-top: 14px; }
-#p6 .d-diag li { counter-increment: dx; position: relative; padding: 12px 14px 12px 52px; background: rgba(255,255,255,.04); border-radius: 10px; font-size: 16.5px; line-height: 1.5; }
-#p6 .d-diag li::before { content: counter(dx); position: absolute; left: 12px; top: 10px; width: 28px; height: 28px; border-radius: 50%; background: var(--col); color: #0a0a0a; display: grid; place-items: center; font-weight: 800; font-size: 14px; }
-#p6 .d-dfoot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; margin-top: 14px; font-size: 15px; color: var(--dim); }
-
-#p6 .d-mets { margin-top: 18px; display: grid; gap: 18px; }
-#p6 .d-mgt { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 24px; letter-spacing: 1px; color: var(--sc); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-#p6 .d-mgt::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.025); }
-#p6 .d-mgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-#p6 .d-m { --col: var(--sr); border-radius: 12px; padding: 14px 16px; background: #141416; border: 1px solid rgba(255,255,255,.07); border-top: 3px solid var(--col); }
-#p6 .d-m.y { --col: var(--sy); } #p6 .d-m.g { --col: var(--sg); } #p6 .d-m.gg { --col: var(--sgg); }
-#p6 .d-m.key { box-shadow: 0 0 0 1px color-mix(in srgb, var(--acc2) 60%, transparent); background: #141416; }
-#p6 .d-mh { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; font-size: 15px; font-weight: 600; }
-#p6 .d-pill { font-style: normal; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 99px; background: var(--col); color: #0a0a0a; white-space: nowrap; }
-#p6 .d-mv { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 44px; line-height: 1; margin: 8px 0 10px; color: #fff; }
-#p6 .d-mv small { font-family: 'LM', 'Courier New', monospace; font-size: 15px; color: var(--dim); margin-left: 4px; font-weight: 600; }
-#p6 .d-meter { position: relative; display: flex; height: 10px; border-radius: 99px; overflow: visible; gap: 2px; }
-#p6 .d-meter i { height: 100%; opacity: .55; }
-#p6 .d-meter i.r { width: 30%; background: var(--sr); border-radius: 99px 0 0 99px; }
-#p6 .d-meter i.y { width: 25%; background: var(--sy); }
-#p6 .d-meter i.g { width: 30%; background: var(--sg); }
-#p6 .d-meter i.gg { width: 15%; background: var(--sgg); border-radius: 0 99px 99px 0; }
-#p6 .d-meter b { position: absolute; top: 50%; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid #0a0a0a; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--col); }
-#p6 .d-mref { font-size: 12.5px; color: var(--dim); margin-top: 9px; }
-#p6 .d-mkey { font-size: 13.5px; font-weight: 700; color: var(--acc2); margin-top: 6px; }
-#p6 .d-mw { font-size: 14.5px; color: var(--off); margin-top: 6px; line-height: 1.5; }
-
-/* comparar */
-#p6 .d-cmp { margin-top: 4px; }
-#p6 .d-win { display: flex; gap: 16px; align-items: center; padding: 18px 22px; border-radius: 14px; background: linear-gradient(120deg, rgba(255,210,63,.14), #121214 70%); border: 1px solid rgba(255,210,63,.35); margin-bottom: 14px; }
-#p6 .d-win > span { font-size: 40px; }
-#p6 .d-win h3 { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 400; font-size: 32px; line-height: 1.05; color: var(--sy); }
-#p6 .d-win p:last-child { font-size: 16px; color: var(--off); }
-#p6 .d-win .d-mini { margin-bottom: 2px; }
-#p6 .d-cmpwrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--line2); }
-#p6 .d-ctable { width: 100%; border-collapse: collapse; min-width: 520px; background: #121214; }
-#p6 .d-ctable th, #p6 .d-ctable td { padding: 11px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,.06); font-size: 15.5px; white-space: nowrap; }
-#p6 .d-ctable th { background: #18181b; font-size: 15px; vertical-align: bottom; color: #fff; text-transform: none; letter-spacing: 0; }
-#p6 .d-ctable th small { display: block; font-weight: 500; font-size: 12.5px; color: var(--dim); white-space: normal; max-width: 180px; }
-#p6 .d-ctable th.best { color: var(--sy); }
-#p6 .d-ctable th.best b::after { content: ' 🏆'; }
-#p6 .d-ctable td:first-child { color: var(--off); font-weight: 500; position: sticky; left: 0; background: #121214; }
-#p6 .d-ctable tr.stg td { background: rgba(255,255,255,.06); }
-#p6 .d-ctable tr.stg td:first-child { color: #fff; font-weight: 700; background: #161a24; }
-#p6 .d-ctable tr.tot td { font-size: 18px; font-weight: 800; background: rgba(255,255,255,.05); }
-#p6 .d-ctable tr.tot td:first-child { color: #fff; background: #1b1b1f; }
-#p6 .d-ctable td.top { font-weight: 800; color: #fff; }
-#p6 .d-ctable td.top i { color: var(--sy); font-style: normal; }
-#p6 .d-ctable td.na { color: #555; }
-#p6 .d-ctable td small { font-size: 12px; color: var(--dim); margin-left: 3px; }
-#p6 .d-cd { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; background: #555; }
-#p6 .d-cd.r { background: var(--sr); } #p6 .d-cd.y { background: var(--sy); } #p6 .d-cd.g { background: var(--sg); } #p6 .d-cd.gg { background: var(--sgg); } #p6 .d-cd.na { display: none; }
-#p6 .d-tchip { display: inline-block; margin-top: 4px; font-size: 11.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; color: #0a0a0a; }
-#p6 .d-tchip.t-viral { background: var(--green); } #p6 .d-tchip.t-conexion { background: var(--orange); } #p6 .d-tchip.t-conversion { background: var(--red); }
 
 /* ─── dónde sacar los números ─── */
 #p6 .d-plats { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 14px; }
@@ -1473,16 +1367,10 @@
 
 /* ─── responsive ─── */
 @media (max-width: 1000px) {
-  #p6 .d-res { grid-template-columns: 1fr; }
-  #p6 .d-score { flex-direction: row; text-align: left; }
-  #p6 .d-mgrid { grid-template-columns: 1fr 1fr; }
   #p6 .d-pieces { grid-template-columns: 1fr 1fr; }
   #p6 .d-weeks { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
-  #p6 .d-calc { padding: 14px; border-radius: 14px; margin-left: -6px; margin-right: -6px; }
-  #p6 .d-tabs { grid-template-columns: repeat(2, 1fr); }
-  #p6 .d-groups { grid-template-columns: 1fr; }
   #p6 .d-ppgrid, #p6 .d-when { grid-template-columns: 1fr; }
   #p6 .d-pp { padding: 18px 16px; }
   #p6 .d-map dl > div { grid-template-columns: 1fr; gap: 2px; }
@@ -1494,23 +1382,200 @@
   #p6 .d-bseg.s2 b::after { content: ' · 🚀 día 14 sale'; color: var(--yellow); font-size: 13px; }
 }
 @media (max-width: 560px) {
-  #p6 .d-gf { grid-template-columns: 1fr 1fr; }
-  #p6 .d-f span { font-size: 14.5px; }
-  #p6 .d-mgrid, #p6 .d-pieces, #p6 .d-weeks { grid-template-columns: 1fr; }
-  #p6 .d-score { padding: 16px; gap: 14px; }
-  #p6 .d-ring { width: 112px; height: 112px; flex: none; }
-  #p6 .d-ring > div { width: 88px; height: 88px; }
-  #p6 .d-ring b { font-size: 44px; }
-  #p6 .d-fs { width: 100% !important; min-width: 0; }
-  #p6 .d-funnel { padding: 14px; }
-  #p6 .d-diag { padding: 18px 16px; }
-  #p6 .d-diag li { font-size: 16px; padding-left: 48px; }
+  #p6 .d-pieces, #p6 .d-weeks { grid-template-columns: 1fr; }
   #p6 .d-plat { flex: 1 1 calc(50% - 10px); padding-right: 10px; font-size: 15px; }
   #p6 .d-plat:last-child { flex-basis: 100%; }
   #p6 .d-steps li { font-size: 16.5px; }
-  #p6 .d-win { padding: 16px; }
-  #p6 .d-empty { font-size: 15.5px; }
 }
+
+/* ── css/d2.css ── */
+/* ═══ Parte 6 · Diagnóstico de Métricas (herramienta de Larry) · todo con prefijo dm- ═══
+   Estética de la guía: Oswald (LD) para títulos y números, Space Mono (LM) para leer, cajas rectas con borde plateado,
+   fondo de caja más claro que la página. Color solo de semáforo (rojo crítico · naranja flojo · azul bien · verde excelente). */
+#d-calc {
+  --dm-red: #ff4d6d; --dm-orange: #ffaa33; --dm-blue: #7fb2ff; --dm-green: #7fff5f;
+  --dm-box: #0b0b0c; --dm-tile: #121214; --dm-in: #18181b;
+  --dm-bd: rgba(192,192,192,.32); --dm-sep: rgba(192,192,192,.20);
+  --dm-txt: #e2e0dc; --dm-dim: #a9a8a5;
+}
+#d-calc .dm, #d-calc .dm-histsec { margin-top: 30px; background: var(--dm-box); border: 1px solid var(--dm-bd); padding: 26px; scroll-margin-top: 84px; }
+#d-calc .dm-histsec { padding-top: 22px; }
+#d-calc .dm :is(h3, h4), #d-calc .dm-histsec h3 { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; line-height: 1.05; color: var(--white); }
+
+/* cabecera de la herramienta */
+#d-calc .dm-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-bottom: 16px; border-bottom: 1px solid var(--dm-sep); }
+#d-calc .dm-kick { font-family: 'LM', 'Courier New', monospace; font-size: 12.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--dm-dim); }
+#d-calc .dm-kick b { color: var(--white); letter-spacing: 1px; }
+#d-calc .dm-mini { min-height: 44px; padding: 0 16px; background: transparent; border: 1px solid var(--dm-bd); color: var(--dm-txt); font-family: 'LM', 'Courier New', monospace; font-size: 12.5px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
+#d-calc .dm-mini:hover { border-color: var(--white); color: var(--white); }
+#d-calc .dm-intro { margin: 18px 0 22px; font-size: 16px; line-height: 1.7; color: var(--dm-txt); max-width: 860px; }
+
+/* pasos */
+#d-calc .dm-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--dm-sep); border: 1px solid var(--dm-sep); margin-bottom: 26px; }
+#d-calc .dm-step { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 64px; padding: 12px 16px; background: var(--dm-tile); border: 0; color: var(--dm-txt); text-align: left; cursor: pointer; }
+#d-calc .dm-sn { font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; color: var(--dm-dim); }
+#d-calc .dm-stt { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 600; font-size: 19px; letter-spacing: 1.5px; }
+#d-calc .dm-step:hover { background: #1f1f23; }
+#d-calc .dm-step.active { background: var(--white); color: #050505; }
+#d-calc .dm-step.active .dm-sn { color: rgba(0,0,0,.6); }
+#d-calc .dm-panel { display: none; }
+#d-calc .dm-panel.active { display: block; }
+
+/* formulario: grilla tipo rack, separadores plateados */
+#d-calc .dm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: var(--dm-sep); border: 1px solid var(--dm-sep); }
+#d-calc .dm-field { background: var(--dm-tile); padding: 18px 20px; min-width: 0; }
+#d-calc .dm-field label, #d-calc .dm-lab { display: block; font-family: 'LM', 'Courier New', monospace; font-size: 12.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dm-dim); margin-bottom: 9px; line-height: 1.4; }
+#d-calc .dm-hint { font-size: 14px; color: #9a9995; margin-top: 8px; line-height: 1.5; }
+#d-calc .dm input, #d-calc .dm select, #d-calc .dm textarea {
+  width: 100%; background: var(--dm-in); border: 1px solid var(--dm-bd); border-radius: 0; color: var(--white);
+  font: 400 17px/1.3 'LM', 'Courier New', monospace; padding: 12px 13px; min-height: 48px;
+}
+#d-calc .dm select { appearance: none; -webkit-appearance: none; padding-right: 36px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C0C0C0' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 13px center; font-size: 15px; }
+#d-calc .dm select option { background: #111; }
+#d-calc .dm input::placeholder, #d-calc .dm textarea::placeholder { color: #66655f; }
+#d-calc .dm :is(input, select, textarea):focus { outline: none; border-color: var(--white); }
+#d-calc .dm-toggle-row { display: flex; gap: 1px; flex-wrap: wrap; background: var(--dm-bd); border: 1px solid var(--dm-bd); }
+#d-calc .dm-toggle { flex: 1 1 110px; min-height: 46px; padding: 10px 10px; background: var(--dm-in); border: 0; color: var(--dm-txt); font: 400 14.5px/1.3 'LM', 'Courier New', monospace; text-align: center; cursor: pointer; }
+#d-calc .dm-toggle:hover { background: #1c1c20; }
+#d-calc .dm-toggle.on { background: var(--white); color: #050505; font-weight: 700; }
+
+/* botones */
+#d-calc .dm-btns { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+#d-calc .dm-btns-s { margin-top: 12px; }
+#d-calc .dm-btn { min-height: 48px; padding: 0 24px; background: var(--white); color: #050505; border: 1px solid var(--white); border-radius: 0;
+  font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 600; font-size: 17px; letter-spacing: 2.5px; cursor: pointer; }
+#d-calc .dm-btn:hover { background: #fff; }
+#d-calc .dm-btn.ghost { background: transparent; color: var(--dm-txt); border-color: var(--dm-bd); }
+#d-calc .dm-btn.ghost:hover { color: var(--white); border-color: var(--white); }
+#d-calc .dm-btns-s .dm-btn { min-height: 44px; font-size: 15px; padding: 0 16px; }
+#d-calc .dm-paste { background: var(--dm-tile); border: 1px dashed rgba(192,192,192,.40); padding: 18px; margin-bottom: 14px; }
+#d-calc .dm textarea { min-height: 96px; resize: vertical; font-size: 14.5px; line-height: 1.55; color: var(--dm-txt); }
+#d-calc .dm-ok { font-size: 14.5px; color: var(--dm-green); margin-top: 10px; min-height: 20px; }
+#d-calc .dm-err { color: var(--dm-red); font-size: 15px; margin-top: 12px; }
+
+/* ── resultado ── */
+#d-calc .dm-score { display: grid; grid-template-columns: 230px 1fr; gap: 1px; background: var(--dm-sep); border: 1px solid var(--dm-sep); }
+#d-calc .dm-scorebox { background: var(--dm-tile); padding: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+#d-calc .dm-ring { position: relative; width: 150px; height: 150px; }
+#d-calc .dm-ring svg { transform: rotate(-90deg); display: block; }
+#d-calc .dm-val { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#d-calc .dm-val b { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; font-weight: 600; font-size: 54px; line-height: 1; }
+#d-calc .dm-val small { font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--dm-dim); }
+#d-calc .dm-verdict { margin-top: 14px; font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 600; font-size: 23px; letter-spacing: 1.5px; color: var(--white); }
+#d-calc .dm-note { background: var(--dm-tile); padding: 26px 28px; display: flex; flex-direction: column; justify-content: center; }
+#d-calc .dm-note h3 { font-size: 30px; margin-bottom: 10px; }
+#d-calc .dm-note p { color: var(--dm-txt); font-size: 16.5px; line-height: 1.7; }
+#d-calc .dm-meta { color: var(--dm-dim); font-size: 13.5px; margin-top: 14px; font-family: 'LM', 'Courier New', monospace; }
+
+/* embudo */
+#d-calc .dm-pipe { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--dm-sep); border: 1px solid var(--dm-sep); border-top: 0; }
+#d-calc .dm-pstep { background: var(--dm-tile); padding: 18px 14px; text-align: center; }
+#d-calc .dm-pst { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 600; font-size: 20px; letter-spacing: 1.5px; color: var(--white); }
+#d-calc .dm-psub { font-size: 13px; color: var(--dm-dim); margin-top: 4px; line-height: 1.4; }
+#d-calc .dm-pbar { height: 6px; background: #2a2a2e; margin-top: 12px; overflow: hidden; }
+#d-calc .dm-pbar i { display: block; height: 100%; }
+#d-calc .dm-pflag { display: none; font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dm-red); margin-top: 9px; font-weight: 700; }
+#d-calc .dm-pstep.broken { background: #241318; }
+#d-calc .dm-pstep.broken .dm-pst { color: var(--dm-red); }
+#d-calc .dm-pstep.broken .dm-pflag { display: block; }
+
+#d-calc .dm-h3 { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 600; font-size: clamp(26px, 3vw, 34px); letter-spacing: 1px; margin: 44px 0 14px; color: var(--white); }
+#d-calc .dm-histsec .dm-h3 { margin-top: 6px; }
+#d-calc .dm-lead { color: var(--dm-txt); font-size: 16px; line-height: 1.7; max-width: 780px; margin-bottom: 20px; }
+
+/* métricas */
+#d-calc .dm-mgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--dm-sep); border: 1px solid var(--dm-sep); }
+#d-calc .dm-metric { background: var(--dm-tile); padding: 20px; border-left: 3px solid #55545a; position: relative; min-width: 0; }
+#d-calc .dm-metric.crit { border-left-color: var(--dm-red); }
+#d-calc .dm-metric.low { border-left-color: var(--dm-orange); }
+#d-calc .dm-metric.ok, #d-calc .dm-metric.top { border-left-color: var(--dm-green); }
+#d-calc .dm-mname { font-family: 'LM', 'Courier New', monospace; font-size: 12.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dm-dim); margin-bottom: 6px; padding-right: 92px; min-height: 34px; line-height: 1.35; }
+#d-calc .dm-mv { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; font-weight: 600; font-size: 42px; line-height: 1; color: var(--white); }
+#d-calc .dm-mv small { font-size: 18px; color: var(--dm-dim); margin-left: 2px; }
+#d-calc .dm-bench { font-size: 12.5px; color: var(--dm-dim); margin-top: 9px; font-family: 'LM', 'Courier New', monospace; line-height: 1.5; }
+#d-calc .dm-thin { font-size: 14px; color: var(--dm-orange); margin-top: 9px; line-height: 1.5; }
+#d-calc .dm-why { font-size: 15px; color: var(--dm-txt); margin-top: 10px; line-height: 1.55; }
+#d-calc .dm-tag { position: absolute; top: 18px; right: 16px; font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; font-weight: 700; }
+#d-calc .dm-tag.crit { background: var(--dm-red); color: #2a0009; }
+#d-calc .dm-tag.low { background: var(--dm-orange); color: #2a1700; }
+#d-calc .dm-tag.ok { background: rgba(127,255,95,.16); color: var(--dm-green); border: 1px solid rgba(127,255,95,.45); }
+#d-calc .dm-tag.top { background: var(--dm-green); color: #062a00; }
+
+/* dónde mejorar */
+#d-calc .dm-action { background: var(--dm-tile); border: 1px solid var(--dm-sep); border-left: 3px solid var(--white); padding: 24px 26px; margin-top: 10px; }
+#d-calc .dm-action.p1 { border-left-color: var(--dm-red); }
+#d-calc .dm-action.p2 { border-left-color: var(--dm-orange); }
+#d-calc .dm-ahead { display: flex; gap: 16px; align-items: baseline; }
+#d-calc .dm-rank { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; font-weight: 600; font-size: 42px; line-height: 1; color: #5a595e; flex: none; }
+#d-calc .dm-action h4 { font-size: clamp(22px, 2.4vw, 27px); margin-bottom: 6px; }
+#d-calc .dm-badge { display: inline-block; font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 9px; color: var(--dm-txt); border: 1px solid var(--dm-bd); }
+#d-calc .dm-diag { color: var(--dm-txt); font-size: 16.5px; line-height: 1.7; margin: 14px 0; }
+#d-calc .dm-action ul { list-style: none; display: grid; gap: 9px; margin: 0; padding: 0; }
+#d-calc .dm-action li { color: var(--dm-txt); font-size: 15.5px; padding-left: 24px; position: relative; line-height: 1.6; }
+#d-calc .dm-action li::before { content: '→'; position: absolute; left: 0; color: var(--white); }
+#d-calc .dm-src { margin-top: 16px; font-size: 12.5px; color: var(--dm-dim); font-family: 'LM', 'Courier New', monospace; border-top: 1px solid var(--dm-sep); padding-top: 12px; }
+
+/* qué grabar ahora */
+#d-calc .dm-callout { background: var(--dm-tile); border: 1px solid var(--dm-sep); border-left: 2px solid #C0C0C0; padding: 22px 24px; }
+#d-calc .dm-callout h4 { font-size: 24px; margin-bottom: 8px; }
+#d-calc .dm-callout p { color: var(--dm-txt); font-size: 16px; line-height: 1.65; }
+#d-calc .dm-ideas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--dm-sep); border: 1px solid var(--dm-sep); margin-top: 10px; }
+#d-calc .dm-idea { background: var(--dm-tile); padding: 20px; }
+#d-calc .dm-ig { font-family: 'LM', 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--dm-dim); margin-bottom: 8px; }
+#d-calc .dm-idea p { font-size: 15.5px; color: var(--dm-txt); line-height: 1.6; }
+
+/* antes de subir */
+#d-calc .dm-check { display: flex; gap: 14px; align-items: flex-start; width: 100%; text-align: left; background: var(--dm-tile); border: 1px solid var(--dm-sep); padding: 14px 18px; margin-top: -1px; min-height: 52px;
+  font: 400 15.5px/1.55 'LM', 'Courier New', monospace; color: var(--dm-txt); cursor: pointer; }
+#d-calc .dm-check:hover { background: #1d1d21; }
+#d-calc .dm-bx { width: 20px; height: 20px; flex: none; margin-top: 2px; border: 1px solid #77767a; display: flex; align-items: center; justify-content: center; font-size: 13px; color: transparent; }
+#d-calc .dm-check.on .dm-bx { background: var(--dm-green); border-color: var(--dm-green); color: #062a00; }
+#d-calc .dm-check.on > span:last-child { color: var(--dm-dim); text-decoration: line-through; }
+#d-calc .dm-foot { color: var(--dm-dim); font-size: 14.5px; margin-top: 16px; }
+
+/* historial */
+#d-calc .dm-histwrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--dm-sep); background: var(--dm-tile); }
+#d-calc table.dm-hist { width: 100%; min-width: 680px; border-collapse: collapse; }
+#d-calc table.dm-hist th { text-align: left; font-family: 'LM', 'Courier New', monospace !important; font-size: 12px; letter-spacing: 1.5px !important; text-transform: uppercase; color: var(--dm-dim); padding: 12px; border-bottom: 1px solid var(--dm-bd); font-weight: 400 !important; background: transparent; }
+#d-calc table.dm-hist td { padding: 12px; border-bottom: 1px solid var(--dm-sep); color: var(--dm-txt); font-family: 'LM', 'Courier New', monospace; font-size: 14px; }
+#d-calc table.dm-hist td.dm-hname { color: var(--white); }
+#d-calc .dm-delta.up { color: var(--dm-green); }
+#d-calc .dm-delta.down { color: var(--dm-red); }
+#d-calc .dm-empty { color: var(--dm-dim); font-size: 15px; padding: 22px; text-align: center; }
+
+/* ── celular ── */
+@media (max-width: 760px) {
+  #d-calc .dm, #d-calc .dm-histsec { padding: 16px; margin-left: -4px; margin-right: -4px; }
+  #d-calc .dm-score { grid-template-columns: 1fr; }
+  #d-calc .dm-pipe { grid-template-columns: 1fr 1fr; }
+  #d-calc .dm-pstep:last-child { grid-column: 1 / -1; }
+  #d-calc .dm-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #d-calc .dm-step { padding: 10px; min-height: 60px; }
+  #d-calc .dm-stt { font-size: 15px; letter-spacing: .5px; }
+  #d-calc .dm-sn { font-size: 12px; letter-spacing: 1px; }
+  #d-calc .dm-field { padding: 16px; }
+  #d-calc .dm-note { padding: 20px; }
+  #d-calc .dm-action { padding: 20px 16px; }
+  #d-calc .dm-ahead { gap: 12px; }
+  #d-calc .dm-rank { font-size: 34px; }
+  #d-calc .dm-btns .dm-btn { flex: 1 1 auto; }
+  #d-calc .dm-intro { font-size: 15.5px; }
+}
+
+/* imprimir solo el diagnóstico */
+@media print {
+  html.dm-print body * { visibility: hidden !important; }
+  html.dm-print #dm-result, html.dm-print #dm-result * { visibility: visible !important; }
+  html.dm-print #dm-result { position: absolute; left: 0; top: 0; width: 100%; }
+  html.dm-print #d-calc { --dm-tile: #f4f4f4; --dm-txt: #111; --white: #000; --dm-dim: #555; }
+  html.dm-print body { background: #fff !important; }
+}
+
+/* grillas de resultado: separadores plateados sin que las celdas vacías queden grises */
+#d-calc :is(.dm-mgrid, .dm-ideas) { background: transparent; border: 0; gap: 1px; padding: 1px; }
+#d-calc :is(.dm-metric, .dm-idea) { outline: 1px solid var(--dm-sep); }
 
 /* ── css/zz-sobrio.css ── */
 /* ═══ Capa final "sobria": plano, editorial, sin brillos ═══
@@ -1587,8 +1652,8 @@
 
 :root {
   --black: #050505; --white: #F0EDE8; --off: #d6d4d0; --dim: #8c8b88; --accent: #C0C0C0;
-  --card: #0b0b0c; --mid: #0d0d0e; --dark: #08080a;
-  --line: rgba(192,192,192,.10); --line2: rgba(192,192,192,.22);
+  --card: transparent; --mid: transparent; --dark: #0b0b0c; --dim: #d2d0cb; --off: #e6e4df;
+  --line: rgba(192,192,192,.16); --line2: rgba(192,192,192,.42);
   --acc: #F0EDE8; --acc2: #C0C0C0;
 }
 body { background: var(--black) !important; color: var(--white); }
@@ -1649,7 +1714,7 @@ b, strong { color: var(--white); font-weight: 700; }
   content: ''; position: absolute; left: 0; right: 0; top: -1px; height: 26px; pointer-events: none; opacity: .5;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='26' viewBox='0 0 120 26'%3E%3Cpath d='M0 13 Q15 1 30 13 T60 13 T90 13 T120 13' fill='none' stroke='%23C0C0C0' stroke-width='1.2'/%3E%3C/svg%3E") repeat-x 0 0 / 120px 26px;
 }
-.page section:nth-of-type(even):not(.grado-section) { background: #070708 !important; }
+.page section:nth-of-type(even):not(.grado-section) { background: #0a0a0b !important; }
 .page > section { border-top: 0 !important; }
 
 /* ── Cinta (ticker) bajo el hero ── */
@@ -1670,6 +1735,171 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
 /* esquinas rectas en todas las cajas (menos celulares de ejemplo, logos de redes y puntos/círculos) */
 .page :is(div, details, article, section, a, li, label, table):not(.a-ph):not(.a-ph *):not(.b-phone):not(.b-phone *):not(.pi):not([class*="dot"]):not([class*="num"]):not([class*="-n"]):not([class*="pt"]):not([class*="pin"]):not(.c-wn) { border-radius: 0 !important; }
 @media (max-width: 600px) { .part-head .num { -webkit-text-stroke-color: rgba(255,255,255,.07) !important; } }
+
+/* ── Ronda 3 · contraste de cajas: fondo de caja claramente más claro que la página (#050505) y borde plateado visible.
+   Plano (sin brillos ni degradés). No toca las historias en formato celular de la parte 4. ── */
+.page :is(.card, .step, .checklist-box, .tablewrap, .a-st, .day, .idea-item, .glos > div, .ex > div, .err > div, .cal .c,
+  .a-facts > div:not(.a-task), .a-exr, .a-exnote, .a-eq, .a-pide > div, .a-same span, .yt-slot-wrap, .c-note, .c-week, .c-tip, .c-f, .c-tl, .c-cal,
+  .d-g, .d-w, .d-calc, details.faq, details.more):not(.c-story):not(.c-story *) {
+  background: var(--card) !important; border-color: rgba(192,192,192,.42) !important;
+}
+.page :is(.card, .step, .checklist-box, .tablewrap, .a-st, .idea-item, .a-facts > div:not(.a-task), .a-exr, .a-eq, .a-pide > div, .yt-slot-wrap, details.faq, details.more):not(.c-story):not(.c-story *) {
+  border-style: solid; border-width: 1px;
+}
+.page :is(.netflix-box, .rule, .quote, .viral-rule) { background: var(--mid) !important; border: 1px solid rgba(192,192,192,.42) !important; border-left: 2px solid var(--accent) !important; }
+.page :is(.pico > div, .meta > div) { background: var(--card) !important; outline: 1px solid rgba(192,192,192,.26); outline-offset: -1px; }
+.page .yt-caption { background: #0b0b0c !important; }
+/* grilla de la semana: separadores visibles entre días, borde de color arriba se mantiene */
+.week { background: rgba(192,192,192,.28) !important; border: 1px solid rgba(192,192,192,.42) !important; gap: 1px !important; }
+.week .day { border-width: 3px 0 0 0 !important; }
+.day.a-d-x { border-top-color: rgba(192,192,192,.35) !important; }
+/* conectores del recorrido 01–06 más visibles */
+.a-st .a-n { background: #0c0c0e !important; border-color: rgba(192,192,192,.5) !important; }
+/* etiquetas chicas: más claras para que se lean (≥ 4.5:1 sobre las cajas) */
+.page :is(.section-label, .mini-label, .block-label, .hero-tag, .day small, .a-eq > div span, .yt-caption) { color: #b9b8b4; }
+.section-label, .hero-tag { color: #c8c8c8 !important; }
+.mini-label, .block-label { color: #a9a8a5 !important; }
+#p1 .a-facts .a-task { background: var(--card) !important; }
+.page .formula { background: var(--card) !important; }
+.page#p1 .week .day.a-d-g { border-top-color: var(--green) !important; }
+.page#p1 .week .day.a-d-o { border-top-color: var(--orange) !important; }
+.page#p1 .week .day.a-d-r { border-top-color: var(--red) !important; }
+.page#p1 .week .day.a-d-h { border-top-color: var(--pink) !important; }
+.page#p1 .week .day.a-d-y { border-top-color: var(--yellow) !important; }
+.page#p1 .week .day.a-d-x { border-top-color: rgba(192,192,192,.35) !important; }
+
+/* ── css/zzz-b.css ── */
+/* ═══ Parte 4 · pisa las capas zz-* (agente B, ronda 3) ═══
+   Excepción pedida por Larry: las historias imitan una pantalla de celular (esquinas redondeadas). */
+#p4 .c-story, #p4 .c-sq { border-radius: 26px !important; }
+#p4 .c-bub { border-radius: 10px !important; }
+#p4 .c-story:hover, #p4 .c-sq:hover { transform: none !important; }
+
+/* cajas que se despeguen del fondo: más claras que la página y con borde plateado visible */
+#p4 .c-r, #p4 .c-note, #p4 .c-warn, #p4 .c-vs-i { background: transparent !important; border: 2px solid rgba(240,237,232,.9) !important; }
+#p4 .c-r { border-top: 3px solid #F0EDE8 !important; }
+#p4 .c-rk { color: #C0C0C0 !important; }
+#p4 .c-vs-i.hist { border-color: rgba(240,237,232,.7) !important; }
+#p4 .c-vs-i.hist b { color: #F0EDE8 !important; }
+#p4 .c-note, #p4 .c-r, #p4 .c-vs-i { border-radius: 0 !important; }
+
+/* ── css/zzz-qa.css ── */
+/* ═══ Agente D · ronda 3 · arreglos puntuales de QA (p3 / p5). Carga al final. ═══ */
+
+/* p3 · Storytelling: plano, sin degradé ni brillo (estética ronda 3) */
+#p3 .b-story { background: #121212 !important; box-shadow: none !important; border: 1px solid rgba(255,210,63,.45) !important; }
+#p3 .b-extra, #p3 .b-bonus-btn, #p3 .b-bonus-btn:hover { box-shadow: none !important; }
+
+/* p3 · regla de la línea de tiempo: «últimos seg.» no se sale de la caja */
+#p3 .b-ruler span:last-child { left: auto !important; right: 0; }
+
+/* p3 · números grandes de fondo (1, 2, 3, +) siempre detrás del título */
+#p3 .grado-section .grado-num { z-index: 0; pointer-events: none; }
+#p3 .grado-section > .in { position: relative; z-index: 1; }
+
+/* p3 · botón «Vaciar para el próximo» ≥ 44 px */
+#p3 .check-head button { min-height: 44px; }
+
+/* p5 · el «28 días» de la fórmula quedaba texto oscuro sobre caja oscura (la capa de contraste le pisa el fondo amarillo) */
+#p5 .c-f.tot { background: var(--yellow) !important; border-color: var(--yellow) !important; }
+#p5 .c-f.tot b, #p5 .c-f.tot span { color: #1a1200 !important; }
+
+/* pie: link a Instagram con área táctil de 44 px en celular */
+@media (max-width: 760px) {
+  footer a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 700px) { .conclusion-sig a.h { min-height: 44px; display: inline-flex; align-items: center; } }
+
+/* ── css/zzzzz-elevar.css ── */
+/* ═══ Elevación (capas de la skill Landing Elevator, versión plana: sin brillos, sin grano, sin degradés) ═══ */
+:root { --ease: cubic-bezier(.16, 1, .3, 1); }
+
+/* 1 · Intro manifiesto (una vez por sesión) */
+#el-intro { position: fixed; inset: 0; z-index: 10000; background: #050505; display: grid; place-items: center; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); transition: opacity .7s var(--ease), visibility .7s; }
+#el-intro.out { opacity: 0; visibility: hidden; }
+#el-intro .w { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 700; font-size: clamp(44px, 9vw, 120px); line-height: .95; letter-spacing: .5px; color: #F0EDE8; text-align: center; }
+#el-intro .w span { display: inline-block; opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+#el-intro .w span.lt { color: #C0C0C0; font-style: italic; font-weight: 300; }
+#el-intro .w span.on { opacity: 1; transform: none; }
+#el-intro .line { width: 0; height: 1px; background: #C0C0C0; margin: 28px auto 0; transition: width 1.6s var(--ease); }
+#el-intro.go .line { width: min(320px, 60vw); }
+#el-intro button { position: absolute; right: max(20px, env(safe-area-inset-right, 0px)); bottom: max(20px, env(safe-area-inset-bottom, 0px)); min-height: 44px; padding: 0 18px; border: 1px solid rgba(192,192,192,.4); background: none; color: #C0C0C0; font-family: 'LM', 'Courier New', monospace; letter-spacing: 4px; font-size: 12px; text-transform: uppercase; cursor: pointer; }
+#el-intro button:hover { color: #F0EDE8; border-color: #F0EDE8; }
+
+/* 3 · Barra de avance lateral (cuánto bajaste en esta parte) */
+#el-pg { position: fixed; left: 0; top: 0; width: 2px; height: 0; background: #F0EDE8; z-index: 120; pointer-events: none; }
+
+/* 4 · Palabra que rota en la portada */
+.el-kin { font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 300; font-style: italic; color: #C0C0C0; font-size: clamp(22px, 2.6vw, 34px); letter-spacing: 1px; margin: -6px 0 26px; }
+.el-kw { display: inline-block; font-style: normal; font-weight: 700; color: #F0EDE8; border-bottom: 2px solid #F0EDE8; transition: opacity .45s var(--ease), transform .45s var(--ease); }
+.el-kw.out { opacity: 0; transform: translateY(-12px); }
+
+/* 5 · Sello giratorio con el logo de Larry */
+.hero { position: relative; }
+.el-seal { position: absolute; right: max(40px, 6vw); top: 120px; width: 170px; height: 170px; color: #C0C0C0; pointer-events: none; }
+.el-seal svg { width: 100%; height: 100%; animation: elSpin 32s linear infinite; overflow: visible; }
+.el-seal text { font-family: "LM", "Courier New", monospace; font-size: 11px; letter-spacing: 0; fill: currentColor; }
+.el-seal-logo { position: absolute; left: 50%; top: 50%; width: 74px; height: auto; transform: translate(-50%, -50%); opacity: .9; }
+@keyframes elSpin { to { transform: rotate(360deg); } }
+@media (max-width: 900px) { .el-seal { width: 118px; height: 118px; top: 84px; right: 16px; } .el-seal-logo { width: 50px; } .el-seal text { font-size: 10px; } }
+@media (max-width: 560px) { .el-seal { display: none; } }
+
+/* 6 · Aparición al bajar: curva expo, escalonada */
+.rv { transition: opacity .9s var(--ease), transform .9s var(--ease) !important; }
+.el-rv { opacity: 0; transform: translateY(22px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+.el-rv.vis { opacity: 1; transform: none; }
+
+/* 7 · Tarjetas: se levantan apenas al pasar el mouse (sin sombra), el borde se pone hueso */
+@media (hover: hover) {
+  .page :is(.a-st, .card, .idea-item, .a-facts > div, .c-week, .d-g, .b-sb, .b-er, .c-7d, details.faq) { transition: transform .5s var(--ease), border-color .4s var(--ease), background-color .4s; }
+  .page :is(.a-st, .card, .idea-item, .a-facts > div, .c-week, .d-g, .b-sb, .b-er, .c-7d):hover { transform: translateY(-4px) !important; border-color: rgba(240,237,232,.75) !important; }
+  .a-st:hover .a-n { background: #F0EDE8 !important; color: #050505 !important; }
+  .a-st .a-n { transition: background .4s var(--ease), color .4s var(--ease); }
+}
+
+/* 8 · Botones: relleno que entra de izquierda a derecha al pasar el mouse */
+.pg.next, .chips-nav a { position: relative; overflow: hidden; transition: color .4s var(--ease); }
+
+@media (prefers-reduced-motion: reduce) {
+  #el-intro { display: none; }
+  .el-seal svg { animation: none; }
+  .el-rv { opacity: 1; transform: none; }
+  .el-kw { transition: none; }
+}
+
+/* ── css/zzzzzz-contorno.css ── */
+/* ═══ Estilo E · Solo contorno: cajas sin relleno, borde hueso de 2px, números grandes en itálica fina plata ═══ */
+html body .page :is(.card, .step, .checklist-box, .tablewrap, .a-st, .idea-item, .glos > div, .ex > div, .err > div,
+  .a-facts > div, .a-exr, .a-exnote, .a-eq, .a-pide > div, .yt-slot-wrap, .c-note, .c-week, .c-tip, .c-f:not(.tot), .c-tl,
+  .d-g, .d-w, details.faq, details.more, .netflix-box, .rule, .quote, .viral-rule, .pico > div, .meta > div,
+  .c-r, .c-warn, .c-vs-i, .c-7d, .c-hito:not(.big), .b-sb, .b-er):not(.c-story):not(.c-story *) {
+  background: transparent !important; border: 2px solid rgba(240,237,232,.88) !important;
+}
+/* las que tenían raya de color a la izquierda o arriba la conservan, sobre el contorno */
+html body .page :is(.netflix-box, .rule, .quote, .viral-rule) { border-left-width: 2px !important; }
+/* la semana de la parte 1: contorno exterior y líneas finas entre días; la raya de color de arriba se mantiene */
+html body .page .week { background: rgba(240,237,232,.35) !important; border: 2px solid rgba(240,237,232,.88) !important; gap: 1px !important; }
+html body .page .week .day:is(.day, .x) { background: #050505 !important; border-left: 0 !important; border-right: 0 !important; border-bottom: 0 !important; border-top-width: 3px !important; }
+/* las cabeceras internas oscuras pasan a transparentes */
+html body #p5 .c-week header { background: transparent !important; border-bottom: 1px solid rgba(240,237,232,.35); }
+
+/* números: sin círculo, grandes, itálica fina plateada (como "TE ACOMPAÑO DE LA" de la web) */
+html body .a-st .a-n, html body .step .n {
+  width: auto !important; height: auto !important; border: 0 !important; border-radius: 0 !important; background: none !important;
+  display: block !important; font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif !important; font-weight: 300 !important; font-style: italic;
+  font-size: 58px !important; line-height: .9 !important; letter-spacing: 0 !important; color: #C0C0C0 !important; margin-bottom: 4px;
+}
+@media (max-width: 600px) { html body .a-st .a-n, html body .step .n { font-size: 46px !important; } }
+
+/* "Tu tarea de hoy": contorno amarillo */
+html body #p1 .a-facts > .a-task { background: transparent !important; border: 2px solid #ffd23f !important; }
+
+/* al pasar el mouse: el contorno se pone blanco puro y la tarjeta sube apenas */
+@media (hover: hover) {
+  html body .page :is(.a-st, .card, .idea-item, .a-facts > div, .c-week, .d-g, .b-sb, .b-er, .c-7d):hover { border-color: #fff !important; }
+  html body .a-st:hover .a-n { color: #F0EDE8 !important; background: none !important; }
+}
+#p1 .week > .day, #p1 .week > div { background: #050505 !important; background-image: none !important; }
 </style>
 </head>
 <body>
@@ -1694,6 +1924,8 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
   <p class="hero-tag">Lanzamientos · Contenido · 2026</p>
   <h1 class="hero-title"><span>ESTRATEGIA</span><span>MAESTRA</span></h1>
   <p class="hero-kicker">Teoría &amp; Ejemplos</p>
+  <p class="el-kin">Para que tu canción <span class="el-kw" id="elWord">llegue a la gente</span></p>
+  <div class="el-seal" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="elSealPath" d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"/></defs><text><textPath href="#elSealPath" textLength="474" lengthAdjust="spacing">PROD · MIX · MASTER · ESTRATEGIA MAESTRA · </textPath></text></svg><img class="el-seal-logo" alt=""></div>
   <p class="hero-lead">Todo lo que necesitás para que tu canción llegue a la gente: <b>qué subir cada semana</b>, <b>por qué funciona</b> y <b>videos reales de ejemplo</b> para cada tipo de reel. Con el celular alcanza.</p>
   <div class="a-hero-pills">
     <span style="--c:#d4d4d8">🎬 3 reels por semana</span>
@@ -1780,8 +2012,8 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
       <div class="a-exr" style="--c:var(--blue)"><div class="a-exd"><b>Domingo</b><span class="chip g">📈 Números</span></div><p>Mira los números de los 3 reels, anota cuál anduvo mejor y graba la semana siguiente.</p></div>
     </div>
     <div class="a-eq">
-      <div><b style="color:var(--green)">3</b><span>reels</span></div><i>×</i>
-      <div><b style="color:var(--cyan)">4</b><span>redes</span></div><i>=</i>
+      <div class="a-eq-c"><b>3</b><span>reels</span></div><i>×</i>
+      <div><b>4</b><span>redes</span></div><i>=</i>
       <div class="a-eq-r"><b>12</b><span>publicaciones</span></div>
       <p>Más historias varios días y los 4 ingredientes. <b>Con una sola tarde de grabación.</b></p>
     </div>
@@ -2191,13 +2423,13 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
     </div>
     <dl class="meta">
       <div><dt>🎯 Objetivo</dt><dd>Que den el paso y vayan a escucharte.</dd></div>
-      <div><dt>📣 Al final pedís</dt><dd>Antes de que salga: <b>«sale en X días, seguime para no perdértela»</b>. Desde que sale: <b>«ya está disponible, link en la bio»</b>.</dd></div>
+      <div><dt>📣 Al final pedís</dt><dd><b>«Ya está disponible, link en la bio».</b> En el lanzamiento, el primero sale el Día 14, el día que sale el tema.</dd></div>
       <div><dt>📈 Vas bien si</dt><dd>Tocan el link y suben tus <dfn data-g="oyentes">oyentes mensuales</dfn>.</dd></div>
     </dl>
     <div class="struct"><span class="lbl">Estructura</span><span class="p">Algo que llame la atención</span><i>→</i><span class="p">La canción</span><i>→</i><span class="p">«Escuchala»</span></div>
     <p class="block-label">💡 Ideas</p>
     <div class="ideas-list">
-      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>«Ya salió» / «sale en X días»</b> con la parte más fuerte del tema, el pedido escrito y dicho.</p></div>
+      <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>«Ya salió»</b> con la parte más fuerte del tema, el pedido escrito y dicho.</p></div>
       <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>«Miren lo que logré»:</b> algo real (las primeras 1.000 escuchas, una playlist, un show).</p></div>
       <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Escuchándolo en Spotify</b> en el celu, con la pantalla a la vista.</p></div>
       <div class="idea-item"><span class="idea-arrow tc">→</span><p><b>Lo que dice la gente:</b> comentarios reales del tema con <span class="q">«andá a escucharla»</span>.</p></div>
@@ -2286,40 +2518,37 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
     <p class="section-label">4 ingredientes, sin guion</p>
     <h2 class="section-title"><span class="lt">Las</span> inventás vos</h2>
     <p class="section-lead">No hay un guion fijo. Solo tienen que estar <b>estos 4 ingredientes en la semana</b>, en el orden y el formato que quieras.</p>
-    <div class="c-stories">
-      <div class="c-story s1 rv">
-        <div class="c-sbar"><i style="width:25%"></i></div>
-        <span class="c-sic">🙋</span>
-        <p class="c-sk">01 · Cercanía</p>
-        <h3>Mostrate</h3>
-        <p>Que se note que hay <b>una persona real</b>: tu día con la música, algo que te pasó, lo que escuchás, algo que no salió.</p>
+    <div class="c-stories c-swipe">
+      <div class="c-story rv">
+        <div class="c-sbars"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="c-shead"><span class="c-sav">TU</span><b>tu.cuenta</b><small>1 h</small><span class="c-sx" aria-hidden="true">✕</span></div>
+        <div class="c-sbody"><span class="c-sic">🙋</span><p class="c-sk">01 · Cercanía</p><h3>Mostrate</h3><p class="c-stx">Que se note que hay <b>una persona real</b>: tu día con la música, algo que te pasó, lo que escuchás, algo que no salió.</p></div>
         <div class="c-bub">Si suena actuado, no funciona.</div>
+        <div class="c-sfoot" aria-hidden="true"><span>Enviar mensaje</span><i>♡</i><i>➤</i></div>
       </div>
-      <div class="c-story s2 rv">
-        <div class="c-sbar"><i style="width:50%"></i></div>
-        <span class="c-sic">💬</span>
-        <p class="c-sk">02 · Conversación</p>
-        <h3>Preguntá</h3>
-        <p><b>Cada respuesta es un mensaje directo.</b> Cajita de preguntas o encuesta para decidir algo de verdad: la portada, entre dos estribillos.</p>
+      <div class="c-story rv">
+        <div class="c-sbars"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        <div class="c-shead"><span class="c-sav">TU</span><b>tu.cuenta</b><small>3 h</small><span class="c-sx" aria-hidden="true">✕</span></div>
+        <div class="c-sbody"><span class="c-sic">💬</span><p class="c-sk">02 · Conversación</p><h3>Preguntá</h3><p class="c-stx"><b>Cada respuesta es un mensaje directo.</b> Cajita de preguntas o encuesta para decidir algo de verdad: la portada, entre dos estribillos.</p></div>
         <div class="c-bub">«¿Qué opinan de este tema?»</div>
+        <div class="c-sfoot" aria-hidden="true"><span>Enviar mensaje</span><i>♡</i><i>➤</i></div>
       </div>
-      <div class="c-story s3 rv">
-        <div class="c-sbar"><i style="width:75%"></i></div>
-        <span class="c-sic">🎁</span>
-        <p class="c-sk">03 · Valor</p>
-        <h3>Regalá algo</h3>
-        <p>Que seguirte tenga premio: <b>10 segundos de lo que viene</b>, una línea de la letra, la versión que solo ven los de historias.</p>
+      <div class="c-story rv">
+        <div class="c-sbars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="c-shead"><span class="c-sav">TU</span><b>tu.cuenta</b><small>5 h</small><span class="c-sx" aria-hidden="true">✕</span></div>
+        <div class="c-sbody"><span class="c-sic">🎁</span><p class="c-sk">03 · Valor</p><h3>Regalá algo</h3><p class="c-stx">Que seguirte tenga premio: <b>10 segundos de lo que viene</b>, una línea de la letra, la versión que solo ven los de historias.</p></div>
         <div class="c-bub">«Respondé VISTO y te mando el adelanto.»</div>
+        <div class="c-sfoot" aria-hidden="true"><span>Enviar mensaje</span><i>♡</i><i>➤</i></div>
       </div>
-      <div class="c-story s4 rv">
-        <div class="c-sbar"><i style="width:100%"></i></div>
-        <span class="c-sic">🔗</span>
-        <p class="c-sk">04 · Que te escuchen</p>
-        <h3>Recordá</h3>
-        <p>Que el que dice «después lo escucho» lo escuche. <b>Compartí el reel de la semana</b>, el link con una frase tuya, capturas de gente escuchándolo.</p>
+      <div class="c-story rv">
+        <div class="c-sbars"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="c-shead"><span class="c-sav">TU</span><b>tu.cuenta</b><small>8 h</small><span class="c-sx" aria-hidden="true">✕</span></div>
+        <div class="c-sbody"><span class="c-sic">🔗</span><p class="c-sk">04 · Que te escuchen</p><h3>Recordá</h3><p class="c-stx">Que el que dice «después lo escucho» lo escuche. <b>Compartí el reel de la semana</b>, el link con una frase tuya, capturas de gente escuchándolo.</p></div>
         <div class="c-bub">«La escribí para no escribirte. Link acá.»</div>
+        <div class="c-sfoot" aria-hidden="true"><span>Enviar mensaje</span><i>♡</i><i>➤</i></div>
       </div>
     </div>
+    <p class="c-swhint">Deslizá para ver las 4 →</p>
 
     <div class="c-rules">
       <div class="c-r min"><p class="c-rk">El mínimo</p><b class="c-big">4 × 3</b><p><b>4 días por semana, 3 historias o más</b>, y los 4 ingredientes en la semana.</p></div>
@@ -2333,23 +2562,47 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
   <div class="in">
     <p class="section-label">Reels + historias</p>
     <h2 class="section-title"><span class="lt">Cómo se</span> mezclan</h2>
-    <p class="section-lead">Una sugerencia para arrancar. <span class="u">Después acomodalo a tu semana.</span></p>
-    <div class="c-mix">
-      <div class="c-mx v"><p class="c-mxd">Lunes</p><span class="c-ch v">Reel viral</span><p class="c-mxp">+ <b>Mostrate</b> y compartís el reel</p></div>
-      <div class="c-mx c"><p class="c-mxd">Miércoles</p><span class="c-ch c">Reel conexión</span><p class="c-mxp">+ <b>Preguntá</b>: «¿te pasó algo así?»</p></div>
-      <div class="c-mx cv"><p class="c-mxd">Viernes</p><span class="c-ch cv">Reel conversión</span><p class="c-mxp">+ <b>Recordá</b> con el link al tema</p></div>
-      <div class="c-mx f"><p class="c-mxd">Fin de semana</p><span class="c-ch h">Sin reel</span><p class="c-mxp">+ <b>Regalá</b> un adelanto con palabra clave</p></div>
+    <p class="section-lead">La semana tipo, día por día: <b>3 reels, historias casi todos los días y el domingo para grabar</b>. <span class="u">Después acomodalo a tu semana.</span></p>
+    <div class="c-7w" role="list" aria-label="Semana tipo de reels e historias">
+      <div class="c-7d" role="listitem"><p class="c-7dn"><b>Lun</b><span>Lunes</span></p><span class="c-7ch v">Reel viral</span><p class="c-7dp"><b>Mostrate</b> y compartís el reel.</p></div>
+      <div class="c-7d" role="listitem"><p class="c-7dn"><b>Mar</b><span>Martes</span></p><span class="c-7ch h">Solo historias</span><p class="c-7dp"><b>Preguntá algo</b>: encuesta o cajita.</p></div>
+      <div class="c-7d" role="listitem"><p class="c-7dn"><b>Mié</b><span>Miércoles</span></p><span class="c-7ch c">Reel conexión</span><p class="c-7dp"><b>Preguntá</b>: «¿te pasó algo así?»</p></div>
+      <div class="c-7d off" role="listitem"><p class="c-7dn"><b>Jue</b><span>Jueves</span></p><span class="c-7ch t">Libre</span><p class="c-7dp">Historias <span class="u">opcionales</span>, si tenés ganas.</p></div>
+      <div class="c-7d" role="listitem"><p class="c-7dn"><b>Vie</b><span>Viernes</span></p><span class="c-7ch cv">Reel conversión</span><p class="c-7dp"><b>Recordá</b> con el link al tema.</p></div>
+      <div class="c-7d" role="listitem"><p class="c-7dn"><b>Sáb</b><span>Sábado</span></p><span class="c-7ch h">Solo historias</span><p class="c-7dp"><b>Regalá</b> un adelanto con palabra clave.</p></div>
+      <div class="c-7d off" role="listitem"><p class="c-7dn"><b>Dom</b><span>Domingo</span></p><span class="c-7ch t">Sin publicar</span><p class="c-7dp"><b>Grabás los 3 reels</b> de la semana que viene y mirás números.</p></div>
     </div>
     <p class="c-note"><b>En el lanzamiento (parte 5):</b> la semana 1 es de preparación, así que <b>no mostrás el tema todavía</b> (historias de Mostrate y Preguntá, nada más). Desde el Día 8 entran los 4 ingredientes, y el reel de conversión del viernes arranca el <b>Día 14</b>, cuando sale el tema.</p>
 
     <h3 class="sub-title">Receta para los días grandes</h3>
     <p class="sub-lead">Opcional, para el <b>Día 9</b> (anunciás la fecha) o el <b>Día 14</b> (sale el tema). Contás algo en <b>4 historias seguidas</b>, como episodios, sin resolverlo hasta el final.</p>
-    <div class="c-seq">
-      <div class="c-sq rv"><div class="c-sqbar"><i class="on"></i><i></i><i></i><i></i></div><p class="c-sk">Historia 1</p><h4>Gancho</h4><p>Algo que dé intriga y no se explique.</p></div>
-      <div class="c-sq rv"><div class="c-sqbar"><i class="on"></i><i class="on"></i><i></i><i></i></div><p class="c-sk">Historia 2</p><h4>La historia</h4><p>Empezás a contar, <b>sin terminar</b>.</p></div>
-      <div class="c-sq rv"><div class="c-sqbar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><p class="c-sk">Historia 3</p><h4>Más historia</h4><p>Contás un poco más y mostrás algo de la canción.</p></div>
-      <div class="c-sq end rv"><div class="c-sqbar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><p class="c-sk">Historia 4</p><h4>El cierre</h4><p>Resolvés y pedís una cosa: <span class="q">«escuchala y decime si hice bien en subirla»</span>.</p></div>
+    <div class="c-seq c-swipe">
+      <div class="c-sq rv">
+        <div class="c-sbars"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="c-shead"><span class="c-sav">TU</span><b>tu.cuenta</b><small>ahora</small><span class="c-sx" aria-hidden="true">✕</span></div>
+        <div class="c-sbody"><p class="c-sk">Historia 1</p><h4>Gancho</h4><p class="c-stx">Algo que dé intriga y no se explique.</p></div>
+        <div class="c-sfoot" aria-hidden="true"><span>Enviar mensaje</span><i>♡</i><i>➤</i></div>
+      </div>
+      <div class="c-sq rv">
+        <div class="c-sbars"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        <div class="c-shead"><span class="c-sav">TU</span><b>tu.cuenta</b><small>ahora</small><span class="c-sx" aria-hidden="true">✕</span></div>
+        <div class="c-sbody"><p class="c-sk">Historia 2</p><h4>La historia</h4><p class="c-stx">Empezás a contar, <b>sin terminar</b>.</p></div>
+        <div class="c-sfoot" aria-hidden="true"><span>Enviar mensaje</span><i>♡</i><i>➤</i></div>
+      </div>
+      <div class="c-sq rv">
+        <div class="c-sbars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="c-shead"><span class="c-sav">TU</span><b>tu.cuenta</b><small>ahora</small><span class="c-sx" aria-hidden="true">✕</span></div>
+        <div class="c-sbody"><p class="c-sk">Historia 3</p><h4>Más historia</h4><p class="c-stx">Contás un poco más y mostrás algo de la canción.</p></div>
+        <div class="c-sfoot" aria-hidden="true"><span>Enviar mensaje</span><i>♡</i><i>➤</i></div>
+      </div>
+      <div class="c-sq end rv">
+        <div class="c-sbars"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="c-shead"><span class="c-sav">TU</span><b>tu.cuenta</b><small>ahora</small><span class="c-sx" aria-hidden="true">✕</span></div>
+        <div class="c-sbody"><p class="c-sk">Historia 4</p><h4>El cierre</h4><p class="c-stx">Resolvés y pedís <b>una sola cosa</b>.</p></div>
+        <div class="c-bub">«Escuchala y decime si hice bien en subirla.»</div><div class="c-sfoot" aria-hidden="true"><span>Enviar mensaje</span><i>♡</i><i>➤</i></div>
+      </div>
     </div>
+    <p class="c-swhint">Deslizá para ver las 4 →</p>
     <div class="c-warn tip">
       <span>💡</span>
       <p><b>Tip:</b> antes de una secuencia así, <b>archivá las historias viejas</b> para que arranque limpia. Una historia sola pesa más que la número 8 de una fila de 10.</p>
@@ -2618,48 +2871,152 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
     <h2 class="section-title"><span class="lt">Medir y</span> seguir</h2>
     <p class="lead">Cargá los números de tu reel y te digo <b>qué arreglar primero</b>. Además: dónde encontrar cada número, qué revisar y cuándo, y qué hacer después del día 28.</p>
     <div class="d-heroflow" aria-hidden="true">
-      <span style="--c:var(--blue)">👀 Vistas</span><i>→</i><span style="--c:var(--cyan)">⏱ Retención</span><i>→</i><span style="--c:var(--teal)">💬 Interacción</span><i>→</i><span style="--c:var(--violet)">👤 Perfil</span><i>→</i><span style="--c:#1DB954">🎧 Música</span>
+      <span style="--c:#C0C0C0">🎣 Gancho</span><i>→</i><span style="--c:#C0C0C0">⏱ Retención</span><i>→</i><span style="--c:#C0C0C0">💬 Acción</span><i>→</i><span style="--c:#C0C0C0">👤 Perfil</span><i>→</i><span style="--c:#C0C0C0">🎧 Conversión</span>
     </div>
-    <div class="chips-nav"><a href="#d-calc">🧮 Calculadora</a><a href="#d-donde">📱 Dónde ver los números</a><a href="#d-revisar">📅 Qué revisar y cuándo</a><a href="#numeros">🎯 Número de cada reel</a><a href="#despues">Después del 28</a><a href="#checklist">Checklist</a><a href="#dudas">Dudas</a><a href="#glosario">Glosario</a></div>
+    <div class="chips-nav"><a href="#d-calc">📊 Diagnóstico de métricas</a><a href="#d-donde">📱 Dónde ver los números</a><a href="#d-revisar">📅 Qué revisar y cuándo</a><a href="#numeros">🎯 Número de cada reel</a><a href="#despues">Después del 28</a><a href="#checklist">Checklist</a><a href="#dudas">Dudas</a><a href="#glosario">Glosario</a></div>
   </div>
 </header>
 
-<!-- ─── 1 · CALCULADORA ─── -->
+<!-- ─── 1 · DIAGNÓSTICO DE MÉTRICAS (herramienta de Larry; js/d2.js + css/d2.css) ─── -->
 <section id="d-calc" class="d-sec">
   <div class="in">
     <p class="section-label">Herramienta</p>
-    <h2 class="section-title"><span class="lt">Calculadora de</span> métricas pro</h2>
-    <p class="section-lead">Abrí las estadísticas de un reel (<a href="#d-donde" class="d-lnk">mirá dónde están</a>) y copiá los números. <b>No hace falta llenar todo</b>: con vistas, duración y tiempo medio ya te dice algo. Se guarda en tu celu.</p>
+    <h2 class="section-title"><span class="lt">Diagnóstico de</span> métricas</h2>
+    <p class="section-lead">Cargá los números de un reel o un TikTok y te digo <b>exactamente dónde se está rompiendo</b>: el gancho, el relleno, el CTA, el perfil o la constancia. Todo el criterio sale del <b>Arsenal Creativo</b> y el <b>Manual de Marca</b>. <span class="u">¿No sabés dónde está cada número? <a href="#d-donde" class="d-lnk">Mirá dónde están</a>.</span></p>
 
-    <div class="d-calc" id="d-calcbox">
-      <div class="d-tabs" role="tablist" aria-label="Reels">
-        <button type="button" class="d-tab" data-r="A" role="tab">Reel A</button>
-        <button type="button" class="d-tab" data-r="B" role="tab">Reel B</button>
-        <button type="button" class="d-tab" data-r="C" role="tab">Reel C</button>
-        <button type="button" class="d-tab d-tabcmp" data-r="cmp" role="tab">⚖️ Comparar</button>
+    <div class="dm" id="dm-tool">
+      <div class="dm-top">
+        <span class="dm-kick">Diagnóstico · <b id="dm-nav-artist">—</b></span>
+        <button type="button" class="dm-mini" id="dm-btn-reset">Nuevo análisis</button>
+      </div>
+      <p class="dm-intro">Los números no sirven para presumir — sirven para saber qué corregir en el próximo video. Cada métrica de acá abajo apunta a una parte concreta de la estructura: gancho, pico de interés, relleno, CTA, estética o perfil.</p>
+
+      <div class="dm-steps" role="list">
+        <button type="button" class="dm-step active" data-step="1" aria-current="step"><span class="dm-sn">Paso 01</span><span class="dm-stt">Artista y contexto</span></button>
+        <button type="button" class="dm-step" data-step="2"><span class="dm-sn">Paso 02</span><span class="dm-stt">Métricas del video</span></button>
+        <button type="button" class="dm-step" data-step="3"><span class="dm-sn">Paso 03</span><span class="dm-stt">Diagnóstico</span></button>
       </div>
 
-      <div id="d-editor">
-        <div class="d-toprow">
-          <label class="d-name"><span>Nombre del reel</span><input type="text" id="d-nm" placeholder="Ej: viral del lunes, la calle" maxlength="40" autocomplete="off"></label>
-          <div class="d-type" role="radiogroup" aria-label="Tipo de reel">
-            <span class="d-typel">Tipo</span>
-            <button type="button" data-t="viral" class="t-viral">Viral</button>
-            <button type="button" data-t="conexion" class="t-con">Conexión</button>
-            <button type="button" data-t="conversion" class="t-conv">Conversión</button>
+      <!-- PASO 1 -->
+      <div class="dm-panel active" id="dm-panel-1">
+        <div class="dm-grid">
+          <div class="dm-field">
+            <label for="dm-f-artist">Nombre del artista</label>
+            <input id="dm-f-artist" placeholder="Ej: Nico Vera" autocomplete="off">
+            <div class="dm-hint">Se guarda en este dispositivo para comparar análisis entre sí.</div>
+          </div>
+          <div class="dm-field">
+            <span class="dm-lab">Plataforma del video</span>
+            <div class="dm-toggle-row" id="dm-t-plat">
+              <button type="button" class="dm-toggle on" data-v="ig">Instagram Reel</button>
+              <button type="button" class="dm-toggle" data-v="tt">TikTok</button>
+            </div>
+            <div class="dm-hint">Los nombres de las métricas cambian según la app. Elegí primero.</div>
+          </div>
+          <div class="dm-field">
+            <label for="dm-f-followers">Seguidores en esa cuenta</label>
+            <input id="dm-f-followers" inputmode="numeric" placeholder="Ej: 1200" autocomplete="off">
+            <div class="dm-hint">Sirve para saber si el video salió de tu círculo o no.</div>
+          </div>
+          <div class="dm-field">
+            <label for="dm-f-freq">¿Cuántos videos subís por semana?</label>
+            <input id="dm-f-freq" inputmode="numeric" placeholder="Ej: 2" autocomplete="off">
+            <div class="dm-hint">Constancia mínima del Arsenal: 3 por semana. Por debajo, la plataforma te muestra menos.</div>
+          </div>
+          <div class="dm-field">
+            <span class="dm-lab">¿Lo subiste a todas las redes?</span>
+            <div class="dm-toggle-row" id="dm-t-triple">
+              <button type="button" class="dm-toggle" data-v="si">Sí, IG + TikTok + Shorts</button>
+              <button type="button" class="dm-toggle on" data-v="no">Solo a una o dos</button>
+            </div>
+            <div class="dm-hint">Regla del triple alcance: mismo video, tres algoritmos (en esta guía sumamos Facebook: cuatro).</div>
+          </div>
+          <div class="dm-field">
+            <span class="dm-lab">¿El video tiene subtítulos?</span>
+            <div class="dm-toggle-row" id="dm-t-subs">
+              <button type="button" class="dm-toggle on" data-v="si">Sí</button>
+              <button type="button" class="dm-toggle" data-v="no">No</button>
+            </div>
+            <div class="dm-hint">El 60% del contenido se consume sin sonido.</div>
+          </div>
+          <div class="dm-field">
+            <span class="dm-lab">Momento del proyecto</span>
+            <div class="dm-toggle-row" id="dm-t-momento">
+              <button type="button" class="dm-toggle on" data-v="entre">Entre lanzamientos</button>
+              <button type="button" class="dm-toggle" data-v="lanz">Semana de lanzamiento</button>
+            </div>
+            <div class="dm-hint">Cambia qué contenido te conviene hacer después.</div>
+          </div>
+          <div class="dm-field">
+            <label for="dm-f-grado">¿A qué grado de conciencia apuntaba?</label>
+            <select id="dm-f-grado">
+              <option value="1">1° — No te conoce (máximo alcance)</option>
+              <option value="2">2° — Te vio alguna vez</option>
+              <option value="3">3° — Te sigue</option>
+              <option value="4">4° — Escucha tu música</option>
+            </select>
+            <div class="dm-hint">Si no sabés, elegí 1°: es el contenido de descubrimiento.</div>
           </div>
         </div>
-        <div class="d-groups" id="d-groups"></div>
-        <div class="d-actions">
-          <button type="button" class="d-btn d-demo" id="d-demo">✨ Probar con un ejemplo</button>
-          <button type="button" class="d-btn d-clear" id="d-clear">🗑 Limpiar este reel</button>
+        <div class="dm-btns">
+          <button type="button" class="dm-btn" data-dm-go="2">Cargar métricas →</button>
         </div>
       </div>
 
-      <div id="d-out" class="d-out" aria-live="polite"></div>
-      <div id="d-cmp" class="d-cmp" hidden></div>
+      <!-- PASO 2 -->
+      <div class="dm-panel" id="dm-panel-2">
+        <div class="dm-paste">
+          <label for="dm-f-paste" class="dm-lab">Atajo — pegar estadísticas</label>
+          <textarea id="dm-f-paste" placeholder="Copiá y pegá el texto del panel de estadísticas del video (Instagram o TikTok) y completo lo que pueda reconocer. Ej: Reproducciones 12.400 · Me gusta 380 · Comentarios 22 · Guardados 91 · Compartidos 54 · Visitas al perfil 210"></textarea>
+          <div class="dm-btns dm-btns-s">
+            <button type="button" class="dm-btn ghost" id="dm-btn-parse">Leer y completar</button>
+            <button type="button" class="dm-btn ghost" id="dm-btn-clear">Vaciar campos</button>
+            <button type="button" class="dm-btn ghost" id="dm-btn-demo">Probar con un ejemplo</button>
+          </div>
+          <div class="dm-ok" id="dm-paste-status" aria-live="polite"></div>
+        </div>
+
+        <div class="dm-grid">
+          <div class="dm-field"><label for="dm-f-views" id="dm-l-views">Reproducciones</label><input id="dm-f-views" inputmode="numeric" placeholder="Ej: 12400" autocomplete="off"><div class="dm-hint" id="dm-h-views">Instagram: "Reproducciones". TikTok: "Vistas de video".</div></div>
+          <div class="dm-field"><label for="dm-f-reach" id="dm-l-reach">Cuentas alcanzadas</label><input id="dm-f-reach" inputmode="numeric" placeholder="Ej: 9800" autocomplete="off"><div class="dm-hint">Personas distintas que lo vieron. Si no lo tenés, dejalo vacío.</div></div>
+          <div class="dm-field"><label for="dm-f-nonfoll" id="dm-l-nonfoll">% que NO te sigue</label><input id="dm-f-nonfoll" inputmode="numeric" placeholder="Ej: 62" autocomplete="off"><div class="dm-hint" id="dm-h-nonfoll">Instagram: "Seguidores / No seguidores". TikTok: % de tráfico "Para ti".</div></div>
+          <div class="dm-field"><label for="dm-f-dur">Duración del video (segundos)</label><input id="dm-f-dur" inputmode="numeric" placeholder="Ej: 28" autocomplete="off"><div class="dm-hint">Del Arsenal: 15–30s tienen mayor tasa de repetición. Más de 60s, revisalo.</div></div>
+          <div class="dm-field"><label for="dm-f-avg">Tiempo de visualización promedio (segundos)</label><input id="dm-f-avg" inputmode="decimal" placeholder="Ej: 9.5" autocomplete="off"><div class="dm-hint">Con esto y la duración calculo la retención real.</div></div>
+          <div class="dm-field"><label for="dm-f-likes">Me gusta</label><input id="dm-f-likes" inputmode="numeric" placeholder="Ej: 380" autocomplete="off"><div class="dm-hint">La métrica más blanda: sirve de contexto, no de brújula.</div></div>
+          <div class="dm-field"><label for="dm-f-comments">Comentarios</label><input id="dm-f-comments" inputmode="numeric" placeholder="Ej: 22" autocomplete="off"><div class="dm-hint">Señal directa de si tu CTA funcionó.</div></div>
+          <div class="dm-field"><label for="dm-f-saves">Guardados</label><input id="dm-f-saves" inputmode="numeric" placeholder="Ej: 91" autocomplete="off"><div class="dm-hint">La señal más fuerte para el algoritmo: esto vale la pena volver a ver.</div></div>
+          <div class="dm-field"><label for="dm-f-shares">Compartidos</label><input id="dm-f-shares" inputmode="numeric" placeholder="Ej: 54" autocomplete="off"><div class="dm-hint">Lo que dispara el alcance nuevo. Un video que no se comparte no escala.</div></div>
+          <div class="dm-field"><label for="dm-f-visits">Visitas al perfil</label><input id="dm-f-visits" inputmode="numeric" placeholder="Ej: 210" autocomplete="off"><div class="dm-hint">Cuánta gente quiso saber quién sos después de verte.</div></div>
+          <div class="dm-field"><label for="dm-f-newfoll">Seguidores nuevos desde el video</label><input id="dm-f-newfoll" inputmode="numeric" placeholder="Ej: 14" autocomplete="off"><div class="dm-hint">Mide si tu perfil convierte, no el video.</div></div>
+          <div class="dm-field"><label for="dm-f-clicks">Clics en el link / bio (opcional)</label><input id="dm-f-clicks" inputmode="numeric" placeholder="Ej: 8" autocomplete="off"><div class="dm-hint">Tu norte: que lleguen a Spotify.</div></div>
+        </div>
+        <div class="dm-btns">
+          <button type="button" class="dm-btn ghost" data-dm-go="1">← Atrás</button>
+          <button type="button" class="dm-btn" id="dm-btn-analyze">Analizar →</button>
+        </div>
+        <div class="dm-err" id="dm-form-error" role="alert" hidden></div>
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="dm-panel" id="dm-panel-3">
+        <div id="dm-result" aria-live="polite"></div>
+        <div class="dm-btns">
+          <button type="button" class="dm-btn ghost" data-dm-go="2">← Editar métricas</button>
+          <button type="button" class="dm-btn ghost" id="dm-btn-copy">Copiar diagnóstico</button>
+          <button type="button" class="dm-btn ghost" id="dm-btn-print">Imprimir / PDF</button>
+          <button type="button" class="dm-btn" id="dm-btn-save">Guardar en el historial</button>
+        </div>
+        <div class="dm-ok" id="dm-save-status" aria-live="polite"></div>
+      </div>
     </div>
-    <p class="d-note">🟢 bien · 🟡 flojo · 🔴 hay que arreglar. Las referencias son las mismas de mi <b>Diagnóstico de métricas</b>; las marcadas <span class="d-ori">orientativa</span> son una guía aproximada. <b>Lo que más importa es compararte con tus propios reels.</b></p>
+
+    <div class="dm-histsec" id="dm-historial">
+      <p class="dm-kick">Seguimiento</p>
+      <h3 class="dm-h3">Historial</h3>
+      <p class="dm-lead">Un solo video no dice nada. La tendencia sí. Guardá cada análisis y mirá si el gancho, los guardados y los compartidos mejoran video a video.</p>
+      <div class="dm-histwrap" id="dm-hist-wrap"></div>
+      <div class="dm-btns"><button type="button" class="dm-btn ghost" id="dm-btn-hist-clear">Borrar historial</button></div>
+    </div>
   </div>
 </section>
 
@@ -2844,7 +3201,7 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
       <article class="d-w" style="--wc:var(--teal)">
         <div class="d-wbadge"><span>📅</span><b>7 días</b><small>de cada reel</small></div>
         <div class="d-wbody">
-          <div><h4>👀 Mirá</h4><ul><li><b>Compartidos y guardados</b></li><li>Seguidores nuevos y visitas al perfil</li><li>Cargalo en la <a href="#d-calc" class="d-lnk">calculadora</a></li></ul></div>
+          <div><h4>👀 Mirá</h4><ul><li><b>Compartidos y guardados</b></li><li>Seguidores nuevos y visitas al perfil</li><li>Pasalo por el <a href="#d-calc" class="d-lnk">diagnóstico de métricas</a></li></ul></div>
           <div class="d-dec"><h4>✅ Decidís</h4><p>El reel que ganó la semana: <b>repetí ese formato la semana que viene</b> con otra idea. El que perdió: cambiá una sola cosa (el gancho o el final).</p></div>
         </div>
       </article>
@@ -2915,7 +3272,7 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
       <button type="button" class="check-item" data-k="h4"><span class="check-box"></span><span class="check-text">📱 <b>Historias 4 días</b>, con 3 o más cada día</span></button>
       <button type="button" class="check-item" data-k="ing"><span class="check-box"></span><span class="check-text">🧂 <b>Estuvieron los 4 ingredientes:</b> Mostrate, Preguntá, Regalá, Recordá</span></button>
       <button type="button" class="check-item" data-k="msg"><span class="check-box"></span><span class="check-text">💬 <b>Respondí comentarios y mensajes</b></span></button>
-      <button type="button" class="check-item" data-k="num"><span class="check-box"></span><span class="check-text">📈 <b>Domingo:</b> miré los números, los cargué en la calculadora y anoté qué anduvo mejor</span></button>
+      <button type="button" class="check-item" data-k="num"><span class="check-box"></span><span class="check-text">📈 <b>Domingo:</b> miré los números, los pasé por el diagnóstico y anoté qué anduvo mejor</span></button>
     </div>
   </div>
 </section>
@@ -2933,8 +3290,8 @@ footer { font-family: 'LM', 'Courier New', monospace; letter-spacing: 3px; }
       <details class="faq"><summary>¿Las historias las invento yo o sigo un guion?</summary><div class="din"><p>Las inventás vos. Solo cumplí dos cosas: historias 4 días por semana, con 3 o más cada día, y que en la semana estén los 4 ingredientes. La historia en 4 partes es una receta opcional para días grandes.</p></div></details>
       <details class="faq"><summary>¿Puedo copiar los videos de ejemplo?</summary><div class="din"><p>Tomá <b>la idea</b>, no la forma. Fijate por qué funciona cada uno (está escrito debajo del video) y llevalo a tu canción, tu lugar y tu estética.</p></div></details>
       <details class="faq"><summary>¿Alcanza con el celular y sin saber editar?</summary><div class="din"><p>Sí. Grabás con el celu y editás con CapCut o con el editor de Instagram o TikTok: cortar, poner texto y subtítulos. Calculá una tarde por semana para grabar los 3 reels y unos minutos por día para las historias.</p></div></details>
-      <details class="faq"><summary>¿Cómo sé si voy bien los primeros meses?</summary><div class="din"><p>Cargá cada reel en la <a href="#d-calc">calculadora</a> y mirá <a href="#numeros">el número estrella</a> de cada uno. Si alguno sube respecto de la semana anterior, vas bien, aunque las vistas sigan bajas.</p></div></details>
-      <details class="faq"><summary>Mi reel tiene muy pocas vistas, ¿la calculadora sirve igual?</summary><div class="din"><p>Sí, pero con menos de 200 vistas los porcentajes bailan mucho: un solo compartido cambia todo. En ese caso mirá sobre todo <b>el tiempo medio</b> y compará varios reels juntos en la pestaña <b>Comparar</b>.</p></div></details>
+      <details class="faq"><summary>¿Cómo sé si voy bien los primeros meses?</summary><div class="din"><p>Pasá cada reel por el <a href="#d-calc">diagnóstico de métricas</a> y mirá <a href="#numeros">el número estrella</a> de cada uno. Si alguno sube respecto de la semana anterior, vas bien, aunque las vistas sigan bajas.</p></div></details>
+      <details class="faq"><summary>Mi reel tiene muy pocas vistas, ¿el diagnóstico sirve igual?</summary><div class="din"><p>Sí, pero con menos de 200 reproducciones los porcentajes bailan mucho: un solo compartido cambia todo. Por eso el diagnóstico te los muestra pero <b>no los puntúa</b>. En ese caso mirá sobre todo <b>la retención</b> y guardá cada análisis en el <b>Historial</b> para ver la tendencia.</p></div></details>
     </div>
     <div style="margin-top:34px"><a class="btn w d-wa" href="https://wa.me/34628034355?text=Hola%20Larry!%20Tengo%20una%20duda%20sobre%20la%20Estrategia%20Maestra" target="_blank" rel="noopener">💬 Escribime por WhatsApp</a></div>
   </div>
@@ -2998,7 +3355,7 @@ document.querySelectorAll('.video-grid[data-tipo]').forEach(grid => {
   if (lista.length === 8) grid.classList.add('n4');
   grid.innerHTML = lista.map(([id, t, d], i) =>
     `<div class="yt-slot-wrap"><div class="yt-slot"><span class="yt-label">Ejemplo ${i + 1}</span>` +
-    `<iframe loading="lazy" src="https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${esc(t)}"></iframe></div>` +
+    `<iframe loading="lazy" src="https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" title="${esc(t)}"></iframe></div>` +
     `<div class="yt-caption"><strong>${esc(t)}</strong>${esc(d)}</div></div>`).join('');
 });
 
@@ -3022,7 +3379,7 @@ const G = {
   cta: ['Llamado a la acción (CTA)', 'Lo que le pedís a la gente al final: que comente, que te siga o que vaya a escucharte. Siempre una sola cosa.'],
   oyente: ['Oyente ideal', 'La persona a la que le cantás: qué edad tiene, qué le pasa, qué escucha. Lo definís en tu manual de marca.'],
   oyentes: ['Oyentes mensuales', 'Cuántas personas distintas te escucharon en Spotify en los últimos 30 días.'],
-  sfa: ['Spotify for Artists', 'La app gratis de Spotify para artistas: ves tus números y cargás tu tema para las playlists antes de que salga.'],
+  sfa: ['Spotify for Artists', 'La app gratis de Spotify para artistas. Ahí ves tus números: oyentes, de dónde te escuchan y cuántos guardan el tema.'],
   playback: ['Playback', 'Cantar (o hacer que cantás) arriba de la canción grabada, sin sonido en vivo.'],
   mood: ['Mood', 'El clima o la sensación que transmite la canción: nostalgia, fiesta, bronca, calma.'],
   glosario: ['Así', 'Tocá cualquier palabra con puntitos y aparece qué significa.'],
@@ -3104,7 +3461,9 @@ function ir(hash, suave) {
   store.set('em:tab', 'p' + n);
   if (el && el !== page) {
     setTimeout(() => {
-      const y = el.getBoundingClientRect().top + window.pageYOffset - nav.offsetHeight + 1;
+      // descontar el corrimiento de la animación de entrada de la parte (fadeUp mueve 14 px)
+      let ty = 0; try { const t = getComputedStyle(page).transform; if (t && t !== 'none') ty = new DOMMatrix(t).m42; } catch (err) {}
+      const y = el.getBoundingClientRect().top - ty + window.pageYOffset - nav.offsetHeight + 1;
       window.scrollTo({ top: Math.max(0, y), behavior: suave && !cambio ? 'smooth' : 'auto' });
     }, cambio ? 30 : 0);
   } else window.scrollTo({ top: 0, behavior: 'auto' });
@@ -3118,7 +3477,10 @@ document.addEventListener('click', e => {
   ir(h, true);
 });
 addEventListener('popstate', () => ir(location.hash));
+// el navegador salta solo al ancla (#p3) después de cargar y la deja tapada por la barra: volvemos a ubicar al terminar de cargar
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 ir(location.hash || ('#' + store.get('em:tab', 'p1')));
+addEventListener('load', () => setTimeout(() => ir(location.hash || ('#' + store.get('em:tab', 'p1'))), 0));
 
 /* ── js/a.js ── */
 /* ─── Agente A: contador de vistas en "El mismo video, 4 veces" ─── */
@@ -3229,12 +3591,12 @@ ir(location.hash || ('#' + store.get('em:tab', 'p1')));
     out.classList.remove('err');
     if (!salida) { out.textContent = 'Poné la fecha y el calendario de abajo se llena con tus días.'; return; }
     const fin = new Date(dia1.getFullYear(), dia1.getMonth(), dia1.getDate() + 27);
-    let txt = '✅ Tu Día 1 (subir el tema) es el ' + LARGO[dia1.getDay()] + ' ' + fmt(dia1) +
+    let txt = 'Tu Día 1 (subir el tema) es el ' + LARGO[dia1.getDay()] + ' ' + fmt(dia1) +
       '. Sale el ' + LARGO[salida.getDay()] + ' ' + fmt(salida) + ' y terminás el ' + fmt(fin) + '.';
     const hoy = new Date(); hoy.setHours(0, 0, 0, 0);
     if (dia1 < hoy) { txt += ' Ojo: tu Día 1 ya pasó. Si todavía no subiste el tema, elegí una fecha más adelante.'; out.classList.add('err'); }
     else if (salida.getDay() !== 5) { txt += ' No cae viernes: los días de los reels se corren (el plan personalizado lo acomoda).'; out.classList.add('err'); }
-    out.textContent = txt;
+    out.textContent = (out.classList.contains('err') ? '⚠️ ' : '✅ ') + txt;
   }
 
   let guardada = '';
@@ -3248,309 +3610,11 @@ ir(location.hash || ('#' + store.get('em:tab', 'p1')));
 })();
 
 /* ── js/d.js ── */
-/* ═══ Parte 6 · Agente D: calculadora de métricas, plataformas, barra de checklist ═══ */
+/* ═══ Parte 6 · Agente D: pestañas de plataformas y barra de la checklist (el diagnóstico de métricas está en d2.js) ═══ */
 (function () {
-  const box = document.getElementById('d-calcbox');
-  if (!box) return;
   const $ = id => document.getElementById(id);
-  const KEY = 'em:d-calc';
-  const load = () => { try { const v = JSON.parse(localStorage.getItem(KEY) || 'null'); return v && v.reels ? v : null; } catch (e) { return null; } };
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
-
-  /* referencias: mismas BANDS del Diagnóstico de Métricas de Larry; o = orientativa */
-  const B = {
-    ret: [20, 35, 55], nonfoll: [25, 45, 70], reachX: [1, 3, 10],
-    save1k: [3, 8, 20], share1k: [2, 5, 15], comm1k: [0.5, 1.5, 4], likeR: [1, 2.5, 6],
-    visitR: [0.5, 1.2, 3], follConv: [3, 8, 15],
-    full: [10, 25, 45], er: [1.5, 4, 10], foll1k: [0.2, 1, 4], clickR: [3, 8, 15], spr: [1.3, 2, 3], ssave: [5, 10, 20],
-  };
-  const score = (v, b) => {
-    if (v === null || v === undefined || !isFinite(v)) return null;
-    if (v <= 0) return 0;
-    if (v < b[0]) return 30 * v / b[0];
-    if (v < b[1]) return 30 + 25 * (v - b[0]) / (b[1] - b[0]);
-    if (v < b[2]) return 55 + 30 * (v - b[1]) / (b[2] - b[1]);
-    return Math.min(100, 85 + 15 * (v - b[2]) / b[2]);
-  };
-  const lvl = s => s === null ? 'na' : s < 30 ? 'r' : s < 55 ? 'y' : s < 85 ? 'g' : 'gg';
-  const LVL = { r: 'Arreglar', y: 'Flojo', g: 'Bien', gg: 'Excelente', na: 'Falta dato' };
-
-  /* campos del formulario */
-  const GROUPS = [
-    { t: '🎬 El reel', c: 'var(--blue)', f: [
-      ['views', 'Vistas', 'visualizaciones', 'numeric'],
-      ['dur', 'Duración del video', 'segundos', 'decimal'],
-      ['avg', 'Tiempo medio de visualización', 'segundos', 'decimal'],
-      ['full', '% que lo vio entero', 'opcional · %', 'decimal'],
-      ['reach', 'Cuentas alcanzadas', 'opcional', 'numeric'],
-      ['nonfoll', '% de no seguidores', '%', 'decimal'],
-      ['followers', 'Seguidores que tenés hoy', 'en esa red', 'numeric'],
-    ] },
-    { t: '💬 Interacciones', c: 'var(--teal)', f: [
-      ['likes', 'Me gusta', '', 'numeric'],
-      ['comments', 'Comentarios', '', 'numeric'],
-      ['shares', 'Compartidos', '', 'numeric'],
-      ['saves', 'Guardados', '', 'numeric'],
-    ] },
-    { t: '👤 Perfil', c: 'var(--violet)', f: [
-      ['visits', 'Visitas al perfil', '', 'numeric'],
-      ['newfoll', 'Seguidores nuevos', '', 'numeric'],
-      ['clicks', 'Clics al link', 'de la bio', 'numeric'],
-    ] },
-    { t: '🎧 La canción · opcional', c: '#1DB954', sub: 'De Spotify for Artists, en los mismos días', f: [
-      ['listeners', 'Oyentes del tema', '', 'numeric'],
-      ['streams', 'Reproducciones (streams)', '', 'numeric'],
-      ['ssaves', 'Guardados del tema', '', 'numeric'],
-    ] },
-  ];
-  const FIELDS = GROUPS.flatMap(g => g.f.map(f => f[0]));
-  $('d-groups').innerHTML = GROUPS.map(g =>
-    `<fieldset class="d-g" style="--gc:${g.c}"><legend>${g.t}</legend>${g.sub ? `<p class="d-gsub">${g.sub}</p>` : ''}<div class="d-gf">` +
-    g.f.map(([k, l, h, m]) => `<label class="d-f"><span>${l}${h ? ` <small>${h}</small>` : ''}</span><input id="d-i-${k}" data-k="${k}" type="text" inputmode="${m}" autocomplete="off" placeholder="—"></label>`).join('') +
-    '</div></fieldset>').join('');
-
-  /* «1.234», «1,5», «12k», «3,2 mil» → número */
-  function num(s) {
-    if (s === undefined || s === null) return null;
-    s = String(s).trim().toLowerCase().replace(/\s|%|s$/g, '');
-    if (!s) return null;
-    let mult = 1;
-    if (/(k|mil)$/.test(s)) { mult = 1000; s = s.replace(/(k|mil)$/, ''); }
-    else if (/m$/.test(s)) { mult = 1e6; s = s.replace(/m$/, ''); }
-    if (/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, '');
-    else if (/^\d{1,3}(,\d{3})+$/.test(s) && mult === 1) s = s.replace(/,/g, '');
-    s = s.replace(',', '.');
-    const v = parseFloat(s);
-    return isFinite(v) && v >= 0 ? v * mult : null;
-  }
-  const fmt = (v, d) => v === null ? '—' : v.toLocaleString('es-AR', { maximumFractionDigits: d === undefined ? (v < 10 ? 1 : 0) : d });
-
-  /* estado */
-  const blank = () => ({ name: '', type: '', v: {} });
-  let S = load() || { cur: 'A', reels: { A: blank(), B: blank(), C: blank() } };
-  ['A', 'B', 'C'].forEach(r => { if (!S.reels[r]) S.reels[r] = blank(); });
-  const DEMO = {
-    A: { name: 'Viral · gancho en la calle', type: 'viral', v: { views: '12.400', dur: '18', avg: '5,1', full: '14', reach: '9.800', nonfoll: '71', followers: '1.850', likes: '640', comments: '22', shares: '96', saves: '58', visits: '210', newfoll: '31', clicks: '9', listeners: '', streams: '', ssaves: '' } },
-    B: { name: 'Conexión · la historia del tema', type: 'conexion', v: { views: '3.100', dur: '32', avg: '14', full: '22', nonfoll: '38', followers: '1.850', likes: '290', comments: '41', shares: '14', saves: '37', visits: '95', newfoll: '12', clicks: '11' } },
-    C: { name: 'Conversión · estribillo con letra', type: 'conversion', v: { views: '1.900', dur: '15', avg: '1,8', nonfoll: '20', followers: '1.850', likes: '70', comments: '3', shares: '2', saves: '4', visits: '30', newfoll: '1', clicks: '6', listeners: '410', streams: '690', ssaves: '38' } },
-  };
-
-  function calc(R) {
-    const d = {}; FIELDS.forEach(k => d[k] = num(R.v[k]));
-    const v = d.views, pk = (a, b, m) => (a !== null && b) ? a / b * (m || 100) : null;
-    const m = {
-      ret: (d.avg !== null && d.dur) ? Math.min(100, d.avg / d.dur * 100) : null,
-      full: d.full, nonfoll: d.nonfoll,
-      reachX: (d.followers && v) ? v / d.followers : null,
-      er: (v && ['likes', 'comments', 'shares', 'saves'].some(k => d[k] !== null)) ? ((d.likes || 0) + (d.comments || 0) + (d.shares || 0) + (d.saves || 0)) / v * 100 : null,
-      share1k: pk(d.shares, v, 1000), save1k: pk(d.saves, v, 1000), comm1k: pk(d.comments, v, 1000), likeR: pk(d.likes, v),
-      visitR: pk(d.visits, v), foll1k: pk(d.newfoll, v, 1000),
-      follConv: (d.newfoll !== null && d.visits) ? Math.min(100, d.newfoll / d.visits * 100) : null,
-      clickR: (d.clicks !== null && d.visits) ? Math.min(100, d.clicks / d.visits * 100) : null,
-      spr: (d.streams !== null && d.listeners) ? d.streams / d.listeners : null,
-      ssave: (d.ssaves !== null && d.listeners) ? Math.min(100, d.ssaves / d.listeners * 100) : null,
-    };
-    return { d, m };
-  }
-
-  /* métricas que se muestran */
-  const MET = {
-    nonfoll: ['Alcance nuevo', '%', 'De la gente que lo vio, cuánta no te sigue. Mide si saliste de tu círculo.'],
-    reachX: ['Vistas vs. seguidores', '×', 'Cuántas veces tus seguidores son las vistas. Más de 1× = llegó afuera.'],
-    ret: ['Retención', '%', 'Tiempo medio ÷ duración. Es lo que más mira el algoritmo.'],
-    full: ['Lo vieron entero', '%', 'Qué parte lo miró hasta el final.', 1],
-    er: ['Interacción total', '%', '(me gusta + comentarios + compartidos + guardados) ÷ vistas.', 1],
-    share1k: ['Compartidos', 'c/1.000', 'Compartir es lo que multiplica el alcance gratis.'],
-    save1k: ['Guardados', 'c/1.000', 'La señal más fuerte: «quiero volver a verlo».'],
-    comm1k: ['Comentarios', 'c/1.000', 'Le dicen al algoritmo que el video genera charla.'],
-    likeR: ['Me gusta', '%', 'Suma, pero es la señal más débil.'],
-    visitR: ['Fueron a tu perfil', '%', 'De los que lo vieron, cuántos quisieron saber quién sos.'],
-    follConv: ['Perfil → seguidor', '%', 'De los que entraron a tu perfil, cuántos te siguieron.'],
-    foll1k: ['Seguidores nuevos', 'c/1.000', 'Seguidores que te trae cada 1.000 vistas.', 1],
-    clickR: ['Perfil → link', '%', 'De los que entraron a tu perfil, cuántos tocaron el link.', 1],
-    spr: ['Streams por oyente', '×', 'Si lo escuchan más de una vez, el tema engancha.', 1],
-    ssave: ['Guardaron el tema', '%', 'Guardados ÷ oyentes. El mejor número de Spotify.', 1],
-  };
-  const STAGES = [
-    { k: 'gancho', n: 'Gancho', q: '¿Frenan el dedo?', c: 'var(--blue)', ms: ['nonfoll', 'reachX'] },
-    { k: 'ret', n: 'Retención', q: '¿Se quedan a ver?', c: 'var(--cyan)', ms: ['ret', 'full'] },
-    { k: 'acc', n: 'Interacción', q: '¿Hacen algo?', c: 'var(--teal)', ms: ['er', 'share1k', 'save1k', 'comm1k', 'likeR'] },
-    { k: 'perfil', n: 'Perfil', q: '¿Te siguen?', c: 'var(--violet)', ms: ['visitR', 'follConv', 'foll1k'] },
-    { k: 'musica', n: 'Música', q: '¿Te escuchan?', c: '#1DB954', ms: ['clickR', 'spr', 'ssave'] },
-  ];
-  const FIX = {
-    gancho: ['Los primeros 3 segundos no frenan el dedo', 'Si casi nadie que no te sigue lo ve, el video no salió de tu círculo. El problema está en el arranque, no en la canción.', [
-      'Cambiá el primer plano: algo que sorprenda. <b>Nunca un logo, un saludo ni una intro.</b>',
-      'Entrá directo por lo más fuerte del tema (estribillo o drop).',
-      'Poné un texto en el segundo 0 que <b>abra una pregunta</b>, no que la cierre.'], '#p3', 'Ver ganchos en Reels'],
-    ret: ['Enganchan, pero se van: falta ritmo', 'El gancho anda, pero se caen después. Cada segundo tiene que ganarse el siguiente.', [
-      'Cortá lo que sobra: <b>15 a 30 segundos</b> es lo ideal.',
-      'Que cada 2 o 3 segundos pase algo: cambio de plano, texto, movimiento.',
-      'Prometé algo al principio («quedate que al final…») y <b>cumplilo al final</b>.'], '#p3', 'Ver la anatomía del reel'],
-    acc: ['Lo miran pero no hacen nada', 'Un video lindo sin interacción muere: el algoritmo empuja lo que genera acción, no lo más lindo.', [
-      'Cerrá con <b>una sola</b> pregunta fácil de contestar: «¿la subo o no?».',
-      'Letra en pantalla en la parte más identificable: <b>eso es lo que se comparte</b>.',
-      'Dales un motivo para guardar: «guardalo que el viernes sale».'], '#p3', 'Ver llamados a la acción'],
-    perfil: ['El video anda, el perfil no convence', 'Llegan a tu perfil y no se quedan: tenés 3 a 5 segundos para convencerlos ahí.', [
-      'Bio de 2 líneas: <b>qué música hacés, desde dónde</b> y el link.',
-      'Fijá los 3 reels que mejor te representan.',
-      'Que tus videos te muestren a vos, no solo la canción.'], '#p5', 'Ver la preparación del lanzamiento'],
-    musica: ['Te siguen, pero no llegan a escucharte', 'Spotify es el norte: no importa cuántos seguidores tengas si nadie guarda tu canción.', [
-      'Link <b>directo a la canción</b>, no un menú con 12 opciones.',
-      'Decilo en el video y en el texto: «link en mi perfil».',
-      'Reel de conversión: la mejor parte del tema con la <b>letra grande</b>.'], '#p3', 'Ver reels de conversión'],
-  };
-  const KEYM = { viral: ['nonfoll', 'share1k'], conexion: ['foll1k', 'save1k', 'comm1k'], conversion: ['clickR', 'spr', 'ssave'] };
-  const TNAME = { viral: 'viral', conexion: 'de conexión', conversion: 'de conversión' };
-
-  function evalReel(R) {
-    const { d, m } = calc(R);
-    const sc = {}; Object.keys(MET).forEach(k => sc[k] = score(m[k], B[k]));
-    const st = STAGES.map(s => {
-      const xs = s.ms.map(k => sc[k]).filter(x => x !== null);
-      let v = xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null;
-      // gancho: si en promedio no pasan los 3 s, es rojo sí o sí
-      if (s.k === 'gancho' && d.avg !== null && d.avg < 3) v = Math.min(v === null ? 20 : v, 20);
-      return Object.assign({}, s, { s: v, l: lvl(v) });
-    });
-    const have = st.filter(s => s.s !== null);
-    const W = { gancho: 25, ret: 30, acc: 25, perfil: 12, musica: 8 };
-    const tw = have.reduce((a, s) => a + W[s.k], 0);
-    const total = tw ? have.reduce((a, s) => a + s.s * W[s.k], 0) / tw : null;
-    return { d, m, sc, st, total };
-  }
-
-  /* ─── pintar ─── */
-  function meter(s, l) {
-    const p = s === null ? 0 : Math.max(2, Math.min(100, s));
-    return `<div class="d-meter"><i class="r"></i><i class="y"></i><i class="g"></i><i class="gg"></i>${s === null ? '' : `<b class="${l}" style="left:${p}%"></b>`}</div>`;
-  }
-  function refTxt(k) {
-    const b = B[k], u = MET[k][1] === '%' ? '%' : MET[k][1] === '×' ? '×' : '';
-    return `🔴 &lt;${fmt(b[0], 2)}${u} · 🟢 ${fmt(b[1], 2)}${u}+ · 🔥 ${fmt(b[2], 2)}${u}+`;
-  }
-  function valTxt(k, v) {
-    const u = MET[k][1];
-    if (v === null) return '—';
-    if (u === '%') return fmt(v, v < 1 ? 2 : 1) + '<small>%</small>';
-    if (u === '×') return fmt(v, 1) + '<small>×</small>';
-    return fmt(v, 1) + '<small>c/1.000</small>';
-  }
-
-  function render() {
-    const cur = S.cur;
-    box.querySelectorAll('.d-tab').forEach(t => { const on = t.dataset.r === cur; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); });
-    const cmp = cur === 'cmp';
-    $('d-editor').hidden = cmp; $('d-out').hidden = cmp; $('d-cmp').hidden = !cmp;
-    // nombres en pestañas
-    ['A', 'B', 'C'].forEach(r => { const t = box.querySelector(`.d-tab[data-r="${r}"]`); const n = S.reels[r].name; t.innerHTML = `Reel ${r}${n ? `<small>${esc(n)}</small>` : ''}`; });
-    if (cmp) { renderCmp(); return; }
-    const R = S.reels[cur];
-    $('d-nm').value = R.name || '';
-    box.querySelectorAll('.d-type button').forEach(b => { const on = b.dataset.t === R.type; b.classList.toggle('on', on); b.setAttribute('aria-checked', on); });
-    FIELDS.forEach(k => { const i = $('d-i-' + k); if (document.activeElement !== i) i.value = R.v[k] || ''; });
-    renderOut(R);
-  }
-  const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
-
-  function renderOut(R) {
-    const out = $('d-out');
-    const E = evalReel(R);
-    if (!E.d.views) {
-      out.innerHTML = `<div class="d-empty"><span>🧮</span><p><b>Cargá al menos las vistas</b> (y si podés, la duración y el tiempo medio) y acá aparece el diagnóstico.</p></div>`;
-      return;
-    }
-    const tot = E.total, tl = lvl(tot);
-    const first = E.st.find(s => s.s !== null && s.s < 55);
-    const missing = E.st.filter(s => s.s === null).map(s => s.n);
-    const keys = KEYM[R.type] || [];
-    // diagnóstico
-    let diag;
-    if (first) {
-      const f = FIX[first.k], next = E.st.filter(s => s !== first && s.s !== null && s.s < 55);
-      diag = `<div class="d-diag ${first.l}" style="--sc:${first.c}">
-        <p class="d-dk">👉 Arreglá primero · <b>${first.n}</b></p>
-        <h3>${f[0]}</h3><p class="d-dw">${f[1]}</p>
-        <ol>${f[2].map(x => `<li>${x}</li>`).join('')}</ol>
-        <div class="d-dfoot"><a class="d-lnk" href="${f[3]}">${f[4]} →</a>${next.length ? `<span>Después: ${next.map(s => s.n).join(' → ')}</span>` : ''}</div>
-      </div>`;
-    } else {
-      diag = `<div class="d-diag gg" style="--sc:var(--green)"><p class="d-dk">🔥 Todo en verde</p><h3>Este reel funciona: doblá la apuesta</h3><p class="d-dw">Hacé 2 más con el mismo formato y probá variantes del gancho. ${missing.length ? `Para un diagnóstico completo te falta cargar: <b>${missing.join(', ')}</b>.` : ''}</p></div>`;
-    }
-    const funnel = E.st.map((s, i) => `<div class="d-fs ${s.l}${s === first ? ' first' : ''}" style="--w:${100 - i * 11}%;--sc:${s.c}">
-        <div class="d-fsb"><span class="d-fsn"><b>${s.n}</b><small>${s.q}</small></span><span class="d-fsv">${s.s === null ? 'falta dato' : Math.round(s.s)}<em>${LVL[s.l]}</em></span></div>
-        <div class="d-fill" style="width:${s.s === null ? 0 : Math.max(3, s.s)}%"></div></div>`).join('');
-    const cards = E.st.map(s => {
-      const ks = s.ms.filter(k => E.m[k] !== null);
-      if (!ks.length) return '';
-      return `<div class="d-mgrp" style="--sc:${s.c}"><p class="d-mgt">${s.n}</p><div class="d-mgrid">` + ks.map(k => {
-        const sc = E.sc[k], l = lvl(sc), isK = keys.includes(k);
-        return `<div class="d-m ${l}${isK ? ' key' : ''}">
-          <div class="d-mh"><span>${MET[k][0]}${MET[k][3] ? ' <i class="d-ori">orientativa</i>' : ''}</span><em class="d-pill ${l}">${LVL[l]}</em></div>
-          <p class="d-mv">${valTxt(k, E.m[k])}</p>${meter(sc, l)}
-          <p class="d-mref">${refTxt(k)}</p>
-          ${isK ? `<p class="d-mkey">⭐ Clave en un reel ${TNAME[R.type]}</p>` : ''}
-          <p class="d-mw">${MET[k][2]}</p></div>`;
-      }).join('') + '</div></div>';
-    }).join('');
-    const warn = E.d.views < 200 ? `<p class="d-small">⚠️ Con menos de 200 vistas los porcentajes bailan mucho. Tomalo como pista, no como verdad.</p>` : '';
-    const hook = (E.d.avg !== null && E.d.avg < 3) ? `<p class="d-small">⏱ En promedio lo miran <b>${fmt(E.d.avg, 1)} s</b>: no pasan los 3 primeros segundos.</p>` : '';
-    out.innerHTML = `
-      <div class="d-res">
-        <div class="d-score ${tl}" style="--p:${tot === null ? 0 : tot}">
-          <div class="d-ring"><div><b>${tot === null ? '—' : Math.round(tot)}</b><small>de 100</small></div></div>
-          <div class="d-st"><p class="d-stl">Nota del reel</p><p class="d-stv">${LVL[tl]}</p>
-            <p class="d-sts">${fmt(E.d.views, 0)} vistas${E.d.newfoll !== null ? ` · ${fmt(E.d.newfoll, 0)} seguidores nuevos` : ''}${E.d.listeners !== null ? ` · ${fmt(E.d.listeners, 0)} oyentes` : ''}</p></div>
-        </div>
-        <div class="d-funnel"><p class="d-mini">El embudo · se arregla de arriba hacia abajo</p>${funnel}</div>
-      </div>
-      ${warn}${hook}${diag}
-      <div class="d-mets">${cards}</div>`;
-  }
-
-  function renderCmp() {
-    const rs = ['A', 'B', 'C'].map(r => ({ r, R: S.reels[r], E: evalReel(S.reels[r]) })).filter(x => x.E.d.views);
-    const el = $('d-cmp');
-    if (rs.length < 2) { el.innerHTML = `<div class="d-empty"><span>⚖️</span><p>Cargá <b>al menos 2 reels</b> (pestañas A, B y C) para compararlos lado a lado.</p></div>`; return; }
-    const rows = [['Nota del reel', x => x.E.total, x => lvl(x.E.total), v => Math.round(v)]]
-      .concat(STAGES.map(s => [s.n, x => x.E.st.find(t => t.k === s.k).s, x => lvl(x.E.st.find(t => t.k === s.k).s), v => Math.round(v), 1]))
-      .concat(Object.keys(MET).map(k => [MET[k][0], x => x.E.m[k], x => lvl(x.E.sc[k]), v => valTxt(k, v), 0, k]))
-      .concat([['Vistas', x => x.E.d.views, () => 'na', v => fmt(v, 0)]]);
-    const best = rs.slice().sort((a, b) => (b.E.total || 0) - (a.E.total || 0))[0];
-    const head = `<tr><th>Métrica</th>${rs.map(x => `<th class="${x === best ? 'best' : ''}"><b>Reel ${x.r}</b>${x.R.name ? `<small>${esc(x.R.name)}</small>` : ''}${x.R.type ? `<span class="d-tchip t-${x.R.type}">${x.R.type === 'conexion' ? 'Conexión' : x.R.type === 'conversion' ? 'Conversión' : 'Viral'}</span>` : ''}</th>`).join('')}</tr>`;
-    const body = rows.map(([n, get, lv, f, isStage, k]) => {
-      const vals = rs.map(get);
-      if (vals.every(v => v === null)) return '';
-      const mx = Math.max(...vals.filter(v => v !== null));
-      return `<tr class="${isStage ? 'stg' : ''}${n === 'Nota del reel' ? ' tot' : ''}"><td>${n}</td>${rs.map((x, i) => {
-        const v = vals[i]; if (v === null) return '<td class="na">—</td>';
-        const l = lv(x); const top = v === mx && vals.filter(z => z !== null).length > 1 && l !== 'na';
-        return `<td class="${l}${top ? ' top' : ''}"><span class="d-cd ${l}"></span>${f(v)}${top ? ' <i>★</i>' : ''}</td>`;
-      }).join('')}</tr>`;
-    }).join('');
-    const bf = best.E.st.find(s => s.s !== null && s.s < 55);
-    el.innerHTML = `<div class="d-win"><span>🏆</span><div><p class="d-mini">El que mejor anduvo</p><h3>Reel ${best.r}${best.R.name ? ' · ' + esc(best.R.name) : ''}</h3><p>Repetí ese formato la semana que viene${bf ? `, pero ojo con <b>${bf.n.toLowerCase()}</b>` : ''}. ★ = el mejor de cada fila.</p></div></div>
-      <div class="d-cmpwrap"><table class="d-ctable">${head}${body}</table></div>`;
-  }
-
-  /* ─── eventos ─── */
-  box.querySelectorAll('.d-tab').forEach(t => t.addEventListener('click', () => { S.cur = t.dataset.r; save(); render(); }));
-  box.querySelectorAll('.d-type button').forEach(b => b.addEventListener('click', () => {
-    const R = S.reels[S.cur]; R.type = R.type === b.dataset.t ? '' : b.dataset.t; save(); render();
-  }));
-  $('d-nm').addEventListener('input', e => { S.reels[S.cur].name = e.target.value; save(); const t = box.querySelector(`.d-tab[data-r="${S.cur}"]`); t.innerHTML = `Reel ${S.cur}${e.target.value ? `<small>${esc(e.target.value)}</small>` : ''}`; });
-  $('d-groups').addEventListener('input', e => {
-    const k = e.target.dataset.k; if (!k) return;
-    S.reels[S.cur].v[k] = e.target.value; save(); renderOut(S.reels[S.cur]);
-  });
-  $('d-clear').addEventListener('click', () => { S.reels[S.cur] = blank(); save(); render(); });
-  $('d-demo').addEventListener('click', () => {
-    const r = S.cur; S.reels[r] = JSON.parse(JSON.stringify(DEMO[r])); save(); render();
-  });
-  // prueba: ?d-demo carga los 3 ejemplos (sin pisar lo guardado), ?d-demo=cmp abre la comparación
-  const qd = /[?&]d-demo(=([a-z]+))?/.exec(location.search);
-  if (qd) { S = { cur: qd[2] === 'cmp' ? 'cmp' : (qd[2] || 'A').toUpperCase(), reels: JSON.parse(JSON.stringify(DEMO)) }; if (!S.reels[S.cur] && S.cur !== 'cmp') S.cur = 'A'; }
-  render();
+  // la calculadora vieja guardaba acá; ya no se usa
+  try { localStorage.removeItem('em:d-calc'); } catch (e) {}
 
   /* ─── pestañas de plataformas ─── */
   const pl = [...document.querySelectorAll('#d-donde .d-plat')], pp = [...document.querySelectorAll('#d-donde .d-pp')];
@@ -3568,6 +3632,753 @@ ir(location.hash || ('#' + store.get('em:tab', 'p1')));
     const upd = () => { const it = wk.querySelectorAll('.check-item'); const n = wk.querySelectorAll('.check-item.done').length; bar.style.width = (it.length ? n / it.length * 100 : 0) + '%'; wk.classList.toggle('d-full', n === it.length); };
     new MutationObserver(upd).observe(wk, { subtree: true, attributes: true, attributeFilter: ['class'] });
     upd();
+  }
+})();
+
+/* ── js/d2.js ── */
+/* ═══ Parte 6 · Diagnóstico de Métricas de Larry (portado de su herramienta, sin contraseña) ═══
+   Criterio y textos: Arsenal Creativo + Manual de Marca Personal. Todo con prefijo dm- y dentro de un IIFE. */
+(function () {
+  var root = document.getElementById('dm-tool');
+  if (!root) return;
+
+  /* ---------- HELPERS ---------- */
+  var $ = function(id){ return document.getElementById(id); };
+  var K_FORM = 'em:dm-form', K_HIST = 'em:dm-hist';
+  function lsGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function lsSet(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+  var TEST = false;   // modo prueba (?dm-t=…): no pisa lo guardado
+  // «12.400» = doce mil cuatrocientos; «9,5» y también «9.5» (1 o 2 decimales) = nueve y medio.
+  // (el original tomaba «9.5» como 95 aunque el ejemplo del campo dice «Ej: 9.5»)
+  function num(id){ var raw = ($(id).value||'').toString().trim(); var v = /^\d+\.\d{1,2}$/.test(raw) ? raw : raw.replace(/\./g,'').replace(/,/g,'.').replace(/[^\d.]/g,''); if(v==='') return null; var n = parseFloat(v); return isNaN(n) ? null : n; }
+  function fmt(n, d){ if(n===null||n===undefined||isNaN(n)) return '—'; return Number(n).toLocaleString('es-AR',{maximumFractionDigits:(d===undefined?1:d)}); }
+  function pct(n){ return n===null?'—':fmt(n,n<1?2:1)+'%'; }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function toggleVal(wrapId){ var el = document.querySelector('#'+wrapId+' .dm-toggle.on'); return el ? el.getAttribute('data-v') : null; }
+  function setToggle(wrapId, v){
+    document.querySelectorAll('#'+wrapId+' .dm-toggle').forEach(function(t){
+      var on = t.getAttribute('data-v') === v; t.classList.toggle('on', on); t.setAttribute('aria-pressed', on);
+    });
+  }
+  root.querySelectorAll('.dm-toggle-row').forEach(function(row){
+    row.querySelectorAll('.dm-toggle').forEach(function(t){ t.setAttribute('aria-pressed', t.classList.contains('on')); });
+    row.addEventListener('click', function(e){
+      var t = e.target.closest('.dm-toggle'); if(!t) return;
+      setToggle(row.id, t.getAttribute('data-v'));
+      if (row.id === 'dm-t-plat') applyPlatformLabels();
+      saveForm();
+    });
+  });
+
+  /* ---------- ETIQUETAS SEGÚN PLATAFORMA ---------- */
+  function applyPlatformLabels(){
+    var p = toggleVal('dm-t-plat');
+    if (p === 'tt'){
+      $('dm-l-views').textContent = 'Vistas de video';
+      $('dm-h-views').textContent = 'TikTok: pestaña Analytics del video → "Vistas de video".';
+      $('dm-l-reach').textContent = 'Espectadores únicos (opcional)';
+      $('dm-l-nonfoll').textContent = '% de tráfico "Para ti"';
+      $('dm-h-nonfoll').textContent = 'TikTok: "Fuentes de tráfico" → porcentaje que vino del Para ti.';
+    } else {
+      $('dm-l-views').textContent = 'Reproducciones';
+      $('dm-h-views').textContent = 'Instagram: estadísticas del reel → "Reproducciones" (en algunas versiones, "Visualizaciones").';
+      $('dm-l-reach').textContent = 'Cuentas alcanzadas';
+      $('dm-l-nonfoll').textContent = '% que NO te sigue';
+      $('dm-h-nonfoll').textContent = 'Instagram: dentro de "Cuentas alcanzadas" → seguidores vs. no seguidores.';
+    }
+  }
+
+  /* ---------- NAVEGACIÓN ENTRE PASOS ---------- */
+  var lastDiag = null;
+  function goStep(n, noScroll){
+    root.querySelectorAll('.dm-panel').forEach(function(p){ p.classList.remove('active'); });
+    $('dm-panel-'+n).classList.add('active');
+    root.querySelectorAll('.dm-step').forEach(function(c){
+      var on = c.getAttribute('data-step') === String(n);
+      c.classList.toggle('active', on); c.setAttribute('aria-current', on ? 'step' : 'false');
+    });
+    if (!noScroll) root.scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+  root.querySelectorAll('[data-dm-go]').forEach(function(b){
+    b.addEventListener('click', function(){ goStep(b.getAttribute('data-dm-go')); });
+  });
+  root.querySelectorAll('.dm-step').forEach(function(c){
+    c.addEventListener('click', function(){
+      var s = c.getAttribute('data-step');
+      if (s === '3' && !lastDiag) return;
+      goStep(s);
+    });
+  });
+
+  /* ---------- GUARDAR / RECUPERAR FORMULARIO ---------- */
+  var FIELDS = ['dm-f-artist','dm-f-followers','dm-f-freq','dm-f-grado','dm-f-views','dm-f-reach','dm-f-nonfoll','dm-f-dur','dm-f-avg','dm-f-likes','dm-f-comments','dm-f-saves','dm-f-shares','dm-f-visits','dm-f-newfoll','dm-f-clicks'];
+  function saveForm(){
+    $('dm-nav-artist').textContent = ($('dm-f-artist').value || '—');
+    if (TEST) return;
+    var o = {};
+    FIELDS.forEach(function(id){ o[id] = $(id).value; });
+    o.plat = toggleVal('dm-t-plat'); o.triple = toggleVal('dm-t-triple');
+    o.subs = toggleVal('dm-t-subs'); o.momento = toggleVal('dm-t-momento');
+    lsSet(K_FORM, JSON.stringify(o));
+  }
+  function fillForm(o){
+    FIELDS.forEach(function(id){ if(o[id] !== undefined) $(id).value = o[id]; });
+    [['dm-t-plat',o.plat],['dm-t-triple',o.triple],['dm-t-subs',o.subs],['dm-t-momento',o.momento]].forEach(function(pair){
+      if(pair[1]) setToggle(pair[0], pair[1]);
+    });
+    $('dm-nav-artist').textContent = ($('dm-f-artist').value || '—');
+  }
+  function loadForm(){
+    var raw = lsGet(K_FORM); if(!raw) return;
+    var o; try { o = JSON.parse(raw); } catch(e){ return; }
+    if (o) fillForm(o);
+  }
+  FIELDS.forEach(function(id){ $(id).addEventListener('input', saveForm); $(id).addEventListener('change', saveForm); });
+
+  /* ---------- IMPORTAR PEGANDO ESTADÍSTICAS ---------- */
+  var PARSE_MAP = [
+    ['dm-f-views',    ['reproducciones','visualizaciones','vistas de video','vistas','plays','views']],
+    ['dm-f-reach',    ['cuentas alcanzadas','espectadores unicos','espectadores únicos','alcance','reach']],
+    ['dm-f-likes',    ['me gusta','megusta','likes','favoritos']],
+    ['dm-f-comments', ['comentarios','comments']],
+    ['dm-f-saves',    ['guardados','guardado','saves','guardar']],
+    ['dm-f-shares',   ['compartidos','compartido','veces compartido','shares','compartir']],
+    ['dm-f-visits',   ['visitas al perfil','visitas de perfil','profile visits']],
+    ['dm-f-newfoll',  ['seguidores nuevos','nuevos seguidores','seguimientos','nuevos followers','follows']],
+    ['dm-f-avg',      ['tiempo de visualizacion promedio','tiempo de visualización promedio','tiempo promedio','tiempo medio','average watch time','watch time']],
+    ['dm-f-dur',      ['duracion','duración','duration','largo del video']],
+    ['dm-f-nonfoll',  ['no seguidores','no te siguen','no-seguidores','para ti','for you']],
+    ['dm-f-clicks',   ['clics en el enlace','clics en el link','toques en el enlace','link clicks','clics']]
+  ];
+  function normNum(s){
+    s = s.trim().toLowerCase();
+    var mult = 1;
+    if (/mil\b|k\b/.test(s)) mult = 1000;
+    if (/mill|m\b/.test(s) && !/mil\b/.test(s)) mult = 1000000;
+    var t = s.match(/(\d+)\s*:\s*(\d+)/);                  // 1:05 → 65 seg
+    if (t) return parseInt(t[1],10)*60 + parseInt(t[2],10);
+    var m = s.match(/\d[\d.,]*/); if(!m) return null;
+    var raw = m[0];
+    if (/,\d{1,2}$/.test(raw) && mult > 1) raw = raw.replace(/\./g,'').replace(',','.');
+    else raw = raw.replace(/\.(?=\d{3}\b)/g,'').replace(/,(?=\d{3}\b)/g,'').replace(',','.');
+    var n = parseFloat(raw); if (isNaN(n)) return null;
+    return n * mult;
+  }
+  function parsePaste(){
+    var txt = ($('dm-f-paste').value||'').toLowerCase().replace(/ /g,' ');
+    if (!txt.trim()){ $('dm-paste-status').textContent = 'Pegá primero el texto de las estadísticas.'; return; }
+    var found = 0, used = {};
+    PARSE_MAP.forEach(function(pair){
+      var id = pair[0]; if (used[id]) return;
+      for (var i=0;i<pair[1].length;i++){
+        var k = pair[1][i], idx = txt.indexOf(k);
+        if (idx === -1) continue;
+        var after = txt.slice(idx + k.length, idx + k.length + 30);
+        var v = normNum(after);
+        if (v === null){
+          var before = txt.slice(Math.max(0, idx - 22), idx);
+          var mm = before.match(/[\d.,:]+\s*(mil|k|m)?\s*$/);
+          if (mm) v = normNum(mm[0]);
+        }
+        if (v !== null){ $(id).value = (Math.round(v*100)/100); used[id] = true; found++; break; }
+      }
+    });
+    saveForm();
+    $('dm-paste-status').textContent = found
+      ? 'Listo: completé ' + found + ' campo' + (found>1?'s':'') + '. Revisá que los números sean los correctos y completá el resto a mano.'
+      : 'No pude reconocer ningún dato. Cargalos a mano — es un minuto.';
+  }
+  $('dm-btn-parse').addEventListener('click', parsePaste);
+  $('dm-btn-clear').addEventListener('click', function(){
+    ['dm-f-views','dm-f-reach','dm-f-nonfoll','dm-f-dur','dm-f-avg','dm-f-likes','dm-f-comments','dm-f-saves','dm-f-shares','dm-f-visits','dm-f-newfoll','dm-f-clicks'].forEach(function(id){ $(id).value=''; });
+    $('dm-f-paste').value=''; $('dm-paste-status').textContent=''; saveForm();
+  });
+
+  /* ---------- MOTOR DE DIAGNÓSTICO ----------
+     Bandas de referencia para artistas emergentes (video corto).
+     Formato: [crítico <, flojo <, bien <, arriba de eso: excelente] */
+  var BANDS = {
+    ret:      [20, 35, 55],   // % de retención (tiempo medio / duración)
+    nonfoll:  [25, 45, 70],   // % de alcance que no te sigue
+    reachX:   [1, 3, 10],     // reproducciones ÷ seguidores
+    saveR:    [0.3, 0.8, 2],  // guardados / repro %
+    shareR:   [0.2, 0.5, 1.5],// compartidos / repro %
+    commR:    [0.05, 0.15, 0.4],
+    likeR:    [1, 2.5, 6],
+    visitR:   [0.5, 1.2, 3],  // visitas al perfil / repro %
+    follConv: [3, 8, 15]      // seguidores nuevos / visitas al perfil %
+  };
+  var LEVELS = ['crit','low','ok','top'];
+  var LEVEL_TXT = { crit:'Crítico', low:'Flojo', ok:'Bien', top:'Excelente' };
+
+  function level(v, b){ if(v===null) return null; if(v < b[0]) return 0; if(v < b[1]) return 1; if(v < b[2]) return 2; return 3; }
+  function scoreOf(v, b){
+    if (v === null) return null;
+    if (v <= 0) return 0;
+    if (v < b[0]) return 30 * (v / b[0]);
+    if (v < b[1]) return 30 + 25 * ((v - b[0]) / (b[1] - b[0]));
+    if (v < b[2]) return 55 + 30 * ((v - b[1]) / (b[2] - b[1]));
+    return Math.min(100, 85 + 15 * ((v - b[2]) / b[2]));
+  }
+  function benchTxt(b, unit){
+    var u = unit || '%';
+    return 'Referencia: <' + b[0] + u + ' crítico · ' + b[1] + u + ' aceptable · ' + b[2] + u + '+ excelente';
+  }
+
+  /* ---------- RECOLECTAR Y CALCULAR ---------- */
+  function collect(){
+    var d = {
+      artist: ($('dm-f-artist').value||'').trim() || 'Sin nombre',
+      plat: toggleVal('dm-t-plat'), triple: toggleVal('dm-t-triple'),
+      subs: toggleVal('dm-t-subs'), momento: toggleVal('dm-t-momento'),
+      grado: parseInt($('dm-f-grado').value, 10),
+      followers: num('dm-f-followers'), freq: num('dm-f-freq'),
+      views: num('dm-f-views'), reach: num('dm-f-reach'), nonfoll: num('dm-f-nonfoll'),
+      dur: num('dm-f-dur'), avg: num('dm-f-avg'), likes: num('dm-f-likes'),
+      comments: num('dm-f-comments'), saves: num('dm-f-saves'), shares: num('dm-f-shares'),
+      visits: num('dm-f-visits'), newfoll: num('dm-f-newfoll'), clicks: num('dm-f-clicks')
+    };
+    var v = d.views;
+    d.ret      = (d.avg !== null && d.dur) ? Math.min(100, d.avg / d.dur * 100) : null;
+    d.saveR    = (d.saves !== null && v) ? d.saves / v * 100 : null;
+    d.shareR   = (d.shares !== null && v) ? d.shares / v * 100 : null;
+    d.commR    = (d.comments !== null && v) ? d.comments / v * 100 : null;
+    d.likeR    = (d.likes !== null && v) ? d.likes / v * 100 : null;
+    d.visitR   = (d.visits !== null && v) ? d.visits / v * 100 : null;
+    d.follConv = (d.newfoll !== null && d.visits) ? Math.min(100, d.newfoll / d.visits * 100) : null;
+    d.reachX   = (d.followers && v) ? v / d.followers : null;
+    d.er = (v && (d.likes !== null || d.comments !== null || d.saves !== null || d.shares !== null))
+      ? ((d.likes||0) + (d.comments||0) + (d.saves||0) + (d.shares||0)) / v * 100 : null;
+    d.clickR = (d.clicks !== null && d.visits) ? d.clicks / d.visits * 100 : null;
+    return d;
+  }
+
+  var METRIC_DEFS = [
+    { k:'ret',      name:'Retención',            band:'ret',      unit:'%', weight:25, why:'Cuánto del video se ve en promedio. Es el número que más mira el algoritmo.' },
+    { k:'nonfoll',  name:'Alcance nuevo',        band:'nonfoll',  unit:'%', weight:15, why:'Qué parte del alcance es gente que no te sigue. Mide si el video sale de tu círculo.' },
+    { k:'saveR',    name:'Tasa de guardado',     band:'saveR',    unit:'%', weight:14, den:'views', minDen:200, why:'Guardar es la señal más fuerte: "esto vale la pena volver a verlo".' },
+    { k:'shareR',   name:'Tasa de compartido',   band:'shareR',   unit:'%', weight:14, den:'views', minDen:200, why:'Compartir es lo que multiplica el alcance sin que pagues nada.' },
+    { k:'commR',    name:'Tasa de comentarios',  band:'commR',    unit:'%', weight:10, den:'views', minDen:200, why:'Mide si tu CTA existió y si fue una sola acción clara.' },
+    { k:'likeR',    name:'Tasa de me gusta',     band:'likeR',    unit:'%', weight:5,  den:'views', minDen:200,  why:'La más blanda de todas. Sirve de contexto, no de brújula.' },
+    { k:'visitR',   name:'Visitas al perfil',    band:'visitR',   unit:'%', weight:9,  den:'views', minDen:200,  why:'Cuántos quisieron saber quién sos después de verte.' },
+    { k:'follConv', name:'Perfil → seguidor',    band:'follConv', unit:'%', weight:8,  den:'visits', minDen:25,  why:'De los que entraron a tu perfil, cuántos se quedaron. Esto mide el perfil, no el video.' },
+    { k:'reachX',   name:'Alcance vs. seguidores', band:'reachX', unit:'x', weight:0,  why:'Cuántas veces tu base de seguidores. Arriba de 3x el algoritmo te está distribuyendo.' }
+  ];
+
+  /* ---------- ETAPAS DEL EMBUDO ---------- */
+  function stages(d){
+    // Mitad promedio, mitad la peor señal: una métrica en rojo no se diluye
+    // dentro de una etapa que "en promedio" está bien.
+    function avgOf(list){
+      var vals = list.filter(function(x){ return x !== null; });
+      if (!vals.length) return null;
+      var mean = vals.reduce(function(a,b){ return a+b; },0) / vals.length;
+      var min = Math.min.apply(null, vals);
+      return mean * 0.5 + min * 0.5;
+    }
+    function sc(key, band){ return d[key + '_thin'] ? null : scoreOf(d[key], band); }
+    var hookParts = [scoreOf(d.nonfoll, BANDS.nonfoll), scoreOf(d.reachX, BANDS.reachX)];
+    if (d.avg !== null) hookParts.push(Math.max(0, Math.min(100, d.avg / 3 * 55)));
+    return [
+      { key:'gancho',    name:'Gancho',    sub:'Paran el scroll',        score: avgOf(hookParts) },
+      { key:'retencion', name:'Retención', sub:'Se quedan a ver',        score: scoreOf(d.ret, BANDS.ret) },
+      { key:'accion',    name:'Acción',    sub:'Guardan, comparten, comentan', score: avgOf([sc('saveR',BANDS.saveR), sc('shareR',BANDS.shareR), sc('commR',BANDS.commR)]) },
+      { key:'perfil',    name:'Perfil',    sub:'Van a ver quién sos',    score: sc('visitR', BANDS.visitR) },
+      { key:'conversion',name:'Conversión',sub:'Se quedan / te escuchan',score: sc('follConv', BANDS.follConv) }
+    ];
+  }
+
+  /* ---------- REGLAS DE DIAGNÓSTICO ---------- */
+  var RULES = [
+    { id:'gancho', sev:3, stage:'Gancho', title:'El gancho no está parando el scroll',
+      when:function(d){ return (d.avg !== null && d.avg < 3) || (d.ret !== null && d.ret < BANDS.ret[0]); },
+      diag:function(d){ return 'La gente ve en promedio <b>'+fmt(d.avg,1)+' segundos</b> de un video de '+fmt(d.dur,0)+'s ('+pct(d.ret)+' de retención). En TikTok tenés <b>3 segundos</b> para retener: si no enganchás ahí, el algoritmo lo descarta. El video no murió por la canción — murió en el primer plano.'; },
+      fixes:['Cambiá el primer frame: que sea algo que sorprenda al ojo, no tu logo ni una intro.','Probá los tres tipos de gancho: visual (algo raro en pantalla), auditivo (entrás directo al estribillo o al drop) o narrativo (una frase que abre una pregunta).','Regla de oro: si el gancho por sí solo cuenta todo el video, no sirve. Tiene que abrir una pregunta, no cerrarla.','Sacá todo lo que sobra del encuadre. El problema casi siempre es que sobran elementos, no que falten.'],
+      src:'Arsenal Creativo · La anatomía de un video viral, Parte 01 / Errores 01' },
+
+    { id:'pico', sev:3, stage:'Retención', title:'Enganchan, pero no les diste razón para quedarse',
+      when:function(d){ return d.ret !== null && d.ret >= BANDS.ret[0] && d.ret < BANDS.ret[1] && (d.avg === null || d.avg >= 3); },
+      diag:function(d){ return 'Retención de <b>'+pct(d.ret)+'</b>: el gancho funcionó, pero se caen justo después. Ese es el <b>pico de interés</b> — lo que viene inmediatamente después del hook y compra los segundos extra.'; },
+      fixes:['Si tenés autoridad visible (show con gente cantando, playlist editorial, comentarios reales), mostrala: si se ve, no hace falta explicarla.','Si todavía no se ve, verbalizala: "quedate que al final te cuento la historia real detrás de esta letra".','Fórmula: [CTA a quedarse] + [resultado concreto]. Sin eso, el espectador no sabe qué gana quedándose.','Poné el desenlace primero y resolvelo al final — empezá por el final, no por el principio.'],
+      src:'Arsenal Creativo · Pico de Interés / Storytelling 01' },
+
+    { id:'relleno', sev:2, stage:'Retención', title:'El relleno pierde ritmo a la mitad',
+      when:function(d){ return d.ret !== null && d.ret >= BANDS.ret[1] && d.ret < BANDS.ret[2] && (d.dur === null || d.dur > 20); },
+      diag:function(d){ return 'Retención de <b>'+pct(d.ret)+'</b> en '+fmt(d.dur,0)+'s. El arranque está bien: se cae en el cuerpo. Cada segundo del relleno tiene que ganar el siguiente.'; },
+      fixes:['Mezclá frases cortas, medias y largas. Si todo mide lo mismo, la gente se desconecta sin saber por qué.','Creá morbo interno: cada cosa que decís tiene que abrir una pregunta nueva.','Mostrá la emoción con contexto sensorial, no la nombres. "Estaba nervioso" no conecta; "subí el primer escalón, cientos de personas mirándome" sí.','No encadenes con "y después": enlazá los eventos dentro de la misma frase para que sea un solo bloque.','Si el cuerpo del video podría ser el gancho de otro video: son dos videos, no uno.'],
+      src:'Arsenal Creativo · Storytelling que engancha (5 reglas)' },
+
+    { id:'duracion', sev:2, stage:'Retención', title:'El video es más largo de lo que tu retención aguanta',
+      when:function(d){ return d.dur !== null && d.dur > 60 && (d.ret === null || d.ret < BANDS.ret[2]); },
+      diag:function(d){ return 'Dura <b>'+fmt(d.dur,0)+' segundos</b> y se ve '+pct(d.ret)+'. Los clips de 15 a 30 segundos son los que más se repiten, y la repetición es lo que dispara la distribución.'; },
+      fixes:['Cortá a 15–30s: sacá el saludo, la intro y la explicación previa.','Si hay dos ideas fuertes en el mismo video, partilo en dos piezas.','El checklist del Arsenal es claro: si dura más de 60 segundos, revisalo antes de subir.'],
+      src:'Arsenal Creativo · Plataformas / Checklist antes de publicar' },
+
+    { id:'circulo', sev:3, stage:'Gancho', title:'El video no salió de tu círculo',
+      when:function(d){ return d.nonfoll !== null && d.nonfoll < BANDS.nonfoll[0]; },
+      diag:function(d){ return 'Solo el <b>'+pct(d.nonfoll)+'</b> del alcance es gente que no te sigue. La plataforma te mostró a los tuyos, midió la reacción y no te escaló. Estás haciendo contenido de 3° o 4° grado cuando necesitás contenido de 1° grado.'; },
+      fixes:['El próximo video tiene que hablarle a alguien que nunca te vio: no expliques quién sos, demostrá algo.','Probá un hook claim (una afirmación controversial ligada a la temática de la canción) o un hook "cómo sonaría X + artista conocido" bien editado.','Subilo también a TikTok: ahí el algoritmo te muestra a gente que no te sigue desde el primer video.','Si tu cuenta tiene seguidores que no son tu oyente ideal, el alcance se penaliza. Evaluá si te conviene arrancar una cuenta nueva.'],
+      src:'Arsenal Creativo · 1° Grado / Manual de Marca · Cap. 08' },
+
+    { id:'shares', sev:3, stage:'Acción', title:'Nadie lo comparte: no genera identificación',
+      when:function(d){ return d.shareR !== null && d.views >= 200 && d.shareR < BANDS.shareR[0]; },
+      diag:function(d){ return 'Tasa de compartido <b>'+pct(d.shareR)+'</b> ('+fmt(d.shares,0)+' compartidos sobre '+fmt(d.views,0)+' reproducciones). El algoritmo no empuja el contenido más lindo — empuja el que genera acción. Un post lindo sin interacción muere.'; },
+      fixes:['Buscá el punto de identificación: una frase que alguien quiera mandarle a otra persona en vez de solo mirarla.','Contenido que genera debate, identificación o reacción vuela. Contenido decorativo no.','Poné la letra en pantalla en el momento más identificable del tema — eso es lo que se reenvía.','Probá formato de aprobación social: live con amigos, concierto con subtítulos, reacciones de gente en la calle.'],
+      src:'Arsenal Creativo · Datos Clave 04 / Ideas 2° Grado' },
+
+    { id:'saves', sev:3, stage:'Acción', title:'No lo guardan: no diste motivo para volver',
+      when:function(d){ return d.saveR !== null && d.views >= 200 && d.saveR < BANDS.saveR[0]; },
+      diag:function(d){ return 'Tasa de guardado <b>'+pct(d.saveR)+'</b>. El objetivo de todo tu contenido es que lleguen a Spotify <b>y guarden la canción</b>. Si no guardan ni el video, no van a guardar el tema.'; },
+      fixes:['Dale al video algo que sirva para volver: la canción completa, la versión acústica, la historia de la letra, un dato útil.','Pedilo explícito una sola vez: "guardalo que en 3 días sale".','El contenido de conocimiento (cómo armaste el beat, qué distribuidora usás) es el que más se guarda.','Si el video es puro mood sin gancho de valor, va a tener likes y cero guardados.'],
+      src:'Arsenal Creativo · Cómo usarlo / Manual de Marca · Pilar 3' },
+
+    { id:'cta', sev:2, stage:'Acción', title:'El CTA no existió o pediste tres cosas a la vez',
+      when:function(d){ return d.commR !== null && d.views >= 200 && d.commR < BANDS.commR[0]; },
+      diag:function(d){ return 'Tasa de comentarios <b>'+pct(d.commR)+'</b> ('+fmt(d.comments,0)+' comentarios). Sin CTA le dejás la decisión al azar; con tres CTAs el espectador no hace ninguno.'; },
+      fixes:['Cerrá con una sola instrucción, clara y natural: una pregunta genuina que se pueda contestar en tres palabras.','Que sea relevante a lo que acaba de ver, no un "seguime para más".','El CTA es la instrucción que le das al algoritmo a través del espectador: cuando alguien comenta, le dice a la plataforma que el video vale la pena.','Probá el CTA de decisión: "¿la subo o no?" — obliga a opinar.'],
+      src:'Arsenal Creativo · Anatomía, Parte 03 / Errores 04' },
+
+    { id:'perfilvis', sev:2, stage:'Perfil', title:'Lo miran pero no les da curiosidad quién sos',
+      when:function(d){ return d.visitR !== null && d.views >= 200 && d.visitR < BANDS.visitR[0] && (d.ret === null || d.ret >= BANDS.ret[0]); },
+      diag:function(d){ return 'Solo <b>'+pct(d.visitR)+'</b> de los que vieron el video entraron a tu perfil ('+fmt(d.visits,0)+' visitas). Se consumió el video, no al artista.'; },
+      fixes:['Mostrate a vos, no solo la canción: playback en una situación real donde pasen cosas, no un plano estático.','Metí un elemento reconocible que se repita en todos tus videos (paleta, tipografía, tipo de plano, forma de hablar). Sin coherencia, el algoritmo no sabe a quién mostrarte y la gente no te reconoce al segundo scroll.','Sumá autoridad visible: el clip del show, la reacción de la gente, la notificación de la playlist.','Que el video prometa que hay más: "esta es la parte 2 de la historia".'],
+      src:'Arsenal Creativo · Estética / Errores 05' },
+
+    { id:'perfilconv', sev:3, stage:'Conversión', title:'El problema no es el video: es tu perfil',
+      when:function(d){ return d.follConv !== null && d.visits !== null && d.visits >= 25 && d.follConv < BANDS.follConv[0]; },
+      diag:function(d){ return 'Entraron <b>'+fmt(d.visits,0)+'</b> personas a tu perfil y se quedaron <b>'+fmt(d.newfoll,0)+'</b> ('+pct(d.follConv)+'). El video hizo su trabajo — la puerta de entrada está fallando. Tenés entre 3 y 5 segundos para convencer a alguien en tu perfil.'; },
+      fixes:['Bio de máximo dos líneas: "Artista [género] desde [ciudad]. [frase que te define]". Sin frases vagas tipo "música desde el alma".','Link en bio siempre activo: directo al tema nuevo si hay lanzamiento, o Linktree con Spotify y lo último que sacaste. Nunca vacío.','Fijá los tres reels que mejor te representan — no los que más views tuvieron si no te representan.','Destacadas ordenadas para alguien que llega por primera vez: Música, Proceso, Live, Personal.','Foto de perfil clara y coherente con tu estética musical.'],
+      src:'Manual de Marca · Cap. 04, El perfil que convierte' },
+
+    { id:'linkbio', sev:2, stage:'Conversión', title:'Llegan al perfil pero no llegan a Spotify',
+      when:function(d){ return d.clickR !== null && d.clickR < 3 && d.visits !== null && d.visits >= 25; },
+      diag:function(d){ return 'De '+fmt(d.visits,0)+' visitas al perfil, <b>'+fmt(d.clicks,0)+'</b> tocaron el link ('+pct(d.clickR)+'). Spotify es tu norte: no importa cuántos followers tenés si nadie guarda tus canciones.'; },
+      fixes:['Que el link vaya directo a la canción — no a un árbol con doce opciones.','Nombralo en el video y en el texto: la gente no busca el link, hay que mandarla.','Actualizá el Artist Pick de Spotify: es lo primero que ve quien entra.','Si estás en semana de lanzamiento, el link va al tema nuevo apenas sale; si no, al último tema.'],
+      src:'Manual de Marca · Cap. 04 y Cap. 08' },
+
+    { id:'inerte', sev:2, stage:'Acción', title:'Le gusta a la gente, pero no hace nada con eso',
+      when:function(d){ return d.views >= 200 && d.likeR !== null && d.likeR >= BANDS.likeR[1] && d.saveR !== null && d.shareR !== null && d.saveR < BANDS.saveR[1] && d.shareR < BANDS.shareR[1]; },
+      diag:function(d){ return 'Muchos me gusta ('+pct(d.likeR)+') pero pocos guardados ('+pct(d.saveR)+') y pocos compartidos ('+pct(d.shareR)+'). Es un video lindo e inerte: gusta y se olvida.'; },
+      fixes:['El like no distribuye. Diseñá el video para provocar una acción concreta: una opinión, un guardado, un reenvío.','Agregá una tensión: algo con lo que se pueda estar de acuerdo o en desacuerdo.','Usá el pilar filosófico: una postura tuya sobre la música o la industria, respaldada por tu experiencia.'],
+      src:'Arsenal Creativo · Datos Clave 04 / Manual de Marca · Pilar 2' },
+
+    { id:'constancia', sev:3, stage:'Gancho', title:'Estás comprando pocos boletos',
+      when:function(d){ return d.freq !== null && d.freq < 3; },
+      diag:function(d){ return 'Estás subiendo <b>'+fmt(d.freq,0)+' video'+(d.freq===1?'':'s')+' por semana</b>. La constancia mínima es 3. Publicar es como comprar boletos de lotería: no sabés cuál explota, pero cuantos más comprás, más chances tenés. La constancia no garantiza un viral; la ausencia garantiza que nunca llegue.'; },
+      fixes:['Grabá en tandas: una sesión de una hora puede darte 6 piezas para dos semanas.','3 reels por semana en las 4 redes + historias 4 días por semana, como piso.','Cada video viejo sigue en el sorteo: en TikTok y YouTube puede encontrar audiencia meses después.','Un artista que desaparece entre lanzamientos no descansa — le cede el terreno a otro.'],
+      src:'Arsenal Creativo · Datos Clave 01, 02 y 06' },
+
+    { id:'triple', sev:2, stage:'Gancho', title:'Estás dejando dos algoritmos sin usar',
+      when:function(d){ return d.triple === 'no'; },
+      diag:function(){ return 'Subiste el video a una sola plataforma. El mismo video, subido al mismo tiempo, dio <b>1.100 views en YouTube Shorts, 6.700 en Instagram y 1.400 en TikTok</b>. Era exactamente el mismo video: cambió el algoritmo.'; },
+      fixes:['Regla del triple alcance: cada reel va también a TikTok y a YouTube Shorts. El costo es mínimo, el beneficio potencial es enorme.','Variá el día de publicación en cada plataforma para no canibalizarte.','En YouTube usá títulos con palabras clave: es el segundo buscador más grande del mundo.','Nunca sabés en cuál va a encontrar su audiencia.'],
+      src:'Arsenal Creativo · Datos Clave 05 / Manual de Marca · Cap. 08' },
+
+    { id:'subs', sev:2, stage:'Retención', title:'Sin subtítulos estás perdiendo la mitad del público',
+      when:function(d){ return d.subs === 'no'; },
+      diag:function(){ return 'El <b>60% del contenido se consume sin sonido</b>. Si tu video depende de que se escuche, la mayoría se va antes de entender de qué va.'; },
+      fixes:['Subtítulos siempre, grandes y con tu tipografía fija — no los genéricos de la app.','La letra en pantalla en el momento clave funciona como gancho visual y como subtítulo a la vez.','Comprobá el video en silencio antes de subirlo: ¿se entiende?'],
+      src:'Arsenal Creativo · Plataformas · Instagram' },
+
+    { id:'distribucion', sev:2, stage:'Gancho', title:'El video es bueno — lo que faltó fue distribución',
+      when:function(d){ return d.ret !== null && d.ret >= BANDS.ret[2] && d.reachX !== null && d.reachX < BANDS.reachX[0]; },
+      diag:function(d){ return 'Retención de <b>'+pct(d.ret)+'</b> (muy buena) pero apenas <b>'+fmt(d.reachX,1)+'x</b> tu base de seguidores. La pieza funciona: no la vio suficiente gente.'; },
+      fixes:['Resubilo a TikTok y a YouTube Shorts: con esa retención puede explotar en otro algoritmo.','Reeditalo con otro gancho y volvé a subirlo — mismo cuerpo, primer plano distinto.','Este es el tipo de video que sí vale la pena amplificar con publicidad paga: ya funcionó orgánicamente.','Usalo como reel fijado en tu perfil.'],
+      src:'Arsenal Creativo · Datos Clave 05 / Manual de Marca · Cap. 10' },
+
+    { id:'lanzamiento', sev:2, stage:'Conversión', title:'Estás en semana de lanzamiento sin base construida',
+      when:function(d){ return d.momento === 'lanz' && d.freq !== null && d.freq < 3; },
+      diag:function(){ return 'Estás lanzando con menos de 3 publicaciones por semana. Un lanzamiento sin comunidad construida es un árbol que cae en el bosque sin nadie que lo escuche. La conversión solo funciona si exposición y conexión ya hicieron su trabajo.'; },
+      fixes:['Multiplicá los puntos de entrada esta semana: versión acústica, historia de la letra, playback en contexto real.','Secuencia de historias en 4 partes: gancho → historia → historia pt.2 → CTA a Spotify. Archivá las anteriores antes de subir las nuevas (si las acumulás, las nuevas pierden hasta el 60% de las views).','Preparate para las 2 semanas posteriores: ahí se construye el momentum real.'],
+      src:'Manual de Marca · Cap. 06 y 09 / Arsenal · Secuencia de Historias' }
+  ];
+
+  var RULE_OK = { id:'ok', sev:0, stage:'Escalar', title:'Los números están sanos — ahora se trata de repetir y escalar',
+    diag:function(){ return 'Ninguna etapa está rota. Este video es una fórmula que funciona: el trabajo ahora es repetirla sin copiarte a vos mismo y llevarla a más lugares.'; },
+    fixes:['Anotá exactamente qué hiciste: gancho, duración, tipo de plano, CTA. Eso es tu fórmula.','Hacé 3 variaciones del mismo principio (no del mismo video) esta semana.','Subilo a las 4 redes si todavía no lo hiciste.','Este es el momento para publicidad paga: amplificar lo que ya funcionó orgánicamente.','Fijalo en el perfil y usalo como puerta de entrada de tu próximo lanzamiento.'],
+    src:'Manual de Marca · Cap. 10 / Arsenal · La fórmula' };
+  /* ---------- IDEAS POR GRADO DE CONCIENCIA (Arsenal Creativo) ---------- */
+  var IDEAS = {
+    1: { name:'1° Grado — No te conoce', goal:'Parar el scroll y generar curiosidad en los primeros 3 segundos. No expliques quién sos: demostrá algo.', list:[
+      'Hook random + estética top: algo inesperado en el primer frame, con la pieza visualmente impecable.',
+      'Hook claim: una aclaración controversial ligada a la temática de la canción. No tiene que ser gracioso, tiene que parar el scroll.',
+      'Hook "cómo sonaría [tu tema] + [artista conocido]": funciona muy bien, pero tiene que estar bien editado.',
+      'Hook tipo Snapchat: texto sobre la imagen, coherente con la letra.',
+      'Hook claim + poético, filmado en la calle: esa escenografía funciona muy bien.'] },
+    2: { name:'2° Grado — Te vio alguna vez', goal:'Convertir una impresión en una decisión. Mostrá consistencia: misma estética, mismo mood, mismo mensaje.', list:[
+      'Playback recreando el mood y la letra en un contexto real.',
+      'Versión live en una juntada con amigos: aprobación social + situación de disfrute, el espectador quiere ser parte.',
+      'Playback en la calle o el metro: funciona mucho más si se ven las reacciones de la gente que pasa.',
+      'Fragmento de concierto con subtítulos de la letra.',
+      'Hook comentario famoso + situación random.'] },
+    3: { name:'3° Grado — Te sigue', goal:'Profundizar la relación: quién sos detrás del artista, qué pensás, cómo creás. La vulnerabilidad supera a la perfección.', list:[
+      'Hook random + playback donde pasen cosas en el video (no solo cantar) + subtítulos.',
+      'Hook maqueta + versión live + CTA de "¿la subo o no?".',
+      'Versión live sin tune: para raperos funciona muchísimo.',
+      'Historia detrás del tema: qué estabas viviendo cuando lo escribiste. La situación real, no el concepto artístico.',
+      'Breakdown de producción: mostrar el DAW y explicar cómo armaste el beat.'] },
+    4: { name:'4° Grado — Escucha tu música', goal:'Mantenerlo activo, convertirlo en embajador y prepararlo para el próximo lanzamiento. Es el momento de pedir acción directa.', list:[
+      'Mood total: playback + situación aspiracional.',
+      'Versión acústica: siempre suma (y se puede subir entera a YouTube y en fragmentos a Reels).',
+      'Versión live: mientras más mood haya, mejor — que dé ganas de estar ahí.',
+      'Fragmento del videoclip o videolyric con subtítulos grandes.',
+      'Backstage y reacciones de oyentes para mantener el tema vivo después del estreno.'] }
+  };
+
+  var CHECKLIST = [
+    '¿Los primeros 3 segundos paran el scroll?',
+    '¿El relleno entrega lo que el gancho prometió?',
+    '¿Hay un llamado a la acción claro al final — uno solo?',
+    '¿El video se entiende sin sonido? (subtítulos)',
+    '¿Dura menos de 60 segundos?',
+    '¿La estética es coherente con el resto de tu contenido?',
+    '¿Le habla a alguien específico o a todo el mundo?',
+    '¿Qué emoción genera? ¿Está clara?'
+  ];
+
+  /* ---------- RENDER ---------- */
+  var COL = { red:'var(--dm-red)', orange:'var(--dm-orange)', blue:'var(--dm-blue)', green:'var(--dm-green)' };
+  function ringSVG(score){
+    var r = 66, c = 2 * Math.PI * r, off = c * (1 - score/100);
+    var col = score < 40 ? COL.red : (score < 60 ? COL.orange : (score < 80 ? COL.blue : COL.green));
+    return '<div class="dm-ring"><svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">' +
+      '<circle cx="75" cy="75" r="'+r+'" fill="none" stroke="#2a2a2c" stroke-width="9"/>' +
+      '<circle cx="75" cy="75" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="9" stroke-linecap="round" stroke-dasharray="'+c+'" stroke-dashoffset="'+off+'"/>' +
+      '</svg><div class="dm-val"><b style="color:'+col+'">'+Math.round(score)+'</b><small>de 100</small></div></div>';
+  }
+
+  function analyze(){
+    var d = collect();
+    if (!d.views){ $('dm-form-error').hidden = false; $('dm-form-error').textContent='Necesito al menos las reproducciones del video para poder calcular algo.'; return; }
+    $('dm-form-error').hidden = true;
+
+    var metrics = METRIC_DEFS.map(function(def){
+      var v = d[def.k], b = BANDS[def.band];
+      // Sin muestra suficiente el porcentaje existe pero no significa nada:
+      // se muestra el número y se avisa, pero no se juzga ni puntúa.
+      var thin = !!(def.minDen && (d[def.den] === null || d[def.den] < def.minDen));
+      return { def:def, v:v, thin:thin,
+        lvl: thin ? null : level(v,b),
+        sc:  thin ? null : scoreOf(v,b),
+        band:b };
+    });
+    var scored = metrics.filter(function(m){ return m.sc !== null && m.def.weight > 0; });
+    // lo que no tiene muestra tampoco puede romper una etapa del embudo
+    metrics.forEach(function(m){ if (m.thin) d[m.def.k + '_thin'] = true; });
+    var wsum = scored.reduce(function(a,m){ return a + m.def.weight; }, 0);
+    var global = wsum ? scored.reduce(function(a,m){ return a + m.sc * m.def.weight; }, 0) / wsum : 0;
+
+    var st = stages(d);
+    var withScore = st.filter(function(s){ return s.score !== null; });
+    // El cuello de botella es el PRIMER eslabón que se rompe, no el más bajo:
+    // de nada sirve arreglar el perfil si el gancho no retiene.
+    var worst = null, broken = false;
+    for (var i = 0; i < st.length; i++){ if (st[i].score !== null && st[i].score < 55){ worst = st[i]; broken = true; break; } }
+    if (!worst && withScore.length) worst = withScore.reduce(function(a,b){ return b.score < a.score ? b : a; });
+    var enoughData = scored.length >= 2;
+
+    var fired = RULES.filter(function(r){ try { return r.when(d); } catch(e){ return false; } });
+    var STAGE_ORDER = ['Gancho','Retención','Acción','Perfil','Conversión','Escalar'];
+    function rank(r){
+      return r.sev
+        + (worst && r.stage === worst.name ? 1.5 : 0)
+        - STAGE_ORDER.indexOf(r.stage) * 0.45;   // primero lo que está más arriba del embudo
+    }
+    fired.sort(function(a,b){ return rank(b) - rank(a); });
+    var top = fired.slice(0,4);
+    if (!broken && enoughData) top = [RULE_OK].concat(top).slice(0,3);
+    if (!top.length) top = [RULE_OK];
+
+    var verdict = !enoughData ? 'Faltan datos'
+      : global >= 80 ? 'Está funcionando' : global >= 60 ? 'Va bien, falta filo'
+      : global >= 40 ? 'Hay algo roto' : 'Hay que rehacerlo';
+    var gradoNext = !broken ? Math.min(4, d.grado + 1)
+      : worst.key === 'gancho' ? 1
+      : worst.key === 'retencion' ? Math.max(1, Math.min(2, d.grado))
+      : worst.key === 'accion' ? 2
+      : worst.key === 'perfil' ? 3
+      : 4;
+    if (d.momento === 'lanz') gradoNext = Math.max(gradoNext, 3);
+    var idea = IDEAS[gradoNext] || IDEAS[1];
+
+    /* ---- HTML ---- */
+    var h = '';
+    h += '<div class="dm-score">';
+    h += '<div class="dm-scorebox">' + (enoughData ? ringSVG(global) : '<div class="dm-ring"><div class="dm-val"><b>—</b><small>sin puntaje</small></div></div>') + '<div class="dm-verdict">' + verdict + '</div></div>';
+    h += '<div class="dm-note"><h3>' + esc(d.artist) + ' · ' + (d.plat === 'tt' ? 'TikTok' : 'Instagram Reel') + '</h3>';
+    var headline;
+    if (!enoughData) headline = 'Con estos datos no alcanza para un diagnóstico completo. Volvé al paso 2 y cargá al menos la duración, el tiempo de visualización promedio y los guardados o compartidos: con eso ya puedo decirte dónde se rompe.';
+    else if (broken) headline = 'El cuello de botella está en <b>' + worst.name.toUpperCase() + '</b> — ' + worst.sub.toLowerCase() + '. Es el primer eslabón que se rompe, y arreglar cualquier otro antes que ese no cambia el resultado.';
+    else headline = 'Ninguna etapa está rota. La más floja es <b>' + worst.name.toUpperCase() + '</b> — ' + worst.sub.toLowerCase() + ': ahí está el margen para el próximo video.';
+    h += '<p>' + headline + '</p>';
+    h += '<div class="dm-meta">' + fmt(d.views,0) + ' reproducciones · ' + (d.ret!==null ? pct(d.ret) + ' de retención · ' : '') + (d.er!==null ? pct(d.er) + ' de interacción total' : '') + '</div>';
+    h += '</div></div>';
+
+    /* EMBUDO */
+    h += '<div class="dm-pipe">';
+    st.forEach(function(s){
+      var isBroken = enoughData && broken && worst && s.key === worst.key;
+      var col = s.score === null ? '#3a3a3c' : (s.score < 40 ? COL.red : s.score < 60 ? COL.orange : s.score < 80 ? COL.blue : COL.green);
+      h += '<div class="dm-pstep' + (isBroken ? ' broken' : '') + '">';
+      h += '<div class="dm-pst">' + s.name + '</div><div class="dm-psub">' + s.sub + '</div>';
+      h += '<div class="dm-pbar"><i style="width:' + (s.score === null ? 0 : Math.max(3, s.score)) + '%;background:' + col + '"></i></div>';
+      h += '<div class="dm-pflag">Se rompe acá</div></div>';
+    });
+    h += '</div>';
+
+    /* MÉTRICAS */
+    h += '<h3 class="dm-h3">Los números, uno por uno</h3>';
+    h += '<div class="dm-mgrid">';
+    metrics.forEach(function(m){
+      var lvl = m.lvl === null ? '' : LEVELS[m.lvl];
+      var val = (m.v === null || m.thin) ? '—' : (m.def.unit === 'x' ? fmt(m.v,1) + '<small>x</small>' : fmt(m.v, m.v < 1 ? 2 : 1) + '<small>%</small>');
+      h += '<div class="dm-metric ' + lvl + '">';
+      if (lvl) h += '<div class="dm-tag ' + lvl + '">' + LEVEL_TXT[lvl] + '</div>';
+      h += '<div class="dm-mname">' + m.def.name + '</div><div class="dm-mv">' + val + '</div>';
+      if (m.thin && m.v !== null){
+        h += '<div class="dm-thin">Muestra chica (' + fmt(d[m.def.den],0) + ' ' +
+             (m.def.den === 'views' ? 'reproducciones' : 'visitas al perfil') +
+             '): no alcanza para sacar una conclusión, así que no lo puntúo. Volvé a medirlo cuando el video tenga más recorrido.</div>';
+      } else {
+        h += '<div class="dm-bench">' + benchTxt(m.band, m.def.unit === 'x' ? 'x' : '%') + '</div>';
+      }
+      h += '<div class="dm-why">' + m.def.why + '</div></div>';
+    });
+    h += '</div>';
+
+    /* ACCIONES */
+    h += '<h3 class="dm-h3">Dónde mejorar — en este orden</h3>';
+    h += '<p class="dm-lead">Arreglá de arriba hacia abajo. No tiene sentido pulir el CTA si el gancho no retiene: nadie llega al final.</p>';
+    top.forEach(function(r, i){
+      h += '<div class="dm-action p' + Math.min(3, i+1) + '">';
+      h += '<div class="dm-ahead"><div class="dm-rank">0' + (i+1) + '</div><div><h4>' + r.title + '</h4>';
+      h += '<span class="dm-badge">Etapa: ' + r.stage + '</span></div></div>';
+      h += '<div class="dm-diag">' + r.diag(d) + '</div><ul>';
+      r.fixes.forEach(function(f){ h += '<li>' + f + '</li>'; });
+      h += '</ul><div class="dm-src">Fuente: ' + r.src + '</div></div>';
+    });
+
+    /* PRÓXIMO CONTENIDO */
+    h += '<h3 class="dm-h3">Qué grabar ahora</h3>';
+    h += '<div class="dm-callout"><h4>' + idea.name + '</h4><p>' + idea.goal + '</p></div>';
+    h += '<div class="dm-ideas">';
+    idea.list.forEach(function(x, i){
+      h += '<div class="dm-idea"><div class="dm-ig">Idea 0' + (i+1) + '</div><p>' + x + '</p></div>';
+    });
+    h += '</div>';
+
+    /* CHECKLIST */
+    h += '<h3 class="dm-h3">Antes de subir el próximo</h3>';
+    CHECKLIST.forEach(function(c, i){
+      h += '<button type="button" class="dm-check" data-ck="' + i + '" aria-pressed="false"><span class="dm-bx">✓</span><span>' + c + '</span></button>';
+    });
+    h += '<p class="dm-foot">Si falla en más de dos puntos, vale la pena revisarlo antes de publicar.</p>';
+
+    $('dm-result').innerHTML = h;
+    $('dm-result').querySelectorAll('.dm-check').forEach(function(el){
+      el.addEventListener('click', function(){ var on = el.classList.toggle('on'); el.setAttribute('aria-pressed', on); });
+    });
+
+    lastDiag = { d:d, global:global, worst:worst, top:top, metrics:metrics, idea:idea };
+    $('dm-save-status').textContent = '';
+    goStep(3, TEST);
+  }
+  $('dm-btn-analyze').addEventListener('click', analyze);
+
+  /* ---------- COPIAR / IMPRIMIR ---------- */
+  function plainText(){
+    var x = lastDiag; if(!x) return '';
+    var d = x.d, out = [];
+    out.push('DIAGNÓSTICO DE MÉTRICAS — ' + d.artist + ' (' + (d.plat==='tt'?'TikTok':'Instagram Reel') + ')');
+    out.push(new Date().toLocaleDateString('es-AR'));
+    out.push('');
+    out.push('PUNTAJE GLOBAL: ' + Math.round(x.global) + '/100');
+    if (x.worst) out.push('CUELLO DE BOTELLA: ' + x.worst.name + ' — ' + x.worst.sub);
+    out.push('');
+    out.push('NÚMEROS');
+    x.metrics.forEach(function(m){
+      if (m.v === null) return;
+      out.push('· ' + m.def.name + ': ' + fmt(m.v, m.v<1?2:1) + (m.def.unit==='x'?'x':'%') + '  [' + (m.lvl===null?'—':LEVEL_TXT[LEVELS[m.lvl]]) + ']');
+    });
+    out.push('');
+    out.push('DÓNDE MEJORAR');
+    x.top.forEach(function(r,i){
+      out.push((i+1) + '. ' + r.title + ' (' + r.stage + ')');
+      out.push('   ' + r.diag(d).replace(/<[^>]+>/g,''));
+      r.fixes.forEach(function(f){ out.push('   → ' + f); });
+      out.push('   Fuente: ' + r.src);
+      out.push('');
+    });
+    out.push('QUÉ GRABAR AHORA — ' + x.idea.name);
+    out.push(x.idea.goal);
+    x.idea.list.forEach(function(v){ out.push('   → ' + v); });
+    out.push('');
+    out.push('@larry.prod · Diagnóstico de Métricas');
+    return out.join('\n');
+  }
+  $('dm-btn-copy').addEventListener('click', function(){
+    var t = plainText(); if(!t) return;
+    var ok = function(){ $('dm-save-status').textContent = 'Diagnóstico copiado: pegalo donde quieras o mandámelo por WhatsApp.'; };
+    var ko = function(){ $('dm-save-status').textContent = 'No pude copiar automáticamente. Usá "Imprimir / PDF".'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok, ko); else ko();
+  });
+  // imprime solo el diagnóstico, no toda la guía
+  $('dm-btn-print').addEventListener('click', function(){
+    var html = document.documentElement;
+    html.classList.add('dm-print');
+    var off = function(){ html.classList.remove('dm-print'); window.removeEventListener('afterprint', off); };
+    window.addEventListener('afterprint', off);
+    window.print();
+    setTimeout(off, 1500);
+  });
+
+  /* ---------- HISTORIAL ---------- */
+  function histRead(){ try { return JSON.parse(lsGet(K_HIST) || '[]') || []; } catch(e){ return []; } }
+  function histWrite(a){ lsSet(K_HIST, JSON.stringify(a)); }
+  $('dm-btn-save').addEventListener('click', function(){
+    var x = lastDiag;
+    if(!x){ $('dm-save-status').textContent = 'Primero analizá un video.'; return; }
+    var a = histRead();
+    a.unshift({
+      ts: Date.now(), artist: x.d.artist, plat: x.d.plat, views: x.d.views,
+      ret: x.d.ret, saveR: x.d.saveR, shareR: x.d.shareR, er: x.d.er,
+      score: Math.round(x.global), worst: x.worst ? x.worst.name : '—'
+    });
+    histWrite(a.slice(0,60));
+    renderHist();
+    $('dm-save-status').textContent = 'Guardado. Mirá la tendencia abajo, en Historial.';
+  });
+  function renderHist(){
+    var a = histRead();
+    if (!a.length){ $('dm-hist-wrap').innerHTML = '<div class="dm-empty">Todavía no guardaste ningún análisis.</div>'; return; }
+    var h = '<table class="dm-hist"><thead><tr><th>Fecha</th><th>Artista</th><th>Plat.</th><th>Repro.</th><th>Retención</th><th>Guardados</th><th>Compartidos</th><th>Puntaje</th><th>Se rompe en</th></tr></thead><tbody>';
+    a.forEach(function(r, i){
+      var prev = null;
+      for (var j = i+1; j < a.length; j++){ if (a[j].artist === r.artist){ prev = a[j]; break; } }
+      var delta = '';
+      if (prev){
+        var dv = r.score - prev.score;
+        delta = ' <span class="dm-delta ' + (dv >= 0 ? 'up' : 'down') + '">' + (dv >= 0 ? '▲' : '▼') + Math.abs(dv) + '</span>';
+      }
+      h += '<tr><td>' + new Date(r.ts).toLocaleDateString('es-AR') + '</td>' +
+           '<td class="dm-hname">' + esc(r.artist) + '</td>' +
+           '<td>' + (r.plat === 'tt' ? 'TikTok' : 'IG') + '</td>' +
+           '<td>' + fmt(r.views,0) + '</td>' +
+           '<td>' + pct(r.ret) + '</td>' +
+           '<td>' + pct(r.saveR) + '</td>' +
+           '<td>' + pct(r.shareR) + '</td>' +
+           '<td>' + r.score + delta + '</td>' +
+           '<td>' + esc(r.worst) + '</td></tr>';
+    });
+    h += '</tbody></table>';
+    $('dm-hist-wrap').innerHTML = h;
+  }
+  $('dm-btn-hist-clear').addEventListener('click', function(){
+    if (confirm('¿Borrar todo el historial guardado en este dispositivo?')){ histWrite([]); renderHist(); }
+  });
+
+  /* ---------- RESET ---------- */
+  $('dm-btn-reset').addEventListener('click', function(){
+    ['dm-f-views','dm-f-reach','dm-f-nonfoll','dm-f-dur','dm-f-avg','dm-f-likes','dm-f-comments','dm-f-saves','dm-f-shares','dm-f-visits','dm-f-newfoll','dm-f-clicks','dm-f-paste'].forEach(function(id){ $(id).value = ''; });
+    $('dm-result').innerHTML = ''; lastDiag = null;
+    $('dm-save-status').textContent = ''; $('dm-paste-status').textContent = '';
+    saveForm(); goStep(1);
+  });
+
+  /* ---------- EJEMPLO (para ver cómo funciona antes de cargar lo tuyo) ---------- */
+  var DEMO = { 'dm-f-views':'12400', 'dm-f-reach':'9800', 'dm-f-nonfoll':'62', 'dm-f-dur':'28', 'dm-f-avg':'9.5', 'dm-f-likes':'380',
+    'dm-f-comments':'22', 'dm-f-saves':'91', 'dm-f-shares':'54', 'dm-f-visits':'210', 'dm-f-newfoll':'14', 'dm-f-clicks':'8' };
+  $('dm-btn-demo').addEventListener('click', function(){
+    Object.keys(DEMO).forEach(function(id){ $(id).value = DEMO[id]; });
+    if (!$('dm-f-followers').value) $('dm-f-followers').value = '1200';
+    if (!$('dm-f-freq').value) $('dm-f-freq').value = '2';
+    $('dm-paste-status').textContent = 'Cargué un ejemplo. Tocá "Analizar" para ver el diagnóstico, y después poné tus números.';
+    saveForm();
+  });
+
+  /* ---------- INIT ---------- */
+  // Prueba: ?dm-t=views:12400;dur:28;avg:9,5;...;plat:tt;triple:si;subs:no;momento:lanz;grado:2;artist:Nico  → llena y analiza sin guardar
+  var qt = /[?&]dm-t=([^&#]*)/.exec(location.search);
+  if (qt){
+    TEST = true;
+    var o = {};
+    decodeURIComponent(qt[1]).split(';').forEach(function(p){
+      var kv = p.split(':'); if (kv.length < 2) return;
+      var k = kv[0], v = kv.slice(1).join(':');
+      if (['plat','triple','subs','momento'].indexOf(k) >= 0) o[k] = v; else o['dm-f-' + k] = v;
+    });
+    fillForm(o);
+    applyPlatformLabels();
+    renderHist();
+    analyze();
+    var pre = document.createElement('pre'); pre.id = 'dm-test-out'; pre.hidden = true; pre.textContent = plainText();
+    root.appendChild(pre);
+  } else {
+    loadForm();
+    applyPlatformLabels();
+    renderHist();
+  }
+})();
+
+/* ── js/zz-elevar.js ── */
+/* Elevación: intro manifiesto, cursor propio, barra lateral, palabra que rota, sello con logo, apariciones */
+(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ss = { get(k) { try { return sessionStorage.getItem(k); } catch (e) { return '1'; } }, set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} } };
+
+  // 1 · Intro (solo al entrar por el inicio, una vez por sesión)
+  const h = (location.hash || '#p1').slice(1);
+  if (!reduce && (h === 'p1' || h === 'top' || h === '') && !ss.get('em:intro')) {
+    ss.set('em:intro', '1');
+    const el = document.createElement('div');
+    el.id = 'el-intro';
+    el.innerHTML = '<div><div class="w"><span class="lt">Tu canción</span> <span>merece</span><br><span class="lt">que la</span> <span>escuchen.</span></div><div class="line"></div></div><button type="button">Saltar</button>';
+    document.body.appendChild(el);
+    const spans = el.querySelectorAll('.w span');
+    spans.forEach((s, i) => setTimeout(() => s.classList.add('on'), 150 + i * 380));
+    setTimeout(() => el.classList.add('go'), 300);
+    let done = false;
+    const end = () => { if (done) return; done = true; el.classList.add('out'); setTimeout(() => el.remove(), 800); document.removeEventListener('keydown', onKey); };
+    const onKey = e => { if (e.key === 'Escape') end(); };
+    el.querySelector('button').addEventListener('click', end);
+    el.addEventListener('click', end);
+    document.addEventListener('keydown', onKey);
+    setTimeout(end, 3300);
+  }
+
+  // 3 · Barra de avance lateral
+  const pg = document.createElement('div'); pg.id = 'el-pg'; document.body.appendChild(pg);
+  const upd = () => { const max = document.documentElement.scrollHeight - innerHeight; pg.style.height = (max > 0 ? Math.min(100, scrollY / max * 100) : 0) + '%'; };
+  addEventListener('scroll', upd, { passive: true }); addEventListener('hashchange', () => setTimeout(upd, 50)); upd();
+
+  // 4 · Palabra que rota
+  const kw = document.getElementById('elWord');
+  if (kw && !reduce) {
+    const W = ['llegue a la gente', 'se escuche', 'se comparta', 'te traiga fans', 'no muera a los 3 días'];
+    let i = 0;
+    setInterval(() => {
+      kw.classList.add('out');
+      setTimeout(() => { i = (i + 1) % W.length; kw.textContent = W[i]; kw.classList.remove('out'); }, 450);
+    }, 2800);
+  }
+
+  // 5 · Logo de Larry en el centro del sello (el mismo de la barra)
+  const logo = document.querySelector('.nav-logo img'), sl = document.querySelector('.el-seal-logo');
+  if (logo && sl) sl.src = logo.src;
+
+  // 6 · Apariciones escalonadas de tarjetas
+  if ('IntersectionObserver' in window && !reduce) {
+    const SEL = '.a-st, .card, .idea-item, .a-facts > div, .c-week, .c-7d, .d-g, .b-sb, .b-er, .ex > div, .glos > div, details.faq';
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } }), { threshold: .06, rootMargin: '0px 0px -4% 0px' });
+    document.querySelectorAll(SEL).forEach(el => {
+      if (el.classList.contains('rv') || el.closest('.rv:not(.vis)')) return;
+      const sib = [...el.parentNode.children].filter(x => x.matches(SEL));
+      el.style.setProperty('--d', (Math.min(sib.indexOf(el), 6) * .07) + 's');
+      el.classList.add('el-rv');
+      io.observe(el);
+    });
+    // si una parte se abre por pestaña, mostrar lo que ya está a la vista
+    addEventListener('hashchange', () => setTimeout(() => document.querySelectorAll('.el-rv:not(.vis)').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add('vis'); }), 80));
   }
 })();
 </script>
