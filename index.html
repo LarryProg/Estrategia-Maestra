@@ -1900,6 +1900,21 @@ html body #p1 .a-facts > .a-task { background: transparent !important; border: 2
   html body .a-st:hover .a-n { color: #F0EDE8 !important; background: none !important; }
 }
 #p1 .week > .day, #p1 .week > div { background: #050505 !important; background-image: none !important; }
+
+/* Glosario plegable con botón + */
+.g-wrap { margin-top: 8px; }
+.g-wrap > summary { list-style: none; }
+.g-wrap > summary::-webkit-details-marker { display: none; }
+.g-btn { display: inline-flex; align-items: center; gap: 14px; min-height: 52px; padding: 10px 22px 10px 12px; border: 2px solid rgba(240,237,232,.88); cursor: pointer; user-select: none;
+  font-family: 'LD', 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 500; letter-spacing: 2.5px; font-size: 16px; color: #F0EDE8; transition: border-color .3s, background .3s, color .3s; }
+.g-plus { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid rgba(240,237,232,.6); border-radius: 50%; font-size: 24px; font-weight: 300; line-height: 1; transition: transform .45s cubic-bezier(.16,1,.3,1); }
+.g-btn:hover { background: #F0EDE8; color: #050505; }
+.g-btn:hover .g-plus { border-color: #050505; }
+.g-wrap[open] .g-plus { transform: rotate(45deg); }
+.g-btn:focus-visible { outline: 2px solid #F0EDE8; outline-offset: 3px; }
+.g-wrap[open] > .glos { margin-top: 22px; animation: gIn .5s cubic-bezier(.16,1,.3,1); }
+@keyframes gIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .g-wrap[open] > .glos { animation: none; } .g-plus { transition: none; } }
 </style>
 </head>
 <body>
@@ -3302,7 +3317,10 @@ html body #p1 .a-facts > .a-task { background: transparent !important; border: 2
     <p class="section-label">Palabras raras</p>
     <h2 class="section-title">Glosario</h2>
     <p class="section-lead">Las palabras <dfn data-g="glosario">subrayadas con puntitos</dfn> en toda la guía se explican si las tocás. Acá están todas juntas.</p>
-    <div class="glos d-glos" id="glos"></div>
+    <details class="g-wrap" id="glosw">
+      <summary class="g-btn"><span class="g-plus" aria-hidden="true">+</span><span class="g-txt">Ver todas las palabras</span></summary>
+      <div class="glos d-glos" id="glos"></div>
+    </details>
   </div>
 </section>
 
@@ -4380,6 +4398,19 @@ addEventListener('load', () => setTimeout(() => ir(location.hash || ('#' + store
     // si una parte se abre por pestaña, mostrar lo que ya está a la vista
     addEventListener('hashchange', () => setTimeout(() => document.querySelectorAll('.el-rv:not(.vis)').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add('vis'); }), 80));
   }
+})();
+
+/* Glosario plegable: texto del botón con la cantidad, y se abre solo si llegás por #glosario */
+(function () {
+  const w = document.getElementById('glosw'), g = document.getElementById('glos');
+  if (!w || !g) return;
+  const txt = w.querySelector('.g-txt');
+  const n = () => g.children.length;
+  const set = () => { txt.textContent = w.open ? 'Cerrar glosario' : 'Ver las ' + n() + ' palabras'; };
+  w.addEventListener('toggle', set); set();
+  const abrir = () => { if (location.hash === '#glosario') { w.open = true; set(); } };
+  addEventListener('hashchange', abrir); abrir();
+  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('a[href="#glosario"]'); if (a) { w.open = true; set(); } });
 })();
 </script>
 </body>
