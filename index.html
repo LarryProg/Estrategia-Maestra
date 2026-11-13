@@ -1902,6 +1902,9 @@ html body #p1 .a-facts > .a-task { background: transparent !important; border: 2
 .g-wrap[open] > .glos { margin-top: 22px; animation: gIn .5s cubic-bezier(.16,1,.3,1); }
 @keyframes gIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .g-wrap[open] > .glos { animation: none; } .g-plus { transition: none; } }
+
+/* Reel de Instagram como ejemplo: se esconde la barra blanca de arriba del reproductor */
+html body .yt-slot iframe.ig-embed { inset: -54px 0 auto 0; height: calc(100% + 54px); background: #050505; }
 </style>
 </head>
 <body>
@@ -3333,7 +3336,7 @@ const V = [
   ['1185454233', 'Gancho random + estética cuidada', 'Una imagen que no esperás y un video que se ve bien: frena el dedo antes de que entiendas por qué.', 'viral'],
   ['1185454263', 'Gancho tipo chat de Snapchat', 'Un texto de chat arriba del video. Funciona si está muy pegado a lo que dice la letra.', 'viral'],
   ['1185454275', 'Una afirmación que frena el scroll', 'Una frase fuerte sobre el tema de la canción. No hace falta que sea graciosa.', 'viral'],
-  ['1185454306', '«¿Cómo sonaría…?» con artistas conocidos', 'Entra por nombres que la gente ya conoce. Anda muy bien, pero tiene que estar bien editado.', 'viral'],
+  ['ig:DH1XMSLv7oH', 'Le muestra el tema a un desconocido en la calle', 'Para a alguien, le hace escuchar la canción y filma la reacción. La reacción real es el gancho.', 'viral'],
   ['1185454334', 'Gancho random + diálogo', 'Una escena con diálogo que lleva a la canción. Clave: que tenga que ver con la letra.', 'viral'],
   ['1185454358', 'Afirmación poética en la calle', 'Una frase con onda y la calle de escenario: ese lugar funciona muy bien.', 'viral'],
   ['1185454446', 'Playback en la calle o el metro', 'Lo que engancha es la reacción de la gente que pasa. Sin reacciones, pierde fuerza.', 'viral'],
@@ -3347,6 +3350,7 @@ const V = [
   ['1185454594', 'Mood total', 'Una situación que da ganas de vivir: el que mira quiere estar ahí.', 'conexion'],
   ['1185454609', 'Playback en acción, sin parar', 'Sirviendo algo, moviéndose: la acción sostiene la atención.', 'conexion'],
   ['1185454668', 'Playback + mood + estética', 'Todo del mismo mundo: colores, lugar y energía.', 'conexion'],
+  ['1185454306', '«¿Cómo sonaría…?» con artistas conocidos', 'Te pone al lado de nombres que la gente ya quiere: así se entiende tu estilo. Tiene que estar bien editado.', 'conexion'],
   ['1185454456', 'Concierto con la letra subtitulada', 'Gente cantando tu tema: el que mira quiere ir a escucharlo.', 'conversion'],
   ['1185454526', 'La maqueta en vivo + «¿la subo o no?»', 'Un pedido concreto al final: comentan y se quedan esperando el tema.', 'conversion'],
   ['1185454689', 'Fragmento del videoclip con subtítulos grandes', 'La parte más fuerte del tema, lista para mandar a escucharlo.', 'conversion'],
@@ -3360,7 +3364,9 @@ document.querySelectorAll('.video-grid[data-tipo]').forEach(grid => {
   if (lista.length === 8) grid.classList.add('n4');
   grid.innerHTML = lista.map(([id, t, d], i) =>
     `<div class="yt-slot-wrap"><div class="yt-slot"><span class="yt-label">Ejemplo ${i + 1}</span>` +
-    `<iframe loading="lazy" src="https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" title="${esc(t)}"></iframe></div>` +
+    (id.startsWith('ig:')
+      ? `<iframe class="ig-embed" loading="lazy" src="https://www.instagram.com/reel/${id.slice(3)}/embed/" scrolling="no" allow="autoplay; encrypted-media; picture-in-picture" title="${esc(t)}"></iframe></div>`
+      : `<iframe loading="lazy" src="https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" title="${esc(t)}"></iframe></div>`) +
     `<div class="yt-caption"><strong>${esc(t)}</strong>${esc(d)}</div></div>`).join('');
 });
 
